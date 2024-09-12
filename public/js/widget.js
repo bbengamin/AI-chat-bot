@@ -62,6 +62,17 @@
 
 	let typingIndicator;
 
+	const formatMessage = (message) => {
+		message = message.replace(/\\n\\n/g, '</p><p>');
+		message = message.replace(/\\n/g, '<br>');
+		message = message.replace(/###\s*(.*)/g, '<h3>$1</h3>');
+		message = message.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>');
+		message = message.replace(/(\d+)\.\s*(.*?)(?=\n|$)/g, '<li>$1. $2</li>');
+		message = message.replace(/<li>/g, '<ul><li>').replace(/<\/li>/g, '</li></ul>');
+
+		return `<p>${message}</p>`;
+	};
+
 	const addMessageToChat = (message, isBot = false) => {
 		const messageElem = document.createElement('div');
 		messageElem.classList.add('message', isBot ? 'bot' : 'user');
@@ -73,7 +84,7 @@
 
 		const messageContent = document.createElement('div');
 		messageContent.classList.add('message-content');
-		messageContent.textContent = message;
+		messageContent.innerHTML = formatMessage(message);
 
 		if (isBot) {
 			messageElem.appendChild(imgElem);
