@@ -13,7 +13,7 @@ export async function POST(request) {
 	addCORSHeaders(headers);
 
 	const { threadId, message } = await request.json();
-	const openai = new OpenAI({ apiKey: process.env.OPENAI_API_KEY });
+	const openai = new OpenAI({ apiKey: process.env.NEXT_PUBLIC_OPENAI_API_KEY });
 
 	try {
 		await openai.beta.threads.messages.create(threadId, { role: 'user', content: message });

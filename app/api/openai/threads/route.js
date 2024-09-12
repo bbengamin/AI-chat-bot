@@ -12,7 +12,7 @@ export async function POST(request) {
 	const headers = new Headers();
 	addCORSHeaders(headers);
 
-	const openai = new OpenAI({ apiKey: process.env.OPENAI_API_KEY });
+	const openai = new OpenAI({ apiKey: process.env.NEXT_PUBLIC_OPENAI_API_KEY });
 
 	try {
 		const thread = await openai.beta.threads.create();

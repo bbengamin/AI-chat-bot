@@ -19,6 +19,7 @@ export default function Create({params:{assistantId}}) {
   const [assistant,setAssistant] = useState(null)
   const [showShare,setShowShare] = useState(false)
 
+  const apiKey = process.env.NEXT_PUBLIC_OPENAI_API_KEY;
 
   const createAssistant = async() => {
     if(getKey.key!=""){
@@ -135,12 +136,10 @@ export default function Create({params:{assistantId}}) {
   const fetchAssistant = async() => {
     const response = await fetch('/api?assistantId='+assistantId)
     const data = await response.json();
-    let getOpenai = new OpenAI({apiKey:data.openAIKey, dangerouslyAllowBrowser: true})
+    let getOpenai = new OpenAI({apiKey: apiKey, dangerouslyAllowBrowser: true})
     setOpenai(getOpenai)
-    getKey.setKey(data.openAIKey)
-    // let myAssistant = await getOpenai.beta.assistants.retrieve(
-    //   assistantId
-    // );
+    getKey.setKey(apiKey)
+
     if(data.assistant!=null){
       setAssistant(data.assistant.id)
       setShowShare((prev)=>true)
@@ -205,13 +204,6 @@ export default function Create({params:{assistantId}}) {
               </div>)}
 
 
-          </div>
-          <div className="flex flex-col gap-2">
-            <label className=" text-sm font-medium " htmlFor="user_avatar">Upload files</label>
-            <input className=" text-sm border border-gray-300 rounded-lg p-2 cursor-pointer bg-gray-50 focus:outline-none" aria-describedby="user_avatar_help" id="user_avatar" type="file" onChange={(e)=>setFiles([...files,e.target.files[0]])}/>
-            <div className="flex gap-2">
-              {files.map((file,index)=><div className="text-xs w-min whitespace-nowrap border border-gray-400 py-1 px-2 rounded-xl flex gap-1">{file.name}  <b className=" cursor-pointer" onClick={()=>removeFile(file)}>x</b></div>)}
-            </div>
           </div>
 
           <button onClick={createAssistant} className=" bg-mySecondary hover:bg-blue-400 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center ">Submit</button>

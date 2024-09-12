@@ -13,7 +13,7 @@ export async function GET(request, { params }) {
 	addCORSHeaders(headers);
 
 	const { threadId, runId } = params;
-	const openai = new OpenAI({ apiKey: process.env.OPENAI_API_KEY });
+	const openai = new OpenAI({ apiKey: process.env.NEXT_PUBLIC_OPENAI_API_KEY });
 
 	try {
 		const runStatus = await openai.beta.threads.runs.retrieve(threadId, runId);
