@@ -175,14 +175,40 @@ export default function Create({ params: { assistantId } }) {
         </div>
         {showShare == false ? (
             <div className="max-w-3xl px-2 md:px-8 py-6 flex flex-col gap-5 text-gray-800">
-              <button onClick={createAssistant} className="bg-mySecondary hover:bg-blue-400 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center">
-                Submit
-              </button>
-              {assistant != null && (
-                  <button onClick={() => setShowShare(true)} className="bg-mySecondary hover:bg-blue-400 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center">
-                    Share created assistant
-                  </button>
-              )}
+              <div>
+                <label htmlFor="name" className="block mb-2 text-sm font-medium ">Enter assistant name</label>
+                <input id="name" className="bg-gray-50 border border-gray-300 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5" placeholder="UX Designer" required value={name} onChange={(e) => setName(e.target.value)} />
+              </div>
+              <div>
+                <label htmlFor="instructions" className="block mb-2 text-sm font-medium ">Enter instructions</label>
+                <textarea id="instructions" className="bg-gray-50 border border-gray-300 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5" required placeholder="Act as a UX Designer to help with my project." value={instructions} onChange={(e) => setInstructions(e.target.value)} />
+              </div>
+              <div>
+                <label htmlFor="type" className="block mb-2 text-sm font-medium ">Select type of assistant</label>
+                <div className="flex flex-col gap-3 text-sm">
+                  <label className="relative inline-flex items-center cursor-pointer">
+                    <input type="checkbox" value="" className="sr-only peer" onClick={() => addType('code_interpreter')} />
+                    <div className={`w-9 h-5 rounded-full peer after:content-[''] after:absolute after:top-[2px] after:start-[2px] after:bg-mySecondary after:rounded-full after:w-4 after:h-4 after:transition-all ${types.includes('code_interpreter') ? 'after:translate-x-full rtl:after:-translate-x-full after:border-white bg-myPrimary' : 'bg-myBg'}`}></div>
+                    <span className="ms-3 font-medium">Code Interpreter</span>
+                  </label>
+                  <label className="relative inline-flex items-center cursor-pointer">
+                    <input type="checkbox" value="" className="sr-only peer" onClick={() => addType('retrieval')} />
+                    <div className={`w-9 h-5 rounded-full peer after:content-[''] after:absolute after:top-[2px] after:start-[2px] after:bg-mySecondary after:rounded-full after:w-4 after:h-4 after:transition-all ${types.includes('retrieval') ? 'after:translate-x-full rtl:after:-translate-x-full after:border-white bg-myPrimary' : 'bg-myBg'}`}></div>
+                    <span className="ms-3 font-medium">Retrieval</span>
+                  </label>
+                  <div className="flex items-center gap-5 cursor-pointer">
+                    <div className="rounded-full bg-myBg text-mySecondary text-xl font-bold px-2 w-min" onClick={() => { setFunctions([...functions, '']) }}>+</div>
+                    <span className="font-medium">Functions</span>
+                  </div>
+                </div>
+                {functions.map((fn, index) => (
+                    <div key={index} className="relative">
+                      <textarea id="functions" className="bg-gray-50 mt-3 border border-gray-300 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 h-60" required placeholder='{"name": "get_weather", "description": "Determine weather in my location"}' value={fn} onChange={(e) => addFunction(index, e.target.value)} />
+                      <div className="absolute z-10 top-1 right-4 font-bold cursor-pointer" onClick={() => removeFunction(index)}>x</div>
+                    </div>
+                ))}
+              </div>
+              <button onClick={createAssistant} className="bg-mySecondary hover:bg-blue-400 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center">Submit</button>
             </div>
         ) : (
             <div className="h-full grow px-2 md:px-8 py-6 flex flex-col gap-5 text-gray-800">
@@ -198,15 +224,9 @@ export default function Create({ params: { assistantId } }) {
                   </div>
                 </div>
                 <div className="flex gap-2">
-                  <button onClick={() => shareEmbed(0)} className="bg-mySecondary hover:bg-blue-400 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-4 py-2.5 text-center whitespace-nowrap">
-                    Copy Embed
-                  </button>
-                  <button onClick={() => shareEmbed(1)} className="bg-mySecondary hover:bg-blue-400 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-4 py-2.5 text-center whitespace-nowrap">
-                    Copy Link
-                  </button>
-                  <button onClick={copyScriptTag} className="bg-mySecondary hover:bg-blue-400 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-4 py-2.5 text-center whitespace-nowrap">
-                    Copy Script
-                  </button>
+                  <button onClick={() => shareEmbed(0)} className="bg-mySecondary hover:bg-blue-400 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-4 py-2.5 text-center whitespace-nowrap">Copy Embed</button>
+                  <button onClick={() => shareEmbed(1)} className="bg-mySecondary hover:bg-blue-400 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-4 py-2.5 text-center whitespace-nowrap">Copy Link</button>
+                  <button onClick={copyScriptTag} className="bg-mySecondary hover:bg-blue-400 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-4 py-2.5 text-center whitespace-nowrap">Copy Script</button>
                 </div>
               </div>
               <iframe src={'/embed/' + assistant} className="h-full grow rounded-xl border" />
