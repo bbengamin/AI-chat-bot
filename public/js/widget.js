@@ -128,7 +128,6 @@
 
 	const getAnswer = async (threadId, runId) => {
 		try {
-			addTypingIndicator();
 			const response = await fetch(`${apiBaseUrl}/api/openai/runs/${threadId}/${runId}`);
 			const result = await response.json();
 
@@ -137,6 +136,7 @@
 				const messageData = await messages.json();
 
 				removeTypingIndicator();
+
 				addMessageToChat(messageData.messages[0].content[0].text.value, true);
 			} else {
 				setTimeout(() => getAnswer(threadId, runId), 200);
@@ -147,12 +147,15 @@
 		}
 	};
 
+
 	const sendMessage = async () => {
 		const question = inputField.value.trim();
 		if (!question) return;
 
 		addMessageToChat(question, false);
 		inputField.value = "";
+
+		addTypingIndicator();
 
 		let threadId = localStorage.getItem('threadId');
 
@@ -184,9 +187,11 @@
 
 			getAnswer(threadId, runData.id);
 		} catch (error) {
+			removeTypingIndicator();
 			console.error("Error sending message:", error);
 		}
 	};
+
 
 	sendButton.addEventListener('click', sendMessage);
 	inputField.addEventListener('keydown', (e) => {
