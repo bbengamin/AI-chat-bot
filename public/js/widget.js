@@ -161,7 +161,8 @@
 			if (!threadId) {
 				const threadResponse = await fetch(`${apiBaseUrl}/api/openai/threads`, {
 					method: 'POST',
-					headers: { 'Content-Type': 'application/json' }
+					headers: { 'Content-Type': 'application/json' },
+					body: JSON.stringify({ assistantId })
 				});
 				getThread = await threadResponse.json();
 				threadId = getThread.id;
@@ -171,7 +172,7 @@
 			await fetch(`${apiBaseUrl}/api/openai/threads/messages`, {
 				method: 'POST',
 				headers: { 'Content-Type': 'application/json' },
-				body: JSON.stringify({ threadId, message: question })
+				body: JSON.stringify({ threadId, assistantId, message: question })
 			});
 
 			const runResponse = await fetch(`${apiBaseUrl}/api/openai/runs/create`, {
