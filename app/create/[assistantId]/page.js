@@ -51,7 +51,7 @@ export default function Create({params:{assistantId}}) {
         if(types.includes('retrieval')){
           model = "gpt-3.5-turbo-1106"
         }else{
-          model = "gpt-3.5-turbo"
+          model = "gpt-4o"
         }
         let getAssistant
         if(assistant==null){
@@ -60,7 +60,6 @@ export default function Create({params:{assistantId}}) {
             instructions: instructions,
             model:model,
             tools: tools,
-            file_ids: fileIds
           })
         }else{
           console.log("updating")
@@ -85,8 +84,8 @@ export default function Create({params:{assistantId}}) {
         if(assistantId=="new"){
           router.push('/create/'+getAssistant.id)
         }
-        
-        
+
+
       }else{
         alert("Add you assistant's name and instructions!")
       }
@@ -237,7 +236,7 @@ export default function Create({params:{assistantId}}) {
                   Copy Link
               </button>
             </div>
-          </div>  
+          </div>
           <iframe src={"/embed/"+assistant} className="h-full grow rounded-xl border"/>
         </div>}
     </main>
