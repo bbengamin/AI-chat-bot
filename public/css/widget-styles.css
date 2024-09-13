@@ -2,7 +2,7 @@
     position: fixed;
     bottom: 20px;
     right: 20px;
-    width: 500px;
+    width: 600px;
     height: 700px;
     box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
     border-radius: 12px;
@@ -87,11 +87,11 @@
 .message {
     display: flex;
     align-items: center;
-    margin-bottom: 10px;
     animation: fadeIn 0.3s ease-in-out;
 }
 
 .message.user {
+    margin-top: 10px;
     justify-content: flex-end;
 }
 
@@ -217,7 +217,7 @@
 
 .feedback-input-section {
     display: flex;
-    width: 100%;
+    width: 90%;
     padding: 5px;
 }
 
