@@ -12,7 +12,7 @@ const addCORSHeaders = (headers) => {
 	return headers;
 };
 
-const saveMessageToThread = async (assistantId, threadId, message, isBot = false) => {
+const saveMessageToThread = async (assistantId, threadId, message, isBot = false, openaiMessageId = null) => {
 	try {
 		const jsonData = await fsPromises.readFile(dataFilePath, 'utf-8');
 		const objectData = JSON.parse(jsonData);
@@ -22,11 +22,16 @@ const saveMessageToThread = async (assistantId, threadId, message, isBot = false
 		}
 
 		objectData.assistants[assistantId].threads[threadId].messages.push({
+			id: openaiMessageId,
 			message,
-			isBot
+			isBot,
+			rating: null,
+			feedback: null,
 		});
 
 		await fsPromises.writeFile(dataFilePath, JSON.stringify(objectData, null, 2));
+
+		return openaiMessageId;
 	} catch (err) {
 		console.error('Error saving message to thread:', err);
 		throw new Error('Failed to save message to thread');
@@ -41,31 +46,32 @@ export async function POST(request) {
 	const openai = new OpenAI({ apiKey: process.env.NEXT_PUBLIC_OPENAI_API_KEY });
 
 	try {
-		await saveMessageToThread(assistantId, threadId, message, false);
+		const createMessageResponse = await openai.beta.threads.messages.create(threadId, { role: 'user', content: message });
+		const messageId = createMessageResponse.id;
 
-		await openai.beta.threads.messages.create(threadId, { role: 'user', content: message });
+		await saveMessageToThread(assistantId, threadId, message, false, messageId);
 
 		const runResponse = await openai.beta.threads.runs.create(threadId, { assistant_id: assistantId });
 		const runId = runResponse.id;
 
 		let responseReceived = false;
 		let botMessage = '';
+		let messagesResponse;
 
 		while (!responseReceived) {
 			const runStatus = await openai.beta.threads.runs.retrieve(threadId, runId);
 
 			if (runStatus.status === "completed") {
-				const messagesResponse = await openai.beta.threads.messages.list(threadId);
-				botMessage = messagesResponse.data[0].content[0].text.value; // Отримання відповіді бота
+				messagesResponse = await openai.beta.threads.messages.list(threadId);
+				botMessage = messagesResponse.data[0].content[0].text.value;
 				responseReceived = true;
 			} else {
 				await new Promise(resolve => setTimeout(resolve, 1000));
 			}
 		}
-
-		await saveMessageToThread(assistantId, threadId, botMessage, true);
-
-		return new Response(JSON.stringify({ status: 'Message sent and bot response saved', botMessage }), { headers });
+		const botMessageId = messagesResponse.data[0].id;
+		await saveMessageToThread(assistantId, threadId, botMessage, true, botMessageId);
+		return new Response(JSON.stringify({ status: 'Message sent and bot response saved', botMessageId, messageId }), { headers });
 	} catch (error) {
 		console.error("Error processing message:", error);
 		return new Response(JSON.stringify({ error: "Failed to process message" }), { status: 500, headers });

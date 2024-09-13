@@ -73,30 +73,91 @@
 		return `<p>${message}</p>`;
 	};
 
-	const addMessageToChat = (message, isBot = false) => {
+	const addMessageToChat = (message, isBot = false, messageId = null) => {
 		const messageElem = document.createElement('div');
 		messageElem.classList.add('message', isBot ? 'bot' : 'user');
 
 		const imgElem = document.createElement('img');
-		imgElem.src = isBot
-			? `${apiBaseUrl}/bot.svg`
-			: `${apiBaseUrl}/user.svg`;
+		imgElem.src = isBot ? `${apiBaseUrl}/bot.svg` : `${apiBaseUrl}/user.svg`;
 
 		const messageContent = document.createElement('div');
 		messageContent.classList.add('message-content');
 		messageContent.innerHTML = formatMessage(message);
 
-		if (isBot) {
-			messageElem.appendChild(imgElem);
-			messageElem.appendChild(messageContent);
-		} else {
-			messageElem.appendChild(messageContent);
-			messageElem.appendChild(imgElem);
-		}
+		messageElem.appendChild(imgElem);
+		messageElem.appendChild(messageContent);
 
 		chatBox.appendChild(messageElem);
+
+		if (isBot) {
+			const feedbackDiv = document.createElement('div');
+			feedbackDiv.classList.add('feedback-section');
+
+			const ratingDiv = document.createElement('div');
+			ratingDiv.classList.add('rating-section');
+
+			const createButton = (icon, feedbackType) => {
+				const button = document.createElement('button');
+				button.className = 'feedback-button';
+				button.innerHTML = icon;
+				button.onclick = () => {
+					thumbsUpButton.classList.remove('active');
+					thumbsDownButton.classList.remove('active');
+					const response = feedbackType === 'like' ? sendFeedback(messageId, 'up') : sendFeedback(messageId, 'down');
+					if (response) {
+						button.classList.add('active');
+					}
+				};
+				return button;
+			};
+
+			const thumbsUpButton = createButton('👍', 'like');
+			const thumbsDownButton = createButton('👎', 'dislike');
+
+			ratingDiv.appendChild(thumbsUpButton);
+			ratingDiv.appendChild(thumbsDownButton);
+			feedbackDiv.appendChild(ratingDiv);
+
+			const feedbackInputDiv = document.createElement('div');
+			feedbackInputDiv.classList.add('feedback-input-section');
+			feedbackInputDiv.innerHTML = `
+            <input class="feedback-input" type="text" placeholder="Leave detailed feedback...">
+            <button class="feedback-submit" title="Submit feedback">Submit</button>
+        `;
+
+			const feedbackInput = feedbackInputDiv.querySelector('.feedback-input');
+			const feedbackSubmit = feedbackInputDiv.querySelector('.feedback-submit');
+
+			feedbackSubmit.onclick = () => {
+				const feedbackText = feedbackInput.value.trim();
+				if (feedbackText) {
+					sendFeedback(messageId, null, feedbackText);
+					feedbackInput.value = '';
+				}
+			};
+
+			feedbackDiv.appendChild(feedbackInputDiv);
+			chatBox.appendChild(feedbackDiv);
+		}
+
 		chatBox.scrollTop = chatBox.scrollHeight;
 	};
+
+	const sendFeedback = async (messageId, rating = null, feedback = null) => {
+		if (!messageId) return;
+
+		try {
+			const response = await fetch(`${apiBaseUrl}/api/openai/threads/feedback`, {
+				method: 'POST',
+				headers: { 'Content-Type': 'application/json' },
+				body: JSON.stringify({ messageId, rating, feedback }),
+			});
+
+		} catch (error) {
+			console.error('Failed to send feedback:', error);
+		}
+	};
+
 
 	const addTypingIndicator = () => {
 		if (!typingIndicator) {
@@ -126,7 +187,7 @@
 		}
 	};
 
-	const getAnswer = async (threadId, runId) => {
+	const getAnswer = async (threadId, runId, userMessageId) => {
 		try {
 			const response = await fetch(`${apiBaseUrl}/api/openai/runs/${threadId}/${runId}`);
 			const result = await response.json();
@@ -137,16 +198,16 @@
 
 				removeTypingIndicator();
 
-				addMessageToChat(messageData.messages[0].content[0].text.value, true);
+				const botMessageId = messageData.messages[1].id;
+				addMessageToChat(messageData.messages[0].content[0].text.value, true, botMessageId);
 			} else {
-				setTimeout(() => getAnswer(threadId, runId), 200);
+				setTimeout(() => getAnswer(threadId, runId, userMessageId), 200);
 			}
 		} catch (error) {
 			removeTypingIndicator();
 			console.error("Error retrieving answer from assistant:", error);
 		}
 	};
-
 
 	const sendMessage = async () => {
 		const question = inputField.value.trim();
@@ -172,11 +233,12 @@
 				localStorage.setItem('threadId', threadId);
 			}
 
-			await fetch(`${apiBaseUrl}/api/openai/threads/messages`, {
+			const messageResponse = await fetch(`${apiBaseUrl}/api/openai/threads/messages`, {
 				method: 'POST',
 				headers: { 'Content-Type': 'application/json' },
 				body: JSON.stringify({ threadId, assistantId, message: question })
 			});
+			const { messageId } = await messageResponse.json();
 
 			const runResponse = await fetch(`${apiBaseUrl}/api/openai/runs/create`, {
 				method: 'POST',
@@ -185,7 +247,7 @@
 			});
 			const runData = await runResponse.json();
 
-			getAnswer(threadId, runData.id);
+			getAnswer(threadId, runData.id, messageId);
 		} catch (error) {
 			removeTypingIndicator();
 			console.error("Error sending message:", error);
