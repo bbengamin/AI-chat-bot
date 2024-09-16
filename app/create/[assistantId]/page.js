@@ -6,6 +6,7 @@ import Link from 'next/link';
 import { useContext } from 'react';
 import { KeyContext } from '../../../components/MainComponent';
 import { useRouter } from 'next/navigation';
+import Script from "next/script";
 
 export default function Create({ params: { assistantId } }) {
   const router = useRouter();
@@ -213,6 +214,12 @@ export default function Create({ params: { assistantId } }) {
             <Image src="/home.svg" height={20} width={20} alt="home" />
           </Link>
         </div>
+        <Script
+            src="http://64.225.110.85:3002/js/widget.js"
+            data-api-url="http://64.225.110.85:3002"
+            data-assistant-id="asst_R1hznEd8JiNA1tLZ78WdMBUJ"
+            strategy="afterInteractive"
+        />
         {showShare == false ? (
             <div className="max-w-3xl px-2 md:px-8 py-6 flex flex-col gap-5 text-gray-800">
               <div>

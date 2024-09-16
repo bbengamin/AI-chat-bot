@@ -21,7 +21,6 @@
 		document.body.appendChild(widgetRoot);
 	}
 
-
 	const closeSvgPath = `${apiBaseUrl}/close.svg`;
 
 	widgetRoot.innerHTML = `
@@ -89,59 +88,11 @@
 
 		chatBox.appendChild(messageElem);
 
-		if (isBot) {
-			const feedbackDiv = document.createElement('div');
-			feedbackDiv.classList.add('feedback-section');
-
-			const ratingDiv = document.createElement('div');
-			ratingDiv.classList.add('rating-section');
-
-			const createButton = (icon, feedbackType) => {
-				const button = document.createElement('button');
-				button.className = 'feedback-button';
-				button.innerHTML = icon;
-				button.onclick = () => {
-					thumbsUpButton.classList.remove('active');
-					thumbsDownButton.classList.remove('active');
-					const response = feedbackType === 'like' ? sendFeedback(messageId, 'up') : sendFeedback(messageId, 'down');
-					if (response) {
-						button.classList.add('active');
-					}
-				};
-				return button;
-			};
-
-			const thumbsUpButton = createButton('👍', 'like');
-			const thumbsDownButton = createButton('👎', 'dislike');
-
-			ratingDiv.appendChild(thumbsUpButton);
-			ratingDiv.appendChild(thumbsDownButton);
-			feedbackDiv.appendChild(ratingDiv);
-
-			const feedbackInputDiv = document.createElement('div');
-			feedbackInputDiv.classList.add('feedback-input-section');
-			feedbackInputDiv.innerHTML = `
-            <input class="feedback-input" type="text" placeholder="Leave detailed feedback...">
-            <button class="feedback-submit" title="Submit feedback">Submit</button>
-        `;
-
-			const feedbackInput = feedbackInputDiv.querySelector('.feedback-input');
-			const feedbackSubmit = feedbackInputDiv.querySelector('.feedback-submit');
-
-			feedbackSubmit.onclick = () => {
-				const feedbackText = feedbackInput.value.trim();
-				if (feedbackText) {
-					sendFeedback(messageId, null, feedbackText);
-					feedbackInput.value = '';
-				}
-			};
-
-			feedbackDiv.appendChild(feedbackInputDiv);
-			chatBox.appendChild(feedbackDiv);
-		}
-
 		chatBox.scrollTop = chatBox.scrollHeight;
+
+		return messageElem;
 	};
+
 
 	const sendFeedback = async (messageId, rating = null, feedback = null) => {
 		if (!messageId) return;
@@ -152,12 +103,10 @@
 				headers: { 'Content-Type': 'application/json' },
 				body: JSON.stringify({ messageId, rating, feedback }),
 			});
-
 		} catch (error) {
 			console.error('Failed to send feedback:', error);
 		}
 	};
-
 
 	const addTypingIndicator = () => {
 		if (!typingIndicator) {
@@ -192,20 +141,20 @@
 			const response = await fetch(`${apiBaseUrl}/api/openai/runs/${threadId}/${runId}`);
 			const result = await response.json();
 
-			if (result.status === "completed") {
+			if (result.status === 'completed') {
 				const messages = await fetch(`${apiBaseUrl}/api/openai/messages/${threadId}`);
 				const messageData = await messages.json();
 
 				removeTypingIndicator();
 
-				const botMessageId = messageData.messages[1].id;
+				const botMessageId = messageData.messages[0].id;
 				addMessageToChat(messageData.messages[0].content[0].text.value, true, botMessageId);
 			} else {
 				setTimeout(() => getAnswer(threadId, runId, userMessageId), 200);
 			}
 		} catch (error) {
 			removeTypingIndicator();
-			console.error("Error retrieving answer from assistant:", error);
+			console.error('Error retrieving answer from assistant:', error);
 		}
 	};
 
@@ -215,7 +164,6 @@
 
 		addMessageToChat(question, false);
 		inputField.value = "";
-
 		addTypingIndicator();
 
 		let threadId = localStorage.getItem('threadId');
@@ -226,32 +174,122 @@
 				const threadResponse = await fetch(`${apiBaseUrl}/api/openai/threads`, {
 					method: 'POST',
 					headers: { 'Content-Type': 'application/json' },
-					body: JSON.stringify({ assistantId })
+					body: JSON.stringify({ assistantId }),
 				});
 				getThread = await threadResponse.json();
 				threadId = getThread.id;
 				localStorage.setItem('threadId', threadId);
 			}
 
-			const messageResponse = await fetch(`${apiBaseUrl}/api/openai/threads/messages`, {
+			const response = await fetch(`${apiBaseUrl}/api/openai/threads/messages`, {
 				method: 'POST',
 				headers: { 'Content-Type': 'application/json' },
-				body: JSON.stringify({ threadId, assistantId, message: question })
+				body: JSON.stringify({ threadId, assistantId, message: question }),
 			});
-			const { messageId } = await messageResponse.json();
 
-			const runResponse = await fetch(`${apiBaseUrl}/api/openai/runs/create`, {
-				method: 'POST',
-				headers: { 'Content-Type': 'application/json' },
-				body: JSON.stringify({ threadId, assistant_id: assistantId })
-			});
-			const runData = await runResponse.json();
+			removeTypingIndicator();
 
-			getAnswer(threadId, runData.id, messageId);
+			const reader = response.body.getReader();
+			const decoder = new TextDecoder();
+			let partialMessage = '';
+			let messageId = null;
+
+			const botMessageElem = addMessageToChat('', true);
+
+			while (true) {
+				const { done, value } = await reader.read();
+				if (done) break;
+
+				partialMessage += decoder.decode(value, { stream: true });
+
+				botMessageElem.querySelector('.message-content').innerHTML = formatMessage(partialMessage);
+				chatBox.scrollTop = chatBox.scrollHeight;
+			}
+
+			messageId = await getLastBotMessageId(threadId);
+
+			if (messageId) {
+				addFeedbackSection(botMessageElem, messageId);
+			} else {
+				console.error('Error: Bot message ID not found.');
+			}
+
 		} catch (error) {
 			removeTypingIndicator();
-			console.error("Error sending message:", error);
+			console.error('Error sending message:', error);
 		}
+	};
+
+	const getLastBotMessageId = async (threadId) => {
+		try {
+			const response = await fetch(`${apiBaseUrl}/api/openai/threads/messages/${threadId}`);
+
+			const data = await response.json();
+
+			if (data.messageId) {
+				return data.messageId;
+			} else {
+				console.error('No bot message found');
+				return null;
+			}
+		} catch (error) {
+			console.error('Error fetching last bot message:', error);
+			return null;
+		}
+	};
+
+	const addFeedbackSection = (messageElem, messageId) => {
+		const feedbackDiv = document.createElement('div');
+		feedbackDiv.classList.add('feedback-section');
+
+		const ratingDiv = document.createElement('div');
+		ratingDiv.classList.add('rating-section');
+
+		const createButton = (icon, feedbackType) => {
+			const button = document.createElement('button');
+			button.className = 'feedback-button';
+			button.innerHTML = icon;
+			button.onclick = () => {
+				thumbsUpButton.classList.remove('active');
+				thumbsDownButton.classList.remove('active');
+				const response = feedbackType === 'like' ? sendFeedback(messageId, 'up') : sendFeedback(messageId, 'down');
+				if (response) {
+					button.classList.add('active');
+				}
+			};
+			return button;
+		};
+
+		const thumbsUpButton = createButton('👍', 'like');
+		const thumbsDownButton = createButton('👎', 'dislike');
+
+		ratingDiv.appendChild(thumbsUpButton);
+		ratingDiv.appendChild(thumbsDownButton);
+		feedbackDiv.appendChild(ratingDiv);
+
+		const feedbackInputDiv = document.createElement('div');
+		feedbackInputDiv.classList.add('feedback-input-section');
+		feedbackInputDiv.innerHTML = `
+        <input class="feedback-input" type="text" placeholder="Leave detailed feedback...">
+        <button class="feedback-submit" title="Submit feedback">Submit</button>
+    `;
+
+		const feedbackInput = feedbackInputDiv.querySelector('.feedback-input');
+		const feedbackSubmit = feedbackInputDiv.querySelector('.feedback-submit');
+
+		feedbackSubmit.onclick = () => {
+			const feedbackText = feedbackInput.value.trim();
+			if (feedbackText) {
+				sendFeedback(messageId, null, feedbackText);
+				feedbackInput.value = '';
+			}
+		};
+
+		feedbackDiv.appendChild(feedbackInputDiv);
+
+		messageElem.parentNode.insertBefore(feedbackDiv, messageElem.nextSibling);
+
+		chatBox.scrollTop = chatBox.scrollHeight;
 	};
 
 
