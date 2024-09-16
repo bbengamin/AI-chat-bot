@@ -129,10 +129,50 @@ export default function Create({ params: { assistantId } }) {
   };
 
   const copyScriptTag = () => {
-    const baseUrl = window.location.origin; // Отримання базової URL
+    const baseUrl = window.location.origin;
     const scriptTag = `<script src="${baseUrl}/js/widget.js" data-api-url="${baseUrl}" data-assistant-id="${assistantId}"></script>`;
-    navigator.clipboard.writeText(scriptTag);
-    alert('Script copied to clipboard');
+
+    const textArea = document.createElement('textarea');
+    textArea.value = scriptTag;
+
+    textArea.style.position = 'fixed';
+    textArea.style.top = '0';
+    textArea.style.left = '0';
+    textArea.style.width = '2px';
+    textArea.style.height = '2px';
+    textArea.style.opacity = '0';
+
+    document.body.appendChild(textArea);
+
+    textArea.focus();
+    textArea.select();
+
+    try {
+      const successful = document.execCommand('copy');
+      if (successful) {
+        alert('Script copied to clipboard');
+      } else {
+        alert('Failed to copy script');
+      }
+    } catch (err) {
+      console.error('Oops, unable to copy', err);
+    }
+
+    document.body.removeChild(textArea);
+  };
+
+
+  const showManualCopy = (scriptTag) => {
+    const manualCopyDiv = document.createElement('div');
+    manualCopyDiv.style.marginTop = '10px';
+
+    const textArea = document.createElement('textarea');
+    textArea.value = scriptTag;
+    textArea.style.width = '100%';
+    textArea.style.height = '100px';
+
+    manualCopyDiv.appendChild(textArea);
+    document.body.appendChild(manualCopyDiv);
   };
 
   const fetchAssistant = async () => {
@@ -224,8 +264,8 @@ export default function Create({ params: { assistantId } }) {
                   </div>
                 </div>
                 <div className="flex gap-2">
-                  <button onClick={() => shareEmbed(0)} className="bg-mySecondary hover:bg-blue-400 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-4 py-2.5 text-center whitespace-nowrap">Copy Embed</button>
-                  <button onClick={() => shareEmbed(1)} className="bg-mySecondary hover:bg-blue-400 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-4 py-2.5 text-center whitespace-nowrap">Copy Link</button>
+                  {/*<button onClick={() => shareEmbed(0)} className="bg-mySecondary hover:bg-blue-400 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-4 py-2.5 text-center whitespace-nowrap">Copy Embed</button>*/}
+                  {/*<button onClick={() => shareEmbed(1)} className="bg-mySecondary hover:bg-blue-400 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-4 py-2.5 text-center whitespace-nowrap">Copy Link</button>*/}
                   <button onClick={copyScriptTag} className="bg-mySecondary hover:bg-blue-400 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-4 py-2.5 text-center whitespace-nowrap">Copy Script</button>
                 </div>
               </div>
