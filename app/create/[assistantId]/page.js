@@ -215,9 +215,9 @@ export default function Create({ params: { assistantId } }) {
           </Link>
         </div>
         <Script
-            src="http://64.225.110.85:3002/js/widget.js"
-            data-api-url="http://64.225.110.85:3002"
-            data-assistant-id="asst_R1hznEd8JiNA1tLZ78WdMBUJ"
+            src="http://localhost:3000/js/widget.js"
+            data-api-url="http://localhost:3000"
+            data-assistant-id="asst_ahSW7jZk3aQbPLbV42ZhVOuM"
             strategy="afterInteractive"
         />
         {showShare == false ? (
