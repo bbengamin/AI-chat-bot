@@ -1,1 +1,13 @@
-{"openAIKey":"","assistants":{}}
+{
+  "openAIKey": "",
+  "assistants": {
+    "asst_ahSW7jZk3aQbPLbV42ZhVOuM": {
+      "id": "asst_ahSW7jZk3aQbPLbV42ZhVOuM",
+      "name": "IUG iMIS Helper",
+      "instructions": "",
+      "model": "gpt-4o",
+      "tools": [],
+      "files": []
+    }
+  }
+}
