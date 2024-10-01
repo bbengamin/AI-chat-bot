@@ -34,7 +34,6 @@ function Home() {
     useEffect(()=>{
         fetchData()
     },[])
-    console.log(assistants)
     return (
         <main className="flex min-h-screen flex-col  bg-myBg ">
             <div id="header" className="flex items-center justify-between flex-wrap gap-2 bg-slate-900 text-white px-2 md:px-8 py-4  ">
