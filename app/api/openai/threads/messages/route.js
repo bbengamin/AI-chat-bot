@@ -53,7 +53,22 @@ export async function POST(request) {
 	const headers = new Headers();
 	addCORSHeaders(headers);
 
-	const { threadId, assistantId, message } = await request.json();
+	const contentType = request.headers.get('Content-Type');
+
+	if (!contentType.startsWith('multipart/form-data')) {
+		return new Response(JSON.stringify({ error: 'Invalid content type' }), { status: 400, headers });
+	}
+
+	const formData = await request.formData();
+	const threadId = formData.get('threadId');
+	const assistantId = formData.get('assistantId');
+	const message = formData.get('message');
+	const file = formData.get('file');
+
+	if (!threadId || !assistantId) {
+		return new Response(JSON.stringify({ error: 'Missing threadId or assistantId' }), { status: 400, headers });
+	}
+
 	const openai = new OpenAI({ apiKey: process.env.NEXT_PUBLIC_OPENAI_API_KEY });
 
 	try {
@@ -62,37 +77,66 @@ export async function POST(request) {
 
 		await saveMessageToThread(assistantId, threadId, message, false, userMessageId);
 
-		const runStream = await openai.beta.threads.runs.create(threadId, {
-			assistant_id: assistantId,
-			stream: true,
-		});
-
 		let botMessage = '';
 
 		const stream = new ReadableStream({
 			async start(controller) {
-				for await (const event of runStream) {
-					if (event.event === 'thread.message.delta') {
-						const deltaContent = event.data.delta.content[0]?.text?.value || '';
-						botMessage += deltaContent;
-						controller.enqueue(new TextEncoder().encode(deltaContent));
+				try {
+					if (file) {
+						// Process the file as base64 if it's an image
+						const allowedImageTypes = ['image/jpeg', 'image/png', 'image/webp', 'image/gif'];
+						if (allowedImageTypes.includes(file.type)) {
+							const fileBuffer = await file.arrayBuffer();
+							const base64Image = `data:${file.type};base64,${Buffer.from(fileBuffer).toString('base64')}`;
+
+							const messages = [
+								{ role: 'user', content: [
+										{ type: 'text', text: message || 'What’s in this image?' },
+										{ type: 'image_url', image_url: { url: base64Image } }
+									] }
+							];
+
+							const response = await openai.chat.completions.create({
+								model: 'gpt-4-turbo',
+								messages
+							});
+
+							botMessage += response.choices[0].message.content;
+							controller.enqueue(new TextEncoder().encode(botMessage));
+							controller.close();
+						} else {
+							throw new Error(`Invalid file type: ${file.type}. Only images are supported.`);
+						}
+					} else {
+						const runStream = await openai.beta.threads.runs.create(threadId, {
+							assistant_id: assistantId,
+							stream: true,
+						});
+
+						for await (const event of runStream) {
+							if (event.event === 'thread.message.delta') {
+								const deltaContent = event.data.delta.content[0]?.text?.value || '';
+								botMessage += deltaContent;
+								controller.enqueue(new TextEncoder().encode(deltaContent));
+							}
+							if (event.event === 'thread.run.completed') {
+								const messagesResponse = await openai.beta.threads.messages.list(threadId);
+								const messages = messagesResponse.data;
+
+								const firstMessage = messages[0];
+								const botMessageId = firstMessage.id;
+
+								await saveMessageToThread(assistantId, threadId, botMessage, true, botMessageId);
+
+								controller.close();
+							}
+						}
 					}
-					if (event.event === 'thread.run.completed') {
-						const messagesResponse = await openai.beta.threads.messages.list(threadId);
-						const messages = messagesResponse.data;
-
-						// const lastMessage = messages[messages.length - 1];
-						const firstMessage = messages[0];
-						const botMessageId = firstMessage.id;
-						console.log('messages messages firstMessage', JSON.stringify(firstMessage, null, 2));
-						// console.log('messages messages lastMessage', JSON.stringify(lastMessage, null, 2));
-
-						await saveMessageToThread(assistantId, threadId, botMessage, true, botMessageId);
-
-						controller.close();
-					}
+				} catch (err) {
+					console.error('Error in stream:', err);
+					controller.close();
 				}
-			}
+			},
 		});
 
 		return new Response(stream, {
@@ -100,7 +144,7 @@ export async function POST(request) {
 		});
 	} catch (error) {
 		console.error('Error processing message:', error);
-		return new Response(JSON.stringify({ error: 'Failed to process message' }), { status: 500, headers });
+		return new Response(JSON.stringify({ error: error.message }), { status: 500, headers });
 	}
 }
 

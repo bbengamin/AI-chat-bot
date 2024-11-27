@@ -29,7 +29,9 @@
 	  </button>
 	  <div class="chat-box" id="chat-box"></div>
 	  <div class="input-box">
+<!--	    <label for="file-input">Upload Image</label>-->
 		<input type="text" id="user-input" placeholder="Ask a question..." />
+		<input type="file" id="file-input" accept="image/*" />
 		<button id="send-btn">Send</button>
 	  </div>
 	`;
@@ -160,10 +162,14 @@
 
 	const sendMessage = async () => {
 		const question = inputField.value.trim();
-		if (!question) return;
+		const fileInput = document.getElementById('file-input');
+		const file = fileInput.files[0];
 
-		addMessageToChat(question, false);
+		if (!question && !file) return;
+
+		addMessageToChat(question || "Sending an image...", false);
 		inputField.value = "";
+		fileInput.value = "";
 		addTypingIndicator();
 
 		let threadId = localStorage.getItem('threadId');
@@ -181,10 +187,15 @@
 				localStorage.setItem('threadId', threadId);
 			}
 
+			const formData = new FormData();
+			formData.append('threadId', threadId);
+			formData.append('assistantId', assistantId);
+			if (question) formData.append('message', question);
+			if (file) formData.append('file', file);
+
 			const response = await fetch(`${apiBaseUrl}/api/openai/threads/messages`, {
 				method: 'POST',
-				headers: { 'Content-Type': 'application/json' },
-				body: JSON.stringify({ threadId, assistantId, message: question }),
+				body: formData,
 			});
 
 			removeTypingIndicator();

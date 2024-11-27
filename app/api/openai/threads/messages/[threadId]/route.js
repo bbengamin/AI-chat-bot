@@ -25,7 +25,6 @@ export async function GET(request, { params }) {
 
 		if (messages && messages.length > 0) {
 			const lastBotMessage = messages[0];
-			console.log('lastBotMessage', lastBotMessage);
 			if (lastBotMessage) {
 				return new Response(JSON.stringify({ messageId: lastBotMessage.id }), { headers });
 			} else {
