@@ -72,7 +72,10 @@ export async function POST(request) {
 	const openai = new OpenAI({ apiKey: process.env.NEXT_PUBLIC_OPENAI_API_KEY });
 
 	try {
-		const createMessageResponse = await openai.beta.threads.messages.create(threadId, { role: 'user', content: message });
+		const createMessageResponse = await openai.beta.threads.messages.create(threadId, {
+			role: 'user',
+			content: message,
+		});
 		const userMessageId = createMessageResponse.id;
 
 		await saveMessageToThread(assistantId, threadId, message, false, userMessageId);
@@ -83,25 +86,34 @@ export async function POST(request) {
 			async start(controller) {
 				try {
 					if (file) {
-						// Process the file as base64 if it's an image
 						const allowedImageTypes = ['image/jpeg', 'image/png', 'image/webp', 'image/gif'];
 						if (allowedImageTypes.includes(file.type)) {
 							const fileBuffer = await file.arrayBuffer();
 							const base64Image = `data:${file.type};base64,${Buffer.from(fileBuffer).toString('base64')}`;
 
-							const messages = [
-								{ role: 'user', content: [
-										{ type: 'text', text: message || 'What’s in this image?' },
-										{ type: 'image_url', image_url: { url: base64Image } }
-									] }
-							];
-
-							const response = await openai.chat.completions.create({
+							const visionResponse = await openai.chat.completions.create({
 								model: 'gpt-4-turbo',
-								messages
+								messages: [
+									{
+										role: 'user',
+										content: [
+											{ type: 'text', text: message || 'What’s in this image?' },
+											{ type: 'image_url', image_url: { url: base64Image } },
+										],
+									},
+								],
 							});
 
-							botMessage += response.choices[0].message.content;
+							botMessage += visionResponse.choices[0].message.content;
+
+							const botMessageResponse = await openai.beta.threads.messages.create(threadId, {
+								role: 'assistant',
+								content: botMessage,
+							});
+							const botMessageId = botMessageResponse.id;
+
+							await saveMessageToThread(assistantId, threadId, botMessage, true, botMessageId);
+
 							controller.enqueue(new TextEncoder().encode(botMessage));
 							controller.close();
 						} else {
