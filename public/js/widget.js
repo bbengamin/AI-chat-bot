@@ -31,7 +31,7 @@
 	  <div class="input-box">
 <!--	    <label for="file-input">Upload Image</label>-->
 		<input type="text" id="user-input" placeholder="Ask a question..." />
-		<input type="file" id="file-input" accept="image/*" />
+		<input type="file" id="file-input" accept="image/*" multiple/>
 		<button id="send-btn">Send</button>
 	  </div>
 	`;
@@ -163,13 +163,12 @@
 	const sendMessage = async () => {
 		const question = inputField.value.trim();
 		const fileInput = document.getElementById('file-input');
-		const file = fileInput.files[0];
+		const files = fileInput.files;
 
-		if (!question && !file) return;
+		if (!question && files.length === 0) return;
 
-		addMessageToChat(question || "Sending an image...", false);
+		addMessageToChat(question || "Sending images...", false);
 		inputField.value = "";
-		fileInput.value = "";
 		addTypingIndicator();
 
 		let threadId = localStorage.getItem('threadId');
@@ -191,7 +190,14 @@
 			formData.append('threadId', threadId);
 			formData.append('assistantId', assistantId);
 			if (question) formData.append('message', question);
-			if (file) formData.append('file', file);
+
+			if (files.length > 0) {
+				for (let i = 0; i < files.length; i++) {
+					formData.append('files[]', files[i]);
+				}
+			}
+
+			fileInput.value = "";
 
 			const response = await fetch(`${apiBaseUrl}/api/openai/threads/messages`, {
 				method: 'POST',
@@ -230,6 +236,7 @@
 			console.error('Error sending message:', error);
 		}
 	};
+
 
 	const getLastBotMessageId = async (threadId) => {
 		try {

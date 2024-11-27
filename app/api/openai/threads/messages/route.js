@@ -63,7 +63,7 @@ export async function POST(request) {
 	const threadId = formData.get('threadId');
 	const assistantId = formData.get('assistantId');
 	const message = formData.get('message');
-	const file = formData.get('file');
+	const files = formData.getAll('files[]');
 
 	if (!threadId || !assistantId) {
 		return new Response(JSON.stringify({ error: 'Missing threadId or assistantId' }), { status: 400, headers });
@@ -85,9 +85,15 @@ export async function POST(request) {
 		const stream = new ReadableStream({
 			async start(controller) {
 				try {
-					if (file) {
+					if (files && files.length > 0) {
 						const allowedImageTypes = ['image/jpeg', 'image/png', 'image/webp', 'image/gif'];
-						if (allowedImageTypes.includes(file.type)) {
+						let combinedBotResponse = '';
+
+						for (const file of files) {
+							if (!allowedImageTypes.includes(file.type)) {
+								throw new Error(`Invalid file type: ${file.type}. Only images are supported.`);
+							}
+
 							const fileBuffer = await file.arrayBuffer();
 							const base64Image = `data:${file.type};base64,${Buffer.from(fileBuffer).toString('base64')}`;
 
@@ -104,21 +110,21 @@ export async function POST(request) {
 								],
 							});
 
-							botMessage += visionResponse.choices[0].message.content;
-
-							const botMessageResponse = await openai.beta.threads.messages.create(threadId, {
-								role: 'assistant',
-								content: botMessage,
-							});
-							const botMessageId = botMessageResponse.id;
-
-							await saveMessageToThread(assistantId, threadId, botMessage, true, botMessageId);
-
-							controller.enqueue(new TextEncoder().encode(botMessage));
-							controller.close();
-						} else {
-							throw new Error(`Invalid file type: ${file.type}. Only images are supported.`);
+							combinedBotResponse += visionResponse.choices[0].message.content + '\n\n';
 						}
+
+						botMessage = combinedBotResponse.trim();
+
+						const botMessageResponse = await openai.beta.threads.messages.create(threadId, {
+							role: 'assistant',
+							content: botMessage,
+						});
+						const botMessageId = botMessageResponse.id;
+
+						await saveMessageToThread(assistantId, threadId, botMessage, true, botMessageId);
+
+						controller.enqueue(new TextEncoder().encode(botMessage));
+						controller.close();
 					} else {
 						const runStream = await openai.beta.threads.runs.create(threadId, {
 							assistant_id: assistantId,
