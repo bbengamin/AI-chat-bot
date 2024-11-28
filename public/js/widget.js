@@ -96,25 +96,69 @@
 		return `<p>${message}</p>`;
 	};
 
-	const addMessageToChat = (message, isBot = false, messageId = null) => {
+	const addMessageToChat = (message, isBot = false, messageId = null, images = []) => {
 		const messageElem = document.createElement('div');
 		messageElem.classList.add('message', isBot ? 'bot' : 'user');
 
 		const imgElem = document.createElement('img');
 		imgElem.src = isBot ? `${apiBaseUrl}/bot.svg` : `${apiBaseUrl}/user.svg`;
 
+		const messageWrapper = document.createElement('div');
+		messageWrapper.classList.add('message-wrapper');
+
+		if (images.length > 0) {
+			const thumbnailsWrapper = document.createElement('div');
+			thumbnailsWrapper.classList.add('thumbnails-wrapper');
+
+			images.forEach((image) => {
+				const imgThumbnail = document.createElement('img');
+				imgThumbnail.src = URL.createObjectURL(image);
+				imgThumbnail.alt = image.name;
+				imgThumbnail.classList.add('thumbnail');
+
+				imgThumbnail.addEventListener('click', () => openLightbox(image));
+
+				thumbnailsWrapper.appendChild(imgThumbnail);
+			});
+
+			messageWrapper.appendChild(thumbnailsWrapper);
+		}
+
 		const messageContent = document.createElement('div');
 		messageContent.classList.add('message-content');
 		messageContent.innerHTML = formatMessage(message);
 
+		messageWrapper.appendChild(messageContent);
 		messageElem.appendChild(imgElem);
-		messageElem.appendChild(messageContent);
+		messageElem.appendChild(messageWrapper);
 
 		chatBox.appendChild(messageElem);
-
 		chatBox.scrollTop = chatBox.scrollHeight;
 
 		return messageElem;
+	};
+
+	const openLightbox = (image) => {
+		const lightbox = document.createElement('div');
+		lightbox.classList.add('lightbox');
+
+		const lightboxContent = `
+        <div class="lightbox-content">
+            <button class="lightbox-close">&times;</button>
+            <img src="${URL.createObjectURL(image)}" alt="${image.name}" class="lightbox-image">
+            <p class="lightbox-caption">${image.name}</p>
+        </div>
+    `;
+		lightbox.innerHTML = lightboxContent;
+
+		document.body.appendChild(lightbox);
+
+		const closeButton = lightbox.querySelector('.lightbox-close');
+		closeButton.addEventListener('click', () => lightbox.remove());
+
+		lightbox.addEventListener('click', (e) => {
+			if (e.target === lightbox) lightbox.remove();
+		});
 	};
 
 
@@ -213,11 +257,16 @@
 	};
 
 	const sendMessage = async () => {
-		const question = inputField.value.trim();
+		let question = inputField.value.trim();
 
 		if (!question && selectedFiles.length === 0) return;
 
-		addMessageToChat(question || "Sending images...", false);
+		if(!question) {
+			question = "Sending images...";
+		}
+
+		addMessageToChat(question || "Sending images...", false, null, selectedFiles);
+
 		inputField.value = "";
 		addTypingIndicator();
 
@@ -279,13 +328,11 @@
 			} else {
 				console.error('Error: Bot message ID not found.');
 			}
-
 		} catch (error) {
 			removeTypingIndicator();
 			console.error('Error sending message:', error);
 		}
 	};
-
 
 	const getLastBotMessageId = async (threadId) => {
 		try {
