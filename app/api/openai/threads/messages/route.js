@@ -87,7 +87,6 @@ export async function POST(request) {
 				try {
 					if (files && files.length > 0) {
 						const allowedImageTypes = ['image/jpeg', 'image/png', 'image/webp', 'image/gif'];
-						let combinedBotResponse = '';
 
 						for (const file of files) {
 							if (!allowedImageTypes.includes(file.type)) {
@@ -108,22 +107,27 @@ export async function POST(request) {
 										],
 									},
 								],
+								stream: true,
 							});
 
-							combinedBotResponse += visionResponse.choices[0].message.content + '\n\n';
+							let partialResponse = '';
+
+							for await (const chunk of visionResponse) {
+								const delta = chunk.choices[0].delta?.content || '';
+								partialResponse += delta;
+
+								controller.enqueue(new TextEncoder().encode(delta));
+							}
+
+							const botMessageResponse = await openai.beta.threads.messages.create(threadId, {
+								role: 'assistant',
+								content: partialResponse.trim(),
+							});
+
+							const botMessageId = botMessageResponse.id;
+							await saveMessageToThread(assistantId, threadId, partialResponse.trim(), true, botMessageId);
 						}
 
-						botMessage = combinedBotResponse.trim();
-
-						const botMessageResponse = await openai.beta.threads.messages.create(threadId, {
-							role: 'assistant',
-							content: botMessage,
-						});
-						const botMessageId = botMessageResponse.id;
-
-						await saveMessageToThread(assistantId, threadId, botMessage, true, botMessageId);
-
-						controller.enqueue(new TextEncoder().encode(botMessage));
 						controller.close();
 					} else {
 						const runStream = await openai.beta.threads.runs.create(threadId, {
