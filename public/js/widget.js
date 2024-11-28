@@ -29,12 +29,18 @@
 	  </button>
 	  <div class="chat-box" id="chat-box"></div>
 	  <div class="input-box">
-<!--	    <label for="file-input">Upload Image</label>-->
 		<input type="text" id="user-input" placeholder="Ask a question..." />
-		<input type="file" id="file-input" accept="image/*" multiple/>
-		<button id="send-btn">Send</button>
+		<div class="file-upload-wrapper">
+		  <label for="file-input" class="file-upload-label">
+			<img src="${apiBaseUrl}/upload-icon.svg" alt="Upload Icon" class="upload-icon">
+		  </label>
+		  <input type="file" id="file-input" accept="image/*" multiple style="display: none;">
+		</div>
+		<button id="send-btn" class="send-button">Send</button>
 	  </div>
+	  <div id="file-preview" class="file-preview"></div>
 	`;
+
 
 	const toggleButton = document.createElement('button');
 	toggleButton.classList.add('chat-toggle-button');
@@ -60,6 +66,22 @@
 	const chatBox = document.getElementById('chat-box');
 	const inputField = document.getElementById('user-input');
 	const sendButton = document.getElementById('send-btn');
+	const fileInput = document.getElementById('file-input');
+	const filePreview = document.getElementById('file-preview');
+
+	const selectedFiles = [];
+
+	fileInput.addEventListener('change', () => {
+		const files = Array.from(fileInput.files);
+
+		files.forEach((file) => {
+			if (!selectedFiles.some((f) => f.name === file.name && f.size === file.size)) {
+				selectedFiles.push(file);
+			}
+		});
+
+		updateFilePreview();
+	});
 
 	let typingIndicator;
 
@@ -160,12 +182,40 @@
 		}
 	};
 
+
+
+	const updateFilePreview = () => {
+		filePreview.innerHTML = '';
+		selectedFiles.forEach((file, index) => {
+			const reader = new FileReader();
+
+			reader.onload = (event) => {
+				const previewElement = document.createElement('div');
+				previewElement.classList.add('preview-item');
+				previewElement.dataset.index = index;
+
+				previewElement.innerHTML = `
+                <img src="${event.target.result}" alt="${file.name}" class="preview-thumbnail">
+                <span class="preview-name">${file.name}</span>
+                <button class="remove-button" data-index="${index}">Remove</button>
+            `;
+
+				previewElement.querySelector('.remove-button').addEventListener('click', () => {
+					selectedFiles.splice(index, 1);
+					updateFilePreview();
+				});
+
+				filePreview.appendChild(previewElement);
+			};
+
+			reader.readAsDataURL(file);
+		});
+	};
+
 	const sendMessage = async () => {
 		const question = inputField.value.trim();
-		const fileInput = document.getElementById('file-input');
-		const files = fileInput.files;
 
-		if (!question && files.length === 0) return;
+		if (!question && selectedFiles.length === 0) return;
 
 		addMessageToChat(question || "Sending images...", false);
 		inputField.value = "";
@@ -191,13 +241,12 @@
 			formData.append('assistantId', assistantId);
 			if (question) formData.append('message', question);
 
-			if (files.length > 0) {
-				for (let i = 0; i < files.length; i++) {
-					formData.append('files[]', files[i]);
-				}
-			}
+			selectedFiles.forEach((file) => {
+				formData.append('files[]', file);
+			});
 
-			fileInput.value = "";
+			selectedFiles.length = 0;
+			updateFilePreview();
 
 			const response = await fetch(`${apiBaseUrl}/api/openai/threads/messages`, {
 				method: 'POST',
