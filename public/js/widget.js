@@ -37,6 +37,7 @@
 		  <input type="file" id="file-input" accept="image/*" multiple style="display: none;">
 		</div>
 		<button id="send-btn" class="send-button">Send</button>
+		<button id="clear-btn" class="clear-button">Clear Conversation</button>
 	  </div>
 	  <div id="file-preview" class="file-preview"></div>
 	`;
@@ -68,8 +69,16 @@
 	const sendButton = document.getElementById('send-btn');
 	const fileInput = document.getElementById('file-input');
 	const filePreview = document.getElementById('file-preview');
+	const clearButton = document.getElementById('clear-btn');
 
 	const selectedFiles = [];
+
+	const clearConversation = () => {
+		chatBox.innerHTML = '';
+		localStorage.removeItem('threadId');
+	};
+
+	clearButton.addEventListener('click', clearConversation);
 
 	fileInput.addEventListener('change', () => {
 		const files = Array.from(fileInput.files);
@@ -256,6 +265,25 @@
 		});
 	};
 
+	const manageFeedbackVisibility = () => {
+		const feedbackSections = document.querySelectorAll('.feedback-section');
+		feedbackSections.forEach((section, index) => {
+			// Hide all feedback sections except the last one
+			if (index !== feedbackSections.length - 1) {
+				section.style.display = 'none';
+			} else {
+				section.style.display = 'block';
+			}
+		});
+	};
+
+	inputField.addEventListener('input', () => {
+		const feedbackSections = document.querySelectorAll('.feedback-section');
+		feedbackSections.forEach(section => {
+			section.style.display = 'none';
+		});
+	});
+
 	const sendMessage = async () => {
 		let question = inputField.value.trim();
 
@@ -269,6 +297,8 @@
 
 		inputField.value = "";
 		addTypingIndicator();
+
+		manageFeedbackVisibility();
 
 		let threadId = localStorage.getItem('threadId');
 
@@ -325,6 +355,7 @@
 
 			if (messageId) {
 				addFeedbackSection(botMessageElem, messageId);
+				manageFeedbackVisibility();
 			} else {
 				console.error('Error: Bot message ID not found.');
 			}
