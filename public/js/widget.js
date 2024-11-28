@@ -425,8 +425,33 @@
 		feedbackSubmit.onclick = () => {
 			const feedbackText = feedbackInput.value.trim();
 			if (feedbackText) {
-				sendFeedback(messageId, null, feedbackText);
-				feedbackInput.value = '';
+				sendFeedback(messageId, null, feedbackText)
+					.then(() => {
+						feedbackInput.value = '';
+
+						const confirmationMessage = document.createElement('div');
+						confirmationMessage.classList.add('feedback-confirmation');
+						confirmationMessage.innerText = 'Feedback submitted!';
+
+						feedbackDiv.appendChild(confirmationMessage);
+
+						setTimeout(() => {
+							confirmationMessage.remove();
+						}, 3000);
+					})
+					.catch((error) => {
+						console.error('Error submitting feedback:', error);
+
+						const errorMessage = document.createElement('div');
+						errorMessage.classList.add('feedback-error');
+						errorMessage.innerText = 'Failed to submit feedback. Please try again.';
+
+						feedbackDiv.appendChild(errorMessage);
+
+						setTimeout(() => {
+							errorMessage.remove();
+						}, 3000);
+					});
 			}
 		};
 

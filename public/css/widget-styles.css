@@ -584,3 +584,17 @@
     }
 }
 
+.feedback-confirmation {
+    color: green;
+    font-size: 12px;
+    margin-top: 5px;
+    text-align: left;
+}
+
+.feedback-error {
+    color: red;
+    font-size: 12px;
+    margin-top: 5px;
+    text-align: left;
+}
+
