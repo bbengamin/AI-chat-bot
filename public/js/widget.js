@@ -2,6 +2,7 @@
 	const scriptTag = document.currentScript || document.querySelector('script[src*="widget.js"]');
 	const apiBaseUrl = scriptTag.getAttribute('data-api-url');
 	const assistantId = scriptTag.getAttribute('data-assistant-id');
+	const targetContainerId = scriptTag.getAttribute('data-container-id');
 
 	if (!apiBaseUrl || !assistantId) {
 		console.error('API URL or Assistant ID is not provided!');
@@ -14,12 +15,41 @@
 	document.head.appendChild(link);
 
 	const rootId = 'my-assistant-widget';
-	let widgetRoot = document.getElementById(rootId);
+
+	let widgetRoot = document.getElementById(rootId) || (targetContainerId && document.getElementById(targetContainerId));
+
 	if (!widgetRoot) {
-		widgetRoot = document.createElement('div');
-		widgetRoot.id = rootId;
-		document.body.appendChild(widgetRoot);
+		if (targetContainerId) {
+			const targetContainer = document.getElementById(targetContainerId);
+			if (targetContainer) {
+				widgetRoot = targetContainer;
+				widgetRoot.classList.add('custom-chat-container');
+			} else {
+				console.error(`Container with ID "${targetContainerId}" not found.`);
+				widgetRoot = document.createElement('div');
+				widgetRoot.id = rootId;
+				document.body.appendChild(widgetRoot);
+			}
+		} else {
+			widgetRoot = document.createElement('div');
+			widgetRoot.id = rootId;
+			document.body.appendChild(widgetRoot);
+		}
+	} else {
+		console.warn(`Widget already exists in the container with ID "${widgetRoot.id}".`);
 	}
+
+	const adjustHeightAndWidth = () => {
+		const parentHeight = widgetRoot.parentElement.offsetHeight;
+		widgetRoot.style.height = `${parentHeight}px`;
+		const parentWidth = widgetRoot.parentElement.offsetWidth;
+		widgetRoot.style.width = `${parentWidth}px`;
+	};
+
+	adjustHeightAndWidth();
+
+	const resizeObserver = new ResizeObserver(adjustHeightAndWidth);
+	resizeObserver.observe(widgetRoot.parentElement);
 
 	const closeSvgPath = `${apiBaseUrl}/close.svg`;
 
@@ -43,26 +73,28 @@
 	`;
 
 
-	const toggleButton = document.createElement('button');
-	toggleButton.classList.add('chat-toggle-button');
-	const chatSvgPath = `${apiBaseUrl}/chat.svg`;
-	toggleButton.innerHTML = `<img src="${chatSvgPath}" alt="Chat Icon">`;
-	document.body.appendChild(toggleButton);
+	if (!targetContainerId || !document.getElementById(targetContainerId)) {
+		const toggleButton = document.createElement('button');
+		toggleButton.classList.add('chat-toggle-button');
+		const chatSvgPath = `${apiBaseUrl}/chat.svg`;
+		toggleButton.innerHTML = `<img src="${chatSvgPath}" alt="Chat Icon">`;
+		document.body.appendChild(toggleButton);
 
-	const openChat = () => {
-		widgetRoot.style.display = 'flex';
-		toggleButton.style.display = 'none';
-	};
+		const openChat = () => {
+			widgetRoot.style.display = 'flex';
+			toggleButton.style.display = 'none';
+		};
 
-	const closeChat = () => {
-		widgetRoot.style.display = 'none';
-		toggleButton.style.display = 'block';
-	};
+		const closeChat = () => {
+			widgetRoot.style.display = 'none';
+			toggleButton.style.display = 'block';
+		};
 
-	toggleButton.addEventListener('click', openChat);
+		toggleButton.addEventListener('click', openChat);
 
-	const closeChatIcon = document.getElementById('close-chat-icon');
-	closeChatIcon.addEventListener('click', closeChat);
+		const closeChatIcon = document.getElementById('close-chat-icon');
+		closeChatIcon.addEventListener('click', closeChat);
+	}
 
 	const chatBox = document.getElementById('chat-box');
 	const inputField = document.getElementById('user-input');
