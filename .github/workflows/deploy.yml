@@ -13,15 +13,16 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v3
 
-      - name: Log in to Heroku and set up container
-        uses: akhileshns/heroku-deploy@master
-        with:
-          heroku_api_key: ${{ secrets.HEROKU_API_KEY }}
-          heroku_app_name: helperbot
-          heroku_email: ihor.bohdanov@right.link
-          docker_build: true
+      - name: Log in to Heroku Container Registry
+        run: echo ${{ secrets.HEROKU_API_KEY }} | docker login --username=_ --password-stdin registry.heroku.com
 
-      - name: Release
+      - name: Build Docker image
+        run: docker build -t registry.heroku.com/helperbot/web .
+
+      - name: Push Docker image to Heroku
+        run: docker push registry.heroku.com/helperbot/web
+
+      - name: Release app on Heroku
         run: heroku container:release web -a helperbot
         env:
           HEROKU_API_KEY: ${{ secrets.HEROKU_API_KEY }}
