@@ -111,10 +111,39 @@
 		localStorage.removeItem('threadId');
 	};
 
-	clearButton.addEventListener('click', (e) => {
-		e.preventDefault();
-		clearConversation();
+	clearButton.addEventListener('click', () => {
+		showConfirmPopup();
 	});
+
+	function showConfirmPopup() {
+		const confirmPopup = document.createElement('div');
+		confirmPopup.id = 'confirm-popup';
+		confirmPopup.innerHTML = `
+        <div class="confirm-popup-overlay"></div>
+        <div class="confirm-popup-content">
+            <h2 class="confirm-title">Are you sure you want to clear this conversation?</h2>
+            <p class="confirm-description">
+                This will clear the conversation from your feed. It will not delete any saved or sent messages in your conversation.
+            </p>
+            <div class="confirm-popup-buttons">
+                <button id="confirm-clear" class="popup-button confirm">Yes</button>
+                <button id="cancel-clear" class="popup-button cancel">No</button>
+            </div>
+        </div>
+    `;
+
+		document.body.appendChild(confirmPopup);
+
+		document.getElementById('confirm-clear').addEventListener('click', () => {
+			clearConversation();
+			document.body.removeChild(confirmPopup);
+		});
+
+		document.getElementById('cancel-clear').addEventListener('click', () => {
+			document.body.removeChild(confirmPopup);
+		});
+	}
+
 
 	fileInput.addEventListener('change', () => {
 		const files = Array.from(fileInput.files);
