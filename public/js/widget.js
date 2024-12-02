@@ -436,42 +436,23 @@
 		const ratingDiv = document.createElement('div');
 		ratingDiv.classList.add('rating-section');
 
+		const feedbackInputDiv = document.createElement('div');
+		feedbackInputDiv.classList.add('feedback-input-section');
+		feedbackInputDiv.innerHTML = `
+        <input class="feedback-input" type="text" placeholder="Leave detailed feedback..." />
+    `;
+
+		const feedbackInput = feedbackInputDiv.querySelector('.feedback-input');
+
 		const createButton = (icon, feedbackType) => {
 			const button = document.createElement('button');
 			button.className = 'feedback-button';
 			button.innerHTML = icon;
+
 			button.onclick = () => {
-				thumbsUpButton.classList.remove('active');
-				thumbsDownButton.classList.remove('active');
-				const response = feedbackType === 'like' ? sendFeedback(messageId, 'up') : sendFeedback(messageId, 'down');
-				if (response) {
-					button.classList.add('active');
-				}
-			};
-			return button;
-		};
+				const feedbackText = feedbackInput.value.trim();
 
-		const thumbsUpButton = createButton('👍', 'like');
-		const thumbsDownButton = createButton('👎', 'dislike');
-
-		ratingDiv.appendChild(thumbsUpButton);
-		ratingDiv.appendChild(thumbsDownButton);
-		feedbackDiv.appendChild(ratingDiv);
-
-		const feedbackInputDiv = document.createElement('div');
-		feedbackInputDiv.classList.add('feedback-input-section');
-		feedbackInputDiv.innerHTML = `
-        <input class="feedback-input" type="text" placeholder="Leave detailed feedback...">
-        <button class="feedback-submit" title="Submit feedback">Submit</button>
-    `;
-
-		const feedbackInput = feedbackInputDiv.querySelector('.feedback-input');
-		const feedbackSubmit = feedbackInputDiv.querySelector('.feedback-submit');
-
-		feedbackSubmit.onclick = () => {
-			const feedbackText = feedbackInput.value.trim();
-			if (feedbackText) {
-				sendFeedback(messageId, null, feedbackText)
+				sendFeedback(messageId, feedbackType === 'like' ? 'up' : 'down', feedbackText)
 					.then(() => {
 						feedbackInput.value = '';
 
@@ -498,16 +479,24 @@
 							errorMessage.remove();
 						}, 3000);
 					});
-			}
+			};
+
+			return button;
 		};
 
+		const thumbsUpButton = createButton('👍', 'like');
+		const thumbsDownButton = createButton('👎', 'dislike');
+
+		ratingDiv.appendChild(thumbsUpButton);
+		ratingDiv.appendChild(thumbsDownButton);
+
+		feedbackDiv.appendChild(ratingDiv);
 		feedbackDiv.appendChild(feedbackInputDiv);
 
 		messageElem.parentNode.insertBefore(feedbackDiv, messageElem.nextSibling);
 
 		chatBox.scrollTop = chatBox.scrollHeight;
 	};
-
 
 	sendButton.addEventListener('click', sendMessage);
 	inputField.addEventListener('keydown', (e) => {
