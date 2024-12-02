@@ -235,6 +235,7 @@
 
 			chatBox.appendChild(typingIndicator);
 			chatBox.scrollTop = chatBox.scrollHeight;
+			isStreaming = true;
 		}
 	};
 
@@ -242,6 +243,7 @@
 		if (typingIndicator) {
 			typingIndicator.remove();
 			typingIndicator = null;
+			isStreaming = false;
 		}
 	};
 
@@ -297,23 +299,35 @@
 		});
 	};
 
+	let lastFeedbackTimeout;
+	let isStreaming = false;
+
 	const manageFeedbackVisibility = () => {
 		const feedbackSections = document.querySelectorAll('.feedback-section');
 		feedbackSections.forEach((section, index) => {
-			// Hide all feedback sections except the last one
-			if (index !== feedbackSections.length - 1) {
+			clearTimeout(lastFeedbackTimeout);
+
+			if (index !== feedbackSections.length - 1 || isStreaming) {
 				section.style.display = 'none';
+			} else if (inputField === document.activeElement) {
+				section.style.display = 'none';
+				lastFeedbackTimeout = setTimeout(() => {
+					section.style.display = 'block';
+				}, 15000);
 			} else {
 				section.style.display = 'block';
 			}
 		});
 	};
 
+
 	inputField.addEventListener('input', () => {
-		const feedbackSections = document.querySelectorAll('.feedback-section');
-		feedbackSections.forEach(section => {
-			section.style.display = 'none';
-		});
+		clearTimeout(lastFeedbackTimeout);
+		manageFeedbackVisibility();
+	});
+
+	inputField.addEventListener('blur', () => {
+		manageFeedbackVisibility();
 	});
 
 	const sendMessage = async () => {
