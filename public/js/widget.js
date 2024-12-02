@@ -67,11 +67,12 @@
 		  <input type="file" id="file-input" accept="image/*" multiple style="display: none;">
 		</div>
 		<button id="send-btn" class="send-button">Send</button>
-		<button id="clear-btn" class="clear-button">Clear Conversation</button>
 	  </div>
 	  <div id="file-preview" class="file-preview"></div>
+	  <a href="#" id="clear-btn" class="clear-button-link">Clear Conversation</a>
 	`;
 
+	const style = document.createElement('style');
 
 	if (!targetContainerId || !document.getElementById(targetContainerId)) {
 		const toggleButton = document.createElement('button');
@@ -110,7 +111,10 @@
 		localStorage.removeItem('threadId');
 	};
 
-	clearButton.addEventListener('click', clearConversation);
+	clearButton.addEventListener('click', (e) => {
+		e.preventDefault();
+		clearConversation();
+	});
 
 	fileInput.addEventListener('change', () => {
 		const files = Array.from(fileInput.files);
