@@ -463,7 +463,7 @@
 						feedbackDiv.appendChild(confirmationMessage);
 
 						setTimeout(() => {
-							confirmationMessage.remove();
+							feedbackDiv.style.display = 'none';
 						}, 3000);
 					})
 					.catch((error) => {
