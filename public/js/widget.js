@@ -340,7 +340,7 @@
 		feedbackSections.forEach((section, index) => {
 			clearTimeout(lastFeedbackTimeout);
 
-			if (index !== feedbackSections.length - 1 || isStreaming) {
+			if (index !== feedbackSections.length - 1) {
 				section.style.display = 'none';
 			} else if (inputField === document.activeElement) {
 				section.style.display = 'none';
