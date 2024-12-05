@@ -344,31 +344,18 @@
 
 			if (index !== feedbackSections.length - 1 || isStreaming) {
 				section.style.display = 'none';
-			} else if (inputField === document.activeElement || isStreaming) {
+			} else if (inputField === document.activeElement && !isStreaming) {
 				section.style.display = 'none';
 				lastFeedbackTimeout = setTimeout(() => {
 					section.style.display = 'block';
 				}, 15000);
 			} else if (!isStreaming) {
-				section.style.display = 'block';
+				lastFeedbackTimeout = setTimeout(() => {
+					section.style.display = 'block';
+				}, 5000);
 			}
 		});
 	};
-
-	// const manageFeedbackVisibility = () => {
-	// 	const feedbackSections = document.querySelectorAll('.feedback-section');
-	// 	feedbackSections.forEach((section, index) => {
-	// 		clearTimeout(lastFeedbackTimeout);
-	//
-	// 		if (isStreaming) {
-	// 			section.style.display = 'none';
-	// 		} else if (document.activeElement === inputField) {
-	// 			section.style.display = 'none';
-	// 		} else {
-	// 			section.style.display = 'block';
-	// 		}
-	// 	});
-	// };
 
 	inputField.addEventListener('input', () => {
 		clearTimeout(lastFeedbackTimeout);
@@ -387,7 +374,7 @@
 		let question = inputField.value.trim();
 
 		if (!question && selectedFiles.length === 0) return;
-
+		isStreaming = true;
 		if(!question) {
 			question = "Sending images...";
 		}
