@@ -352,7 +352,7 @@
 			} else if (!isStreaming) {
 				lastFeedbackTimeout = setTimeout(() => {
 					section.style.display = 'block';
-				}, 5000);
+				}, 10000);
 			}
 		});
 	};
