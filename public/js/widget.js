@@ -269,6 +269,7 @@
 			chatBox.appendChild(typingIndicator);
 			chatBox.scrollTop = chatBox.scrollHeight;
 			isStreaming = true;
+			manageFeedbackVisibility();
 		}
 	};
 
@@ -277,6 +278,7 @@
 			typingIndicator.remove();
 			typingIndicator = null;
 			isStreaming = false;
+			manageFeedbackVisibility();
 		}
 	};
 
@@ -340,22 +342,40 @@
 		feedbackSections.forEach((section, index) => {
 			clearTimeout(lastFeedbackTimeout);
 
-			if (index !== feedbackSections.length - 1) {
+			if (index !== feedbackSections.length - 1 || isStreaming) {
 				section.style.display = 'none';
-			} else if (inputField === document.activeElement) {
+			} else if (inputField === document.activeElement || isStreaming) {
 				section.style.display = 'none';
 				lastFeedbackTimeout = setTimeout(() => {
 					section.style.display = 'block';
 				}, 15000);
-			} else {
+			} else if (!isStreaming) {
 				section.style.display = 'block';
 			}
 		});
 	};
 
+	// const manageFeedbackVisibility = () => {
+	// 	const feedbackSections = document.querySelectorAll('.feedback-section');
+	// 	feedbackSections.forEach((section, index) => {
+	// 		clearTimeout(lastFeedbackTimeout);
+	//
+	// 		if (isStreaming) {
+	// 			section.style.display = 'none';
+	// 		} else if (document.activeElement === inputField) {
+	// 			section.style.display = 'none';
+	// 		} else {
+	// 			section.style.display = 'block';
+	// 		}
+	// 	});
+	// };
 
 	inputField.addEventListener('input', () => {
 		clearTimeout(lastFeedbackTimeout);
+		manageFeedbackVisibility();
+	});
+
+	inputField.addEventListener('focus', () => {
 		manageFeedbackVisibility();
 	});
 
