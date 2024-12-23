@@ -11,7 +11,6 @@ const addCORSHeaders = (headers) => {
 export async function GET(request, { params }) {
 	const headers = new Headers();
 	addCORSHeaders(headers);
-
 	const { threadId, runId } = params;
 	const openai = new OpenAI({ apiKey: process.env.NEXT_PUBLIC_OPENAI_API_KEY });
 
