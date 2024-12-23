@@ -17,12 +17,16 @@ const addCORSHeaders = (headers) => {
 };
 
 const saveMessageToThread = async (assistantId, threadId, message, isBot = false, openaiMessageId = null) => {
-	// try {
+	try {
 		const jsonData = await fsPromises.readFile(dataFilePath, 'utf-8');
 		const objectData = JSON.parse(jsonData);
 
 		if (!objectData.assistants[assistantId]) {
 			throw new Error(`Assistant with ID ${assistantId} not found.`);
+		}
+
+		if (!objectData.assistants[assistantId].threads) {
+			objectData.assistants[assistantId].threads = {};
 		}
 
 		if (!objectData.assistants[assistantId].threads[threadId]) {
@@ -43,10 +47,10 @@ const saveMessageToThread = async (assistantId, threadId, message, isBot = false
 		await fsPromises.writeFile(dataFilePath, JSON.stringify(objectData, null, 2));
 
 		return openaiMessageId;
-	// } catch (err) {
-	// 	console.error('Error saving message to thread:', err);
-	// 	throw new Error('Failed to save message to thread');
-	// }
+	} catch (err) {
+		console.error('Error saving message to thread:', err);
+		throw new Error('Failed to save message to thread');
+	}
 };
 
 export async function POST(request) {
