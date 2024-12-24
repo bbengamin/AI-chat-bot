@@ -40,7 +40,8 @@
 	}
 
 	const adjustHeightAndWidth = () => {
-		const parentHeight = widgetRoot.parentElement.offsetHeight;
+		let parentHeight = widgetRoot.parentElement.offsetHeight;
+		parentHeight = parentHeight  < 800 ? 800 : parentHeight;
 		widgetRoot.style.height = `${parentHeight}px`;
 		const parentWidth = widgetRoot.parentElement.offsetWidth;
 		widgetRoot.style.width = `${parentWidth}px`;
