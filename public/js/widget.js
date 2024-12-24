@@ -118,6 +118,11 @@
 		showConfirmPopup();
 	});
 
+	const toggleSendButton = (isDisabled) => {
+		sendButton.disabled = isDisabled;
+		sendButton.classList.toggle('disabled', isDisabled);
+	};
+
 	function showConfirmPopup() {
 		const confirmPopup = document.createElement('div');
 		confirmPopup.id = 'confirm-popup';
@@ -377,7 +382,10 @@
 		let question = inputField.value.trim();
 
 		if (!question && selectedFiles.length === 0) return;
+
 		isStreaming = true;
+		toggleSendButton(true);
+
 		if(!question) {
 			question = "Sending images...";
 		}
@@ -451,6 +459,8 @@
 		} catch (error) {
 			removeTypingIndicator();
 			console.error('Error sending message:', error);
+		} finally {
+			toggleSendButton(false);
 		}
 	};
 
@@ -543,6 +553,8 @@
 
 	sendButton.addEventListener('click', sendMessage);
 	inputField.addEventListener('keydown', (e) => {
-		if (e.key === 'Enter') sendMessage();
+		if (e.key === 'Enter' && !sendButton.disabled) {
+			sendMessage();
+		}
 	});
 })();
