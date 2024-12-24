@@ -55,9 +55,12 @@
 	const closeSvgPath = `${apiBaseUrl}/close.svg`;
 
 	widgetRoot.innerHTML = `
-	  <button class="close-chat-icon" id="close-chat-icon">
-		<img src="${closeSvgPath}" alt="Close Chat">
-	  </button>
+	  <div class="chat-toolbar">
+		  <button class="close-chat-icon" id="close-chat-icon">
+			<img src="${closeSvgPath}" alt="Close Chat">
+		  </button>
+		  <a href="#" id="clear-btn" class="clear-button-link">Clear Conversation</a>
+	  </div>
 	  <div class="chat-box" id="chat-box"></div>
 	  <div class="input-box">
 		<input type="text" id="user-input" placeholder="Ask a question..." />
@@ -70,7 +73,6 @@
 		<button id="send-btn" class="send-button">Send</button>
 	  </div>
 	  <div id="file-preview" class="file-preview"></div>
-	  <a href="#" id="clear-btn" class="clear-button-link">Clear Conversation</a>
 	`;
 
 	const style = document.createElement('style');
