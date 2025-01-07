@@ -7,7 +7,2576 @@
       "instructions": "",
       "model": "gpt-4o",
       "tools": [],
-      "files": []
+      "files": [],
+      "threads": {
+        "thread_gvBpEV7k0aUyw4PZGBv2hHjc": {
+          "id": "thread_gvBpEV7k0aUyw4PZGBv2hHjc",
+          "messages": [
+            {
+              "id": "msg_F1kCZGoVKhBnnkLpVbPm9FsV",
+              "message": "Hello",
+              "isBot": false,
+              "rating": null,
+              "feedback": null
+            },
+            {
+              "id": "msg_KOBwjWzLRRJ8JNHAgwHfWPaJ",
+              "message": "Hello! How can I assist you with iMIS today?",
+              "isBot": true,
+              "rating": null,
+              "feedback": null
+            },
+            {
+              "id": "msg_tNZU1c3jJqjdm30jVz5MuusB",
+              "message": "what do you see on image",
+              "isBot": false,
+              "rating": null,
+              "feedback": null
+            },
+            {
+              "id": "msg_uDLwgD6p2HpZinRjkpvUdGQl",
+              "message": "This image shows the Amazon Web Services (AWS) Management Console's home screen. Various sections and widgets are visible:\n\n1. **Top left messages** - A notification indicating a failure to load a custom layout and advising the user to refresh the page.\n\n2. **Recently Visited Services** - Lists services like ElastiCache, Database Migration Service, Amazon Timestream, Key Management Service, Secrets Manager, Amazon Simple Email Service, CloudWatch, Certificate Manager, RDS, EC2, MSK, Route 53, and Elastic Container Service.\n\n3. **Applications** - Displaying the Applications dashboard with no applications currently found. Options include creating an application and a link to 'Go to myApplications'.\n\n4. **Solutions** - Showcases AWS Solutions such as \"Generative AI Application Builder\" and \"Intelligent Document Processing\" among others.\n\n5. **Welcome to AWS, Explore AWS, Security** - Informational widgets providing links and details on AWS features, training and certification, updates, security management, and explore tools for AWS services.\n\n6. **Cost and Usage** - Widget showing data unavailable with guidance to enable the Cost Explorer to view usage data.\n\n7. **Trusted Advisor, Latest announcements, and Recent blog posts** - Providing AWS-specific advice, latest news, and blog posts.\n\n8. **AWS Health** - Overview of the current health of AWS services used, showing no open issues or scheduled changes.\n\nThis screen offers a user-friendly dashboard for managing, monitoring, and learning about various AWS services and tools.",
+              "isBot": true,
+              "rating": null,
+              "feedback": null
+            },
+            {
+              "id": "msg_48hWYeiDW9vJwI7fTt74uk34",
+              "message": "The image displays a customer management interface showing information about a customer named \"Luminita Ciobanu.\" Her email address is listed as lumiciobanu@gmail.com. There is a section titled \"Subscriptions\" where one can see that there was a product subscription labeled \"Growth,\" but it has been canceled. It was previously billed monthly, and no future invoices are expected. There is also an \"Insights\" section showing that the customer spent $29.00, which also corresponds to the Monthly Recurring Revenue (MRR). There are options visible on the interface to create a payment or invoice for this customer, along with other unspecified additional actions represented by the \"...\" button.",
+              "isBot": true,
+              "rating": null,
+              "feedback": null
+            },
+            {
+              "id": "msg_Pc2AhQ0Lh670TMts6xlqFpIA",
+              "message": "Hello",
+              "isBot": false,
+              "rating": null,
+              "feedback": null
+            },
+            {
+              "id": "msg_Mxk3fqqMoiYUlAnbg7ziC4NA",
+              "message": "Hello! How can I assist you with iMIS today?",
+              "isBot": true,
+              "rating": null,
+              "feedback": null
+            },
+            {
+              "id": "msg_4O77peRE6gRNRoRCYNe4T4vC",
+              "message": "How are you",
+              "isBot": false,
+              "rating": null,
+              "feedback": null
+            },
+            {
+              "id": "msg_bGKIfstv9TfqgHJwx5SSjR2w",
+              "message": "I'm here to help! How can I assist you with iMIS today?",
+              "isBot": true,
+              "rating": null,
+              "feedback": null
+            },
+            {
+              "id": "msg_T9qv5WUKMGI8JdCnb1kMDMyN",
+              "message": "how old are you?",
+              "isBot": false,
+              "rating": null,
+              "feedback": null
+            },
+            {
+              "id": "msg_fm71rljkIDio0jhwRU2xsP8n",
+              "message": "I don't have an age, but I'm here to help with any questions you have about iMIS. How can I assist you today?",
+              "isBot": true,
+              "rating": null,
+              "feedback": null
+            },
+            {
+              "id": "msg_uCtTHkL8bXhnjCPoxM5iXRHv",
+              "message": "Do you now how old me?",
+              "isBot": false,
+              "rating": null,
+              "feedback": null
+            },
+            {
+              "id": "msg_hkaK3ExR81FyagfIYzYxnfu9",
+              "message": "I don't have access to personal information like your age. Let's focus on how I can help you with iMIS. Do you have any questions or need assistance with something specific in iMIS?",
+              "isBot": true,
+              "rating": null,
+              "feedback": null
+            },
+            {
+              "id": "msg_RLqKmNQIkDgZUwEb7c0Td0lg",
+              "message": "What dou you now about Ukraine",
+              "isBot": false,
+              "rating": null,
+              "feedback": null
+            },
+            {
+              "id": "msg_EhjAdWZwtsQfD1DlUHRMiIFP",
+              "message": "I'm here to assist with queries specifically related to iMIS software. If you have any questions about how to use iMIS or any of its features, feel free to ask!",
+              "isBot": true,
+              "rating": null,
+              "feedback": null
+            },
+            {
+              "id": "msg_2p7ySK3b0vuBncCKNZPlwN6C",
+              "message": "What is iMIS?",
+              "isBot": false,
+              "rating": null,
+              "feedback": null
+            },
+            {
+              "id": "msg_uuNumFyFPtFOB4wv6SYbruxc",
+              "message": "iMIS is a comprehensive Customer Relationship Management (CRM) system and Content Management System (CMS) designed primarily for member-based organizations, such as associations and non-profits. It integrates various functionalities to manage member relations, events, fundraising, and financial transactions within a single platform. Key features of iMIS include:\n\n1. **Membership Management**: Helps in managing member data, subscriptions, renewals, and other member-related activities.\n2. **Events Management**: Facilitates the creation, scheduling, and management of events, including registrations and attendee tracking.\n3. **Fundraising and Donations**: Provides tools for managing fundraising campaigns, processing donations, and tracking donor engagement.\n4. **Finance**: Includes financial management tools for invoicing, budgeting, and reporting.\n5. **RiSE**: A powerful CMS within iMIS that allows organizations to create and manage web content, providing both public-facing and member-exclusive content.\n6. **Commerce and Orders**: Manages product sales, inventory, and order processing.\n7. **Marketing and Email Communications**: Supports targeted email campaigns and communication strategies to engage members and stakeholders.\n8. **Reporting and Analytics**: Offers a variety of reporting tools, including Intelligent Query Architect (IQA), SQL Server Reporting Services (SRSS), and custom report builders to analyze data and generate insights.\n\nThese features are integrated into a unified platform, making it easier for organizations to manage their operations and engage effectively with their members. If you need specific information or assistance with any iMIS module, feel free to ask!",
+              "isBot": true,
+              "rating": null,
+              "feedback": null
+            },
+            {
+              "id": "msg_YhhqmUNKSMh55fLfD5TNOoIP",
+              "message": "well done",
+              "isBot": false,
+              "rating": null,
+              "feedback": null
+            },
+            {
+              "id": "msg_nyYeqaEVWJKnfnRdH1PdFihK",
+              "message": "Thank you! If you have any more questions about iMIS or need further assistance, feel free to ask. I'm here to help!",
+              "isBot": true,
+              "rating": null,
+              "feedback": null
+            },
+            {
+              "id": "msg_K1reubqiZwKsydFI8cIQ6kTd",
+              "message": "Give short answer what is iMIS?",
+              "isBot": false,
+              "rating": null,
+              "feedback": null
+            },
+            {
+              "id": "msg_R3BFNn2NgTst4Zir3yqdpkHe",
+              "message": "iMIS is a comprehensive Customer Relationship Management (CRM) and Content Management System (CMS) designed primarily for managing member-based organizations, integrating membership, events, fundraising, and financial transactions into a single platform.",
+              "isBot": true,
+              "rating": null,
+              "feedback": null
+            },
+            {
+              "id": "msg_u17YpgEvhaDH7nsw9xvowbbI",
+              "message": "Hello. Are you remember my name",
+              "isBot": false,
+              "rating": null,
+              "feedback": null
+            },
+            {
+              "id": "msg_BxQNnJFQwWHCroQRxTJGc43C",
+              "message": "I don't have access to personal information like your name unless you provide it in the conversation. How can I assist you with iMIS today?",
+              "isBot": true,
+              "rating": null,
+              "feedback": null
+            },
+            {
+              "id": "msg_Ivv1Z4aulJ2oGRB9WcJtDnKv",
+              "message": "My name is Sviat",
+              "isBot": false,
+              "rating": null,
+              "feedback": null
+            },
+            {
+              "id": "msg_TdBHUan5rrLX4pY7YqtseQdX",
+              "message": "Hello Sviat! How can I assist you with iMIS today?",
+              "isBot": true,
+              "rating": null,
+              "feedback": null
+            },
+            {
+              "id": "msg_bkkNTjonqu82niaFuYgP7Eqo",
+              "message": "Are you remember my name?",
+              "isBot": false,
+              "rating": null,
+              "feedback": null
+            },
+            {
+              "id": "msg_xLPJzhErRarSL56ewusixCdZ",
+              "message": "I don't have the capability to remember past interactions. Each session starts fresh. How can I assist you with iMIS today, Sviat?",
+              "isBot": true,
+              "rating": null,
+              "feedback": null
+            },
+            {
+              "id": "msg_s4NyjGJPYSdqtfufW4XB1AiB",
+              "message": "what last answer was from you?",
+              "isBot": false,
+              "rating": null,
+              "feedback": null
+            },
+            {
+              "id": "msg_DTz6MEQpmsEgZm5cxrcJcjqW",
+              "message": "My last response to you was: \"I don't have the capability to remember past interactions. Each session starts fresh. How can I assist you with iMIS today, Sviat?\" \n\nIf you have any questions or need assistance with iMIS, feel free to ask!",
+              "isBot": true,
+              "rating": null,
+              "feedback": null
+            }
+          ],
+          "rating": null,
+          "feedback": null
+        },
+        "thread_MYhG4lUE0q2FxWhkMf7HliaZ": {
+          "id": "thread_MYhG4lUE0q2FxWhkMf7HliaZ",
+          "messages": [
+            {
+              "id": "msg_HGir1jXJcaumA28nQ9Y4sKnQ",
+              "message": "hello",
+              "isBot": false,
+              "rating": null,
+              "feedback": null
+            },
+            {
+              "id": "msg_oPwIVAEmTYNTmk4GTspXpo9p",
+              "message": "Hello! How can I assist you with iMIS today?",
+              "isBot": true,
+              "rating": null,
+              "feedback": null
+            },
+            {
+              "id": "msg_pN5Ry65Am4y3g7GSnj4NXbx9",
+              "message": "Do you remember my name?",
+              "isBot": false,
+              "rating": null,
+              "feedback": null
+            },
+            {
+              "id": "msg_2ASYDuqlJKTlA0pJQiSvHgpD",
+              "message": "I don't have the ability to remember personal details between interactions. How can I assist you with iMIS today?",
+              "isBot": true,
+              "rating": null,
+              "feedback": null
+            },
+            {
+              "id": "msg_5HTshJBONte8k5faTtWf4mHC",
+              "message": "What are you see on image?",
+              "isBot": false,
+              "rating": null,
+              "feedback": null
+            },
+            {
+              "id": "msg_g6nO9TpUAD2zpOPfvIhOhDWo",
+              "message": "The image displays a conversation or interaction within a chatbot interface. The messages are regarding queries about iMIS, which is a Customer Relationship Management (CRM) and Content Management System (CMS) designed primarily for managing member-based organizations. The chatbot is providing assistance and information about iMIS and encouraging further questions or requests for assistance related to iMIS modules.",
+              "isBot": true,
+              "rating": null,
+              "feedback": null
+            },
+            {
+              "id": "msg_5Y0THdEwkCwbKMkpCVPWbhsO",
+              "message": "The image displays a screenshot of a transaction history from a mobile banking or financial app. The text at the top is in Russian, which says \"Пошук транзакцій\" (Search transactions) and \"Сьогодні\" (Today), indicating the transaction record is for the present day. There are two transactions listed, both involving a business or entity named \"Preply, BERLIN.\" The first transaction is recorded at 10:41 with an amount of -221.76 UAH, and the second one at 10:40 with an amount of -251.05 UAH. Both amounts are in Ukrainian Hryvnia (UAH) and appear to be deductions, as indicated by the negative sign before the amounts. This suggests payments made to Preply in Berlin.",
+              "isBot": true,
+              "rating": null,
+              "feedback": null
+            },
+            {
+              "id": "msg_RqJRWMxf3wRDMCdete9n3fLS",
+              "message": "Hello",
+              "isBot": false,
+              "rating": null,
+              "feedback": null
+            },
+            {
+              "id": "msg_glh3dJhpsw9qJ2KtFgVrYChX",
+              "message": "Hello! How can I assist you with iMIS today?",
+              "isBot": true,
+              "rating": "up",
+              "feedback": "Good answer"
+            },
+            {
+              "id": "msg_ptivzEZi5MeonMLCaHw2T9xU",
+              "message": "Could you help me?",
+              "isBot": false,
+              "rating": null,
+              "feedback": null
+            },
+            {
+              "id": "msg_SBZ5bHGQLCfzZodmsQViFqe8",
+              "message": "Of course! What specific assistance do you need with iMIS? Please describe your issue or question.",
+              "isBot": true,
+              "rating": null,
+              "feedback": "Well done"
+            },
+            {
+              "id": "msg_OapBSq15B18aAGG8sCGq8fkj",
+              "message": "Hello",
+              "isBot": false,
+              "rating": null,
+              "feedback": null
+            },
+            {
+              "id": "msg_VYXQnu1JARlO8CDbaZhG2ATk",
+              "message": "Hello again! How can I assist you with iMIS today?",
+              "isBot": true,
+              "rating": null,
+              "feedback": null
+            },
+            {
+              "id": "msg_LzSAv4r6XecpcYHD3vIbeR7i",
+              "message": "Could you help me?",
+              "isBot": false,
+              "rating": null,
+              "feedback": null
+            },
+            {
+              "id": "msg_UAWGxnqPKVzYDgU8gJ0hIRQe",
+              "message": "Of course! What specific assistance do you need with iMIS? Please describe your issue or question.",
+              "isBot": true,
+              "rating": null,
+              "feedback": "well done"
+            },
+            {
+              "id": "msg_GqVTTRo3rXRs5BzJTYwj9T09",
+              "message": "Hello",
+              "isBot": false,
+              "rating": null,
+              "feedback": null
+            },
+            {
+              "id": "msg_sPYATeuSOL9NtfhBBTxRWK01",
+              "message": "Hello! How can I assist you with iMIS today?",
+              "isBot": true,
+              "rating": null,
+              "feedback": null
+            },
+            {
+              "id": "msg_fGJ0dbdJRnoXcetlyqkCLl4X",
+              "message": "What is iMIS? Showr answer",
+              "isBot": false,
+              "rating": null,
+              "feedback": null
+            },
+            {
+              "id": "msg_nn1QEhY3cnXesbLtB9I0YP9P",
+              "message": "iMIS is a Customer Relationship Management (CRM) and Content Management System (CMS) designed primarily for managing member-based organizations. It integrates various modules such as membership management, event planning, fundraising, and finance, all accessible through its RiSE web-based interface.",
+              "isBot": true,
+              "rating": null,
+              "feedback": null
+            },
+            {
+              "id": "msg_ifqtcl9UReZUoZnuknIVmNj4",
+              "message": "Руддщ",
+              "isBot": false,
+              "rating": null,
+              "feedback": null
+            },
+            {
+              "id": "msg_mhHqzdpupBGWgAoMHa6Q7KdB",
+              "message": "It seems there might have been a typo or error in your message. Could you please clarify or rephrase your question or comment regarding iMIS? I'm here to help!",
+              "isBot": true,
+              "rating": null,
+              "feedback": null
+            },
+            {
+              "id": "msg_G99OZy6J83ku4AIaLQYuEnCg",
+              "message": "Hello",
+              "isBot": false,
+              "rating": null,
+              "feedback": null
+            },
+            {
+              "id": "msg_o2X2gEHatZ1QChq6dCKZ4cUW",
+              "message": "Hello! How can I assist you with iMIS today?",
+              "isBot": true,
+              "rating": null,
+              "feedback": null
+            },
+            {
+              "id": "msg_qol8Ry3hIPGpb172xzUBGvYR",
+              "message": "Hello",
+              "isBot": false,
+              "rating": null,
+              "feedback": null
+            },
+            {
+              "id": "msg_U6zh6OrqGirxIwOPvaY0yxAu",
+              "message": "Hello! How can I assist you with iMIS today?",
+              "isBot": true,
+              "rating": null,
+              "feedback": null
+            },
+            {
+              "id": "msg_1GYdTLNgumssAjcqzU2W0zzE",
+              "message": "Hello",
+              "isBot": false,
+              "rating": null,
+              "feedback": null
+            },
+            {
+              "id": "msg_fPDI3TpKVELJNWCPkD5poHzX",
+              "message": "Hello! How can I assist you with iMIS today?",
+              "isBot": true,
+              "rating": null,
+              "feedback": null
+            },
+            {
+              "id": "msg_uKGKyKy1huko8MsZMKrvvWCb",
+              "message": "Hello",
+              "isBot": false,
+              "rating": null,
+              "feedback": null
+            },
+            {
+              "id": "msg_YdiVI5bon2i5XjWJyGamVzFq",
+              "message": "Hello! How can I assist you with iMIS today?",
+              "isBot": true,
+              "rating": null,
+              "feedback": null
+            },
+            {
+              "id": "msg_FF39Ewa13vnatftigHfnWrXv",
+              "message": "Hello. How areyou",
+              "isBot": false,
+              "rating": null,
+              "feedback": null
+            },
+            {
+              "id": "msg_OockdLeLLfoWCcrJtdAQ9QnK",
+              "message": "I'm here to help! How can I assist you with iMIS today?",
+              "isBot": true,
+              "rating": null,
+              "feedback": null
+            },
+            {
+              "id": "msg_Ad1BYfEF8nh8ViRNg6Fvtm0V",
+              "message": "Hello. how are you",
+              "isBot": false,
+              "rating": null,
+              "feedback": null
+            },
+            {
+              "id": "msg_c0ToK4t171ThbgThPlUyVN4g",
+              "message": "I'm here to help! How can I assist you with iMIS today?",
+              "isBot": true,
+              "rating": null,
+              "feedback": null
+            },
+            {
+              "id": "msg_7C2NNJj5KtbCk9qdIbv6XpnH",
+              "message": "hello",
+              "isBot": false,
+              "rating": null,
+              "feedback": null
+            },
+            {
+              "id": "msg_IrY4XghN7v54PX8ID60l9ZqM",
+              "message": "Hello! How can I assist you with iMIS today?",
+              "isBot": true,
+              "rating": null,
+              "feedback": null
+            }
+          ],
+          "rating": null,
+          "feedback": null
+        },
+        "thread_bhMVPv5Yx8oUkmOzWH0QejnE": {
+          "id": "thread_bhMVPv5Yx8oUkmOzWH0QejnE",
+          "messages": [
+            {
+              "id": "msg_NvBkEomq3tKkV2Vf3mwbsvvo",
+              "message": "Hello byddy",
+              "isBot": false,
+              "rating": null,
+              "feedback": null
+            },
+            {
+              "id": "msg_8xXmreZMzxa8vmP8msa3TnNd",
+              "message": "Hello! How can I assist you with iMIS today?",
+              "isBot": true,
+              "rating": null,
+              "feedback": null
+            },
+            {
+              "id": "msg_EUKiS9KdDnxeTOqFr0KU1aKE",
+              "message": "Hello",
+              "isBot": false,
+              "rating": null,
+              "feedback": null
+            },
+            {
+              "id": "msg_AZZlc9Q3MkMy6E6xm580nJhs",
+              "message": "Hello! How can I assist you with iMIS today? If you have any specific questions or need help with a particular feature, feel free to let me know!",
+              "isBot": true,
+              "rating": null,
+              "feedback": null
+            },
+            {
+              "id": "msg_0Ulw7q2TWilwP7LG3VHVGuR3",
+              "message": "Sending images...",
+              "isBot": false,
+              "rating": null,
+              "feedback": null
+            },
+            {
+              "id": "msg_n6a0lFk0fIdTHF96un54rVjI",
+              "message": "This image displays a list of DNS (Domain Name System) records for a domain. It shows various types of records such as A, CNAME, MX, and TXT, which are used for different purposes in domain configuration and management. Here's a breakdown of the types of records shown:\n\n1. **A Records**: These records map a domain name to an IP address of the server, which hosts the domain. In the image, you can see A records for \"backend.staging\" and \"www\", pointing to specific IP addresses.\n  \n2. **CNAME Records**: This type of record defines an alias for the canonical name (standard name) of the server as specified by an A record. CNAME records in the image point to other domain names like specific Google services or other subdomains.\n\n3. **MX Records**: Mail exchange records are used to route emails to the correct email servers and are pointed toward Google’s email servers (aspxmx.l.google.com) with different priorities.\n\n4. **TXT Records**: These are used to provide information to outside sources from your domain. It can include details like site verification, SPF records (which help prevent email spoofing), and other miscellaneous details.\n\n5. **DMARC Record**: Stands for “Domain-based Message Authentication, Reporting & Conformance”. It's a protocol used for email authentication, policy, and reporting, designed to give domain owners the ability to protect their domain from unauthorized uses like email spoofing. The DMARC policy in the image is set to \"none\".\n\nThis list is managed through a DNS management interface, possibly a web application for configuring and maintaining DNS settings.",
+              "isBot": true,
+              "rating": null,
+              "feedback": null
+            },
+            {
+              "id": "msg_afLPG89Rxo4WUD5ntY1S9jJn",
+              "message": "HEllo",
+              "isBot": false,
+              "rating": null,
+              "feedback": null
+            },
+            {
+              "id": "msg_W7k2eggm6kmZpcVXuMtq9uFo",
+              "message": "Hello again! How can I assist you with iMIS today? If you have any specific questions or need help with a particular feature, feel free to let me know!",
+              "isBot": true,
+              "rating": null,
+              "feedback": null
+            },
+            {
+              "id": "msg_PblfB56FdOI6BB960u7lTCeD",
+              "message": "How are you",
+              "isBot": false,
+              "rating": null,
+              "feedback": null
+            },
+            {
+              "id": "msg_6PULeCTDfwi7NVFCuUFcghVe",
+              "message": "I'm here to help! How can I assist you with iMIS today? If you have any questions or need support with specific features or modules, just let me know!",
+              "isBot": true,
+              "rating": null,
+              "feedback": null
+            },
+            {
+              "id": "msg_4EE8uRT1mD3RdGiuMzsFHKg2",
+              "message": "Hello. How are you?",
+              "isBot": false,
+              "rating": null,
+              "feedback": null
+            },
+            {
+              "id": "msg_ybnV1gUS2FiNmPKQA9RLYKRX",
+              "message": "Hello! I'm here to assist you. How can I help you with iMIS today? If you have any specific questions or issues, feel free to share them!",
+              "isBot": true,
+              "rating": null,
+              "feedback": null
+            },
+            {
+              "id": "msg_7bSTMcrJtP05NgiwG9StrBgi",
+              "message": "What is iMIS",
+              "isBot": false,
+              "rating": null,
+              "feedback": null
+            },
+            {
+              "id": "msg_9xC9S4yZXavzzR3AdhCFZ5Ep",
+              "message": "iMIS is a comprehensive Customer Relationship Management (CRM) system designed primarily for membership organizations, non-profits, and other associations. It integrates various functionalities to manage member relations, events, fundraising, and other critical aspects of organization management. Here are the key components and capabilities of iMIS:\n\n1. **Membership Management**: iMIS provides tools to manage the entire lifecycle of a member from recruitment, retention, and engagement to renewal processes.\n\n2. **Events Management**: It offers capabilities to manage small to large-scale events, including registrations, scheduling, and logistics.\n\n3. **Fundraising and Donations**: iMIS includes features to manage fundraising campaigns, process donations, and track donor engagement.\n\n4. **Content Management**: Through its RiSE platform, iMIS allows users to create and manage content for websites that can be member-facing, public-facing, or staff-facing.\n\n5. **Financial Management**: It supports financial transactions, invoicing, and reporting, integrated with other modules for seamless financial operations.\n\n6. **Reporting and Analytics**: iMIS includes tools like Intelligent Query Architect (IQA), SSRS, and built-in report writers to generate detailed reports and insights.\n\n7. **Marketing and Communications**: Tools to manage email campaigns, social media integration, and other marketing activities to boost engagement and communication.\n\n8. **Commerce and Online Stores**: iMIS supports e-commerce functionalities allowing organizations to sell products, manage inventory, and process payments online.\n\n9. **Security and User Management**: Provides robust security features to manage user access, roles, and permissions to ensure data integrity and privacy.\n\n10. **Process Automation**: Features to automate routine tasks and workflows to improve efficiency and reduce manual errors.\n\niMIS is built on a flexible architecture that allows organizations to customize and extend its capabilities to meet specific needs, making it a popular choice among associations and non-profit entities looking to streamline their operations and enhance member engagement.",
+              "isBot": true,
+              "rating": null,
+              "feedback": null
+            },
+            {
+              "id": "msg_phJCFF6wLAaMmrI8KqbkqQY6",
+              "message": "ho",
+              "isBot": false,
+              "rating": null,
+              "feedback": null
+            },
+            {
+              "id": "msg_IsdZxPPCjY2wDWBAHT99c2T3",
+              "message": "Hello! How can I assist you with iMIS today? If you have any specific questions or need help with a particular feature, feel free to let me know!",
+              "isBot": true,
+              "rating": null,
+              "feedback": null
+            },
+            {
+              "id": "msg_v1EufiqG9td2rOKPRzQzZW3u",
+              "message": "Hello",
+              "isBot": false,
+              "rating": null,
+              "feedback": null
+            },
+            {
+              "id": "msg_InRXxtkesS1KrOvfESOXgbOZ",
+              "message": "Hello! How can I assist you with iMIS today? If you have any specific questions or need help with a particular feature, feel free to let me know!",
+              "isBot": true,
+              "rating": null,
+              "feedback": null
+            },
+            {
+              "id": "msg_CB3XIMivExVdHkzrVc5UnwkE",
+              "message": "Give short answer what is iMIS",
+              "isBot": false,
+              "rating": null,
+              "feedback": null
+            },
+            {
+              "id": "msg_XGXFKfWw3l8jnHXpcnNUxFN2",
+              "message": "iMIS is a comprehensive Customer Relationship Management (CRM) and Content Management System (CMS) primarily used by associations, non-profits, and membership organizations to manage memberships, events, fundraising, and other essential operations.",
+              "isBot": true,
+              "rating": null,
+              "feedback": null
+            },
+            {
+              "id": "msg_yuiLPLRlJ46YwdNcVYcEXKYr",
+              "message": "Hello",
+              "isBot": false,
+              "rating": null,
+              "feedback": null
+            },
+            {
+              "id": "msg_XFdrYWSiGTo5IUeMTL52xKrN",
+              "message": "Hello! How can I assist you with iMIS today? If you have any specific questions or need help with a particular feature, feel free to let me know!",
+              "isBot": true,
+              "rating": null,
+              "feedback": null
+            },
+            {
+              "id": "msg_VnyTLv85yM3MMbTYjqVWPMZo",
+              "message": "Are you here?",
+              "isBot": false,
+              "rating": null,
+              "feedback": null
+            },
+            {
+              "id": "msg_4qLwYw6TqD9FFXhygwIcce5F",
+              "message": "Yes, I'm here! How can I assist you with iMIS today? If you have any questions or need support with specific features or modules, just let me know!",
+              "isBot": true,
+              "rating": null,
+              "feedback": null
+            },
+            {
+              "id": "msg_80cVUZ9BF8SkZgs8YhWVuUWy",
+              "message": "What you think about me?",
+              "isBot": false,
+              "rating": null,
+              "feedback": null
+            },
+            {
+              "id": "msg_wF7h77zgW9Rgm1rhiDE2uDil",
+              "message": "I'm here to assist you with any questions or support you need regarding iMIS. If you have any specific inquiries about iMIS features, usage, or troubleshooting, feel free to ask!",
+              "isBot": true,
+              "rating": null,
+              "feedback": null
+            },
+            {
+              "id": "msg_IcNpD2dRxJ8AwW9WaVQsB8Js",
+              "message": "what is iMIS asasdf",
+              "isBot": false,
+              "rating": null,
+              "feedback": null
+            },
+            {
+              "id": "msg_EmDeM9R3R14snB2e4yScKvO5",
+              "message": "It seems like there might be a typo in your message. If you're asking about iMIS, it is a comprehensive Customer Relationship Management (CRM) and Content Management System (CMS) primarily used by associations, non-profits, and membership organizations to manage memberships, events, fundraising, and other essential operations. If you need information on a specific aspect of iMIS or have another question, please let me know!",
+              "isBot": true,
+              "rating": null,
+              "feedback": null
+            },
+            {
+              "id": "msg_JCO0JtaM6YWWVMx9u0sbwyIe",
+              "message": "Hello",
+              "isBot": false,
+              "rating": null,
+              "feedback": null
+            },
+            {
+              "id": "msg_zdiXlc8ycHd0NCV5OfxwjMjl",
+              "message": "Hello! How can I assist you with iMIS today? If you have any specific questions or need help with a particular feature, feel free to let me know!",
+              "isBot": true,
+              "rating": "up",
+              "feedback": "Well done"
+            },
+            {
+              "id": "msg_Fb9KQPQZhGcPr69y8XvCUA8V",
+              "message": "next",
+              "isBot": false,
+              "rating": null,
+              "feedback": null
+            },
+            {
+              "id": "msg_znuj7bKO7W7IEzPJvDgXdBjp",
+              "message": "Sure! What would you like to know or discuss next about iMIS? Whether it's about membership management, event planning, financial tracking, or any other module, I'm here to help. Just let me know your question or the area you're interested in!",
+              "isBot": true,
+              "rating": "down",
+              "feedback": "wellll 1122"
+            },
+            {
+              "id": "msg_XFi3zJN2w7tLAvjF9ALIhEAs",
+              "message": "Norm",
+              "isBot": false,
+              "rating": null,
+              "feedback": null
+            },
+            {
+              "id": "msg_8m2qGcUMmI6Ym50seyQLLq4i",
+              "message": "Great! If you have any questions later or need assistance with iMIS, feel free to reach out. Have a good day!",
+              "isBot": true,
+              "rating": "up",
+              "feedback": "else"
+            },
+            {
+              "id": "msg_V2MLMnJbEudifo34eqNWUeyg",
+              "message": "else",
+              "isBot": false,
+              "rating": null,
+              "feedback": null
+            },
+            {
+              "id": "msg_aCbz8bglGTFCaWtJtCvWscmM",
+              "message": "If there's anything else you'd like to know about iMIS or if you have any specific issues or topics you need help with, please let me know! I'm here to help with any information or guidance you might need regarding the software.",
+              "isBot": true,
+              "rating": null,
+              "feedback": null
+            },
+            {
+              "id": "msg_FqSMtBCu1HL5MANYJGk0n5wh",
+              "message": "Hello",
+              "isBot": false,
+              "rating": null,
+              "feedback": null
+            },
+            {
+              "id": "msg_P6BO2PMy7WthwZgOLc3TO5Zi",
+              "message": "Hello! How can I assist you with iMIS today? If you have any specific questions or need help with a particular feature, feel free to let me know!",
+              "isBot": true,
+              "rating": null,
+              "feedback": null
+            },
+            {
+              "id": "msg_vywqARqGta16ClReFAfuKIdN",
+              "message": "Hello",
+              "isBot": false,
+              "rating": null,
+              "feedback": null
+            },
+            {
+              "id": "msg_e4FfSdyGmbJ9t3KdpOmi9IqT",
+              "message": "Hello! How can I assist you with iMIS today? If you have any specific questions or need help with a particular feature, feel free to let me know!",
+              "isBot": true,
+              "rating": null,
+              "feedback": null
+            },
+            {
+              "id": "msg_AN3kxvJ09Pz0OwSu56fnUn3K",
+              "message": "Hello",
+              "isBot": false,
+              "rating": null,
+              "feedback": null
+            },
+            {
+              "id": "msg_h87ZbIvQZNdKvNBp9Pa3cKe0",
+              "message": "Hello! How can I assist you with iMIS today? If you have any specific questions or need help with a particular feature, feel free to let me know!",
+              "isBot": true,
+              "rating": null,
+              "feedback": null
+            },
+            {
+              "id": "msg_1Ii1hCzAM8x9VJQb1tRN6OGe",
+              "message": "Hello",
+              "isBot": false,
+              "rating": null,
+              "feedback": null
+            },
+            {
+              "id": "msg_TN5qYjtSAG3y7edSEFtArkNg",
+              "message": "Hello! How can I assist you with iMIS today? If you have any specific questions or need help with a particular feature, feel free to let me know!",
+              "isBot": true,
+              "rating": null,
+              "feedback": null
+            },
+            {
+              "id": "msg_7zkht8596i8lj8vDByV5bvJJ",
+              "message": "Hello",
+              "isBot": false,
+              "rating": null,
+              "feedback": null
+            },
+            {
+              "id": "msg_g5oOUhfZGgKjNxZklbV3ppFE",
+              "message": "Hello! How can I assist you with iMIS today? If you have any specific questions or need help with a particular feature, feel free to let me know!",
+              "isBot": true,
+              "rating": null,
+              "feedback": null
+            },
+            {
+              "id": "msg_Xbhm53QD7qgbrfnE7fILmKqP",
+              "message": "You are here?",
+              "isBot": false,
+              "rating": null,
+              "feedback": null
+            },
+            {
+              "id": "msg_FpcGFlodZScJUOk33Fb1FPsK",
+              "message": "Yes, I'm here! How can I assist you with iMIS today? If you have any questions or need support with specific features or modules, just let me know!",
+              "isBot": true,
+              "rating": null,
+              "feedback": null
+            },
+            {
+              "id": "msg_CTshMzKio64oadRneaGZFB0T",
+              "message": "asdfas",
+              "isBot": false,
+              "rating": null,
+              "feedback": null
+            },
+            {
+              "id": "msg_hpDPpgt74wJLhs4ynSVsNCT6",
+              "message": "It seems like there might be a typo in your message. If you have a specific question about iMIS or need assistance with something related to iMIS, please let me know! I'm here to help.",
+              "isBot": true,
+              "rating": null,
+              "feedback": null
+            },
+            {
+              "id": "msg_hUop1YOrkbrnWneN0jkLcH48",
+              "message": "asfasdf",
+              "isBot": false,
+              "rating": null,
+              "feedback": null
+            },
+            {
+              "id": "msg_r3r6mj2CDNf58f1gUrgUx9wX",
+              "message": "It looks like there might be another typo. If you need assistance with iMIS or have any questions, feel free to clarify, and I'd be happy to help!",
+              "isBot": true,
+              "rating": null,
+              "feedback": null
+            },
+            {
+              "id": "msg_YdqSI31mheEQnZfuVpfmgTSF",
+              "message": "Руддщ",
+              "isBot": false,
+              "rating": null,
+              "feedback": null
+            },
+            {
+              "id": "msg_cCqgM5ea9wyQwUKEuaO2SMJh",
+              "message": "It seems like there might be an issue with the text input. If you have a question or need assistance with iMIS, please feel free to rephrase or clarify your query, and I'll do my best to assist you!",
+              "isBot": true,
+              "rating": null,
+              "feedback": null
+            },
+            {
+              "id": "msg_NIv96sTog03toBrTY7LsXDNz",
+              "message": "Hello",
+              "isBot": false,
+              "rating": null,
+              "feedback": null
+            },
+            {
+              "id": "msg_XYb8oV3PZjCdF88HRBmdIa9Q",
+              "message": "Hello! How can I assist you with iMIS today? If you have any specific questions or need help with a particular feature, feel free to let me know!",
+              "isBot": true,
+              "rating": null,
+              "feedback": null
+            },
+            {
+              "id": "msg_TLKA9P1BlVrrtgTlCoVJUZxU",
+              "message": "Hello",
+              "isBot": false,
+              "rating": null,
+              "feedback": null
+            },
+            {
+              "id": "msg_YjZRtWd7ExoHSx4XDMIxc5ES",
+              "message": "Hello! How can I assist you with iMIS today? If you have any specific questions or need help with a particular feature, feel free to let me know!",
+              "isBot": true,
+              "rating": "up",
+              "feedback": "well done"
+            },
+            {
+              "id": "msg_FiXxS5KchHZTdILDRQuiTlw3",
+              "message": "Hello",
+              "isBot": false,
+              "rating": null,
+              "feedback": null
+            },
+            {
+              "id": "msg_wW31cndum6rnCYz81hkqGwhh",
+              "message": "Hello! How can I assist you with iMIS today? If you have any specific questions or need help with a particular feature, feel free to let me know!",
+              "isBot": true,
+              "rating": null,
+              "feedback": null
+            },
+            {
+              "id": "msg_h3xbQP85GLJFrEbjS0xtfg6b",
+              "message": "Hello",
+              "isBot": false,
+              "rating": null,
+              "feedback": null
+            },
+            {
+              "id": "msg_MBnHOI3b1utJcYI730jerNKM",
+              "message": "Hello! How can I assist you with iMIS today? If you have any specific questions or need help with a particular feature, feel free to let me know!",
+              "isBot": true,
+              "rating": null,
+              "feedback": null
+            },
+            {
+              "id": "msg_E9kDcXzzTsk3YKak6xsL2Kj5",
+              "message": "Hello",
+              "isBot": false,
+              "rating": null,
+              "feedback": null
+            },
+            {
+              "id": "msg_EyOZAb2Qre5zJMZTlBzYAsoR",
+              "message": "Hello! How can I assist you with iMIS today? If you have any specific questions or need help with a particular feature, feel free to let me know!",
+              "isBot": true,
+              "rating": null,
+              "feedback": null
+            },
+            {
+              "id": "msg_Q3IxR5viBI6617ZWODpjbY4f",
+              "message": "Hello",
+              "isBot": false,
+              "rating": null,
+              "feedback": null
+            },
+            {
+              "id": "msg_YNiD6V0NeSfyXNx3elaGGBtW",
+              "message": "Hello! How can I assist you with iMIS today? If you have any specific questions or need help with a particular feature, feel free to let me know!",
+              "isBot": true,
+              "rating": null,
+              "feedback": null
+            },
+            {
+              "id": "msg_FbSgQZX2LHEkmUwhl2J6sGva",
+              "message": "How are you",
+              "isBot": false,
+              "rating": null,
+              "feedback": null
+            },
+            {
+              "id": "msg_w8Rncun0OYpDb8eJO3SGP716",
+              "message": "I'm here to help! How can I assist you with iMIS today? If you have any questions or need support with specific features or modules, just let me know!",
+              "isBot": true,
+              "rating": null,
+              "feedback": null
+            },
+            {
+              "id": "msg_pM5jm9hUVX4jOCZ1p4I3vIMR",
+              "message": "Hello",
+              "isBot": false,
+              "rating": null,
+              "feedback": null
+            },
+            {
+              "id": "msg_vQPQc2GT7F7uTdJ98JaHznhd",
+              "message": "Hello! How can I assist you with iMIS today? If you have any specific questions or need help with a particular feature, feel free to let me know!",
+              "isBot": true,
+              "rating": null,
+              "feedback": null
+            },
+            {
+              "id": "msg_ByGQGA2xZQT72MGNi6ykSm2O",
+              "message": "How are you?",
+              "isBot": false,
+              "rating": null,
+              "feedback": null
+            },
+            {
+              "id": "msg_EbyLo4QqiqapW3Tvq2ac7Nbd",
+              "message": "I'm here to help! How can I assist you with iMIS today? If you have any questions or need support with specific features or modules, just let me know!",
+              "isBot": true,
+              "rating": null,
+              "feedback": null
+            }
+          ]
+        },
+        "thread_UPB6WJlr7rEEBOcs3dYN4o49": {
+          "id": "thread_UPB6WJlr7rEEBOcs3dYN4o49",
+          "messages": [
+            {
+              "id": "msg_M6KSnQqtCRVL4aZYtqUq5ip7",
+              "message": "Hello",
+              "isBot": false,
+              "rating": null,
+              "feedback": null
+            },
+            {
+              "id": "msg_hHve4PkW207KKLjVbEFzMiJy",
+              "message": "Hello! How can I assist you with iMIS today?",
+              "isBot": true,
+              "rating": null,
+              "feedback": null
+            },
+            {
+              "id": "msg_RI1RTp1R2pJXxTvIE6xEX6C9",
+              "message": "you hete",
+              "isBot": false,
+              "rating": null,
+              "feedback": null
+            },
+            {
+              "id": "msg_6yGhsz4YKJzwzhvyJYWUx5ZI",
+              "message": "Yes, I'm here! How can I assist you with iMIS today?",
+              "isBot": true,
+              "rating": null,
+              "feedback": null
+            },
+            {
+              "id": "msg_ZlXaA63lomMKm6FofgJ7eHzN",
+              "message": "dsadf",
+              "isBot": false,
+              "rating": null,
+              "feedback": null
+            },
+            {
+              "id": "msg_nLailY5URXFNdTKB4TbQAKlI",
+              "message": "It seems there might have been a typo in your message. Could you please clarify your question or let me know how I can assist you with iMIS?",
+              "isBot": true,
+              "rating": null,
+              "feedback": null
+            },
+            {
+              "id": "msg_zjl9BV63lWbMUixUBfBEV4zA",
+              "message": "фиавфав",
+              "isBot": false,
+              "rating": null,
+              "feedback": null
+            },
+            {
+              "id": "msg_PY5zs2R7IlayiteEJb2NxOtA",
+              "message": "It looks like your message didn't come through in English. Could you please rephrase or clarify your question regarding iMIS? I'm here to help!",
+              "isBot": true,
+              "rating": null,
+              "feedback": null
+            },
+            {
+              "id": "msg_lf7vfCWspFrUCZRPS0oYndFs",
+              "message": "Hello",
+              "isBot": false,
+              "rating": null,
+              "feedback": null
+            },
+            {
+              "id": "msg_Zol0ACljFGkrsIeftRdZydK9",
+              "message": "Hello! How can I assist you with iMIS today?",
+              "isBot": true,
+              "rating": null,
+              "feedback": null
+            },
+            {
+              "id": "msg_t7aa0KRtbotZsXUw0n1PZJh7",
+              "message": "asdfa",
+              "isBot": false,
+              "rating": null,
+              "feedback": null
+            },
+            {
+              "id": "msg_WVUgiXGFnGEeQiUJCzST65qh",
+              "message": "It seems there might have been a typo in your message. Could you please clarify your question or let me know how I can assist you with iMIS?",
+              "isBot": true,
+              "rating": null,
+              "feedback": null
+            },
+            {
+              "id": "msg_b1P6slmlOrkepWJ4EMRamWeg",
+              "message": "asdf",
+              "isBot": false,
+              "rating": null,
+              "feedback": null
+            },
+            {
+              "id": "msg_tSFZMw95bzw1oQCRcdxmXd5p",
+              "message": "It looks like there might be some confusion or an issue with the typing. If you have a question or need assistance with iMIS, please feel free to share more details or ask your question clearly. I'm here to help!",
+              "isBot": true,
+              "rating": null,
+              "feedback": null
+            },
+            {
+              "id": "msg_xW19ZAId7S8GsTBIzVI8UuPS",
+              "message": "Hello",
+              "isBot": false,
+              "rating": null,
+              "feedback": null
+            },
+            {
+              "id": "msg_rBrrXwWn7LpNPznIvoR3rfdH",
+              "message": "Hello! How can I assist you with iMIS today?",
+              "isBot": true,
+              "rating": null,
+              "feedback": null
+            },
+            {
+              "id": "msg_O5FjQanGnkaUsWVs6V379DM0",
+              "message": "Hello",
+              "isBot": false,
+              "rating": null,
+              "feedback": null
+            },
+            {
+              "id": "msg_9xL5vDAvbeEQDFpCGGj9uo5u",
+              "message": "Hello! How can I assist you with iMIS today?",
+              "isBot": true,
+              "rating": null,
+              "feedback": null
+            },
+            {
+              "id": "msg_OmMPV6ZzMwvhsvIsxNQm3kq6",
+              "message": "asfs",
+              "isBot": false,
+              "rating": null,
+              "feedback": null
+            },
+            {
+              "id": "msg_eqTfteroOX7BpWfLjRqdeZJI",
+              "message": "It seems there might have been a typo in your message. Could you please clarify your question or let me know how I can assist you with iMIS?",
+              "isBot": true,
+              "rating": null,
+              "feedback": null
+            },
+            {
+              "id": "msg_j4l32X1IOHMM3bv9bdopl3na",
+              "message": "asfda",
+              "isBot": false,
+              "rating": null,
+              "feedback": null
+            },
+            {
+              "id": "msg_Y66hlI9icOOSCtSkVTQ3FrgD",
+              "message": "It looks like there might be some confusion or an issue with the typing. If you have a question or need assistance with iMIS, please feel free to share more details or ask your question clearly. I'm here to help!",
+              "isBot": true,
+              "rating": null,
+              "feedback": null
+            },
+            {
+              "id": "msg_RHuEABdfiG9L3WIJIhw3Hvyt",
+              "message": "asdf",
+              "isBot": false,
+              "rating": null,
+              "feedback": null
+            },
+            {
+              "id": "msg_TPyKLXlfdxJheSrxeqi3smeP",
+              "message": "It appears there might be a misunderstanding or an issue with your messages. If you have any questions or need help related to iMIS, please let me know how I can assist you specifically.",
+              "isBot": true,
+              "rating": null,
+              "feedback": null
+            },
+            {
+              "id": "msg_M1DrjLjXcBO7YP9pb5ZdId4G",
+              "message": "asfd",
+              "isBot": false,
+              "rating": null,
+              "feedback": null
+            },
+            {
+              "id": "msg_ZlBSmQAzx1y35upk4U9wNez5",
+              "message": "It seems there might be a typo or misunderstanding in your messages. If you have a specific question or need assistance with iMIS, please feel free to share more details or ask your question clearly. I'm here to help!",
+              "isBot": true,
+              "rating": null,
+              "feedback": null
+            },
+            {
+              "id": "msg_RXcfqZMDceK2SMAXWEC2RV3g",
+              "message": "asdf",
+              "isBot": false,
+              "rating": null,
+              "feedback": null
+            },
+            {
+              "id": "msg_X7Fdqy0mK93s06RsmVb0dFr9",
+              "message": "It looks like there might still be some confusion or an issue with your messages. If you're trying to ask something specific about iMIS, please clarify your question so I can assist you effectively. If there's something else you need, let me know how I can help!",
+              "isBot": true,
+              "rating": null,
+              "feedback": null
+            },
+            {
+              "id": "msg_RwqKhAbU9zaXmZpu1t84SjtE",
+              "message": "Hello",
+              "isBot": false,
+              "rating": null,
+              "feedback": null
+            },
+            {
+              "id": "msg_HKKsyQm24WMWJDJHCJbGIMGl",
+              "message": "Hello! How can I assist you with iMIS today?",
+              "isBot": true,
+              "rating": null,
+              "feedback": null
+            },
+            {
+              "id": "msg_qzj1rqZVIBxIiNZhIm04TAJf",
+              "message": "Hello. Are you here?",
+              "isBot": false,
+              "rating": null,
+              "feedback": null
+            },
+            {
+              "id": "msg_8Ca8eSjYKpzVCkEuvw1CFjWc",
+              "message": "Yes, I'm here! How can I assist you with iMIS today?",
+              "isBot": true,
+              "rating": null,
+              "feedback": null
+            },
+            {
+              "id": "msg_Hw6OmpHJJB1NsiW2fFwG35F3",
+              "message": "Hello",
+              "isBot": false,
+              "rating": null,
+              "feedback": null
+            },
+            {
+              "id": "msg_WLROZvGtckoBQpWAv0bEw08A",
+              "message": "Hello! How can I assist you with iMIS today?",
+              "isBot": true,
+              "rating": null,
+              "feedback": null
+            },
+            {
+              "id": "msg_W3viADbH1rgqGj21EizZhVLG",
+              "message": "asdfasdf",
+              "isBot": false,
+              "rating": null,
+              "feedback": null
+            },
+            {
+              "id": "msg_jtazBcsK2faOnwaoGnl51pIl",
+              "message": "It seems there might have been a typo in your message. Could you please clarify your question or let me know how I can assist you with iMIS?",
+              "isBot": true,
+              "rating": null,
+              "feedback": null
+            },
+            {
+              "id": "msg_3N5yJZ9AOC3ZaJ6uyTvbcRE4",
+              "message": "asfasdf",
+              "isBot": false,
+              "rating": null,
+              "feedback": null
+            },
+            {
+              "id": "msg_e04SBeMQQlqO52jbKlFL3ZKS",
+              "message": "It looks like there might be some confusion or an issue with the typing. If you have a question or need assistance with iMIS, please feel free to share more details or ask your question clearly. I'm here to help!",
+              "isBot": true,
+              "rating": null,
+              "feedback": null
+            },
+            {
+              "id": "msg_5gftPjFNmcaPAIq3iriBcoSH",
+              "message": "Hello",
+              "isBot": false,
+              "rating": null,
+              "feedback": null
+            },
+            {
+              "id": "msg_YQjJzcgytN7GbIMpTCzOFS1h",
+              "message": "Hello! How can I assist you with iMIS today?",
+              "isBot": true,
+              "rating": null,
+              "feedback": null
+            },
+            {
+              "id": "msg_XQ3rWlk7b8rz5vpxRPu87s2t",
+              "message": "How are you",
+              "isBot": false,
+              "rating": null,
+              "feedback": null
+            },
+            {
+              "id": "msg_Lh0OB9FbRwR9cYAqqkSJuM0Y",
+              "message": "I'm here to assist you! How can I help you with iMIS today?",
+              "isBot": true,
+              "rating": null,
+              "feedback": null
+            },
+            {
+              "id": "msg_zhOhYcgzTRcLaJPS7zSvr7bg",
+              "message": "Helo",
+              "isBot": false,
+              "rating": null,
+              "feedback": null
+            },
+            {
+              "id": "msg_gvcYhlRgPJawyHS0wTzuKMpN",
+              "message": "Hello! How can I assist you with iMIS today?",
+              "isBot": true,
+              "rating": null,
+              "feedback": null
+            },
+            {
+              "id": "msg_l988oCGf0UtorFBWkzCgIuRD",
+              "message": "Hello",
+              "isBot": false,
+              "rating": null,
+              "feedback": null
+            },
+            {
+              "id": "msg_t3Mw3pdlwVab4ekYDdCGEs1N",
+              "message": "Hello! How can I assist you with iMIS today?",
+              "isBot": true,
+              "rating": null,
+              "feedback": null
+            },
+            {
+              "id": "msg_FqqeZJsXwuBZFiIRWV0JTuRA",
+              "message": "hello",
+              "isBot": false,
+              "rating": null,
+              "feedback": null
+            },
+            {
+              "id": "msg_jWtOYT211aBOydX9SeXjpSHk",
+              "message": "Hello! How can I assist you with iMIS today?",
+              "isBot": true,
+              "rating": null,
+              "feedback": null
+            },
+            {
+              "id": "msg_pDsUSKp81RhczPVBggp22gus",
+              "message": "Hello",
+              "isBot": false,
+              "rating": null,
+              "feedback": null
+            },
+            {
+              "id": "msg_Q9yPdLBaBfMxzVWHH25Arlpp",
+              "message": "Hello! How can I assist you with iMIS today?",
+              "isBot": true,
+              "rating": null,
+              "feedback": null
+            },
+            {
+              "id": "msg_eJAztFDpaueFvcVyB0rJeJuR",
+              "message": "How are you",
+              "isBot": false,
+              "rating": null,
+              "feedback": null
+            },
+            {
+              "id": "msg_O9Ncb52zlNWACoTZkgSoVTme",
+              "message": "I'm here to assist you! How can I help you with iMIS today?",
+              "isBot": true,
+              "rating": null,
+              "feedback": null
+            },
+            {
+              "id": "msg_uK7FncDxtqJ0zbULvztztDgv",
+              "message": "Hello",
+              "isBot": false,
+              "rating": null,
+              "feedback": null
+            },
+            {
+              "id": "msg_8rYH2HOYseUh3SWmf1PezDFu",
+              "message": "Hello! How can I assist you with iMIS today?",
+              "isBot": true,
+              "rating": null,
+              "feedback": null
+            },
+            {
+              "id": "msg_0Qxo3G4A264h9ZIZlHdvrXt7",
+              "message": "Hwo are you",
+              "isBot": false,
+              "rating": null,
+              "feedback": null
+            },
+            {
+              "id": "msg_PIJKyuhsqJwogGvVOJ1Nvr8K",
+              "message": "I'm here to assist! How can I help you with iMIS today?",
+              "isBot": true,
+              "rating": null,
+              "feedback": null
+            },
+            {
+              "id": "msg_Od1MyOWBrjfZnZEp4iQttn5V",
+              "message": "are you here?",
+              "isBot": false,
+              "rating": null,
+              "feedback": null
+            },
+            {
+              "id": "msg_2pMNPoZEjjt8MdoDKBftTaFE",
+              "message": "Yes, I'm here! How can I assist you with iMIS today?",
+              "isBot": true,
+              "rating": null,
+              "feedback": null
+            },
+            {
+              "id": "msg_GUQw0wwQbqByrur80dnD8VxR",
+              "message": "Hello",
+              "isBot": false,
+              "rating": null,
+              "feedback": null
+            },
+            {
+              "id": "msg_gYft9I4FVIJvnJOb9hEHkYFa",
+              "message": "Hello! How can I assist you with iMIS today?",
+              "isBot": true,
+              "rating": null,
+              "feedback": null
+            },
+            {
+              "id": "msg_JWiSf51RexyqjuxcAu78zlFu",
+              "message": "Hello",
+              "isBot": false,
+              "rating": null,
+              "feedback": null
+            },
+            {
+              "id": "msg_vt6AGnxKHdukrQPBJksTeWim",
+              "message": "Hello! How can I assist you with iMIS today?",
+              "isBot": true,
+              "rating": null,
+              "feedback": null
+            },
+            {
+              "id": "msg_d5QOHcBJDJ4CJMaGg5183mEm",
+              "message": "hello",
+              "isBot": false,
+              "rating": null,
+              "feedback": null
+            },
+            {
+              "id": "msg_rEUomJrd1qOek1bErbr3sR3x",
+              "message": "Hello! How can I assist you with iMIS today?",
+              "isBot": true,
+              "rating": null,
+              "feedback": null
+            },
+            {
+              "id": "msg_o1UHum0aeiDRZeQS0X7CYmqm",
+              "message": "hello",
+              "isBot": false,
+              "rating": null,
+              "feedback": null
+            },
+            {
+              "id": "msg_8YVnbVG8MQcdnICCe0LLXNac",
+              "message": "Hello! How can I assist you with iMIS today?",
+              "isBot": true,
+              "rating": null,
+              "feedback": null
+            },
+            {
+              "id": "msg_WLcsn0zVxzt3WuQxWMqKfOWk",
+              "message": "hello",
+              "isBot": false,
+              "rating": null,
+              "feedback": null
+            },
+            {
+              "id": "msg_V1W3YYkJ6q2tIQsoMRDdOiJS",
+              "message": "Hello! How can I assist you with iMIS today?",
+              "isBot": true,
+              "rating": null,
+              "feedback": null
+            },
+            {
+              "id": "msg_6QiV1wW1Zror5Hkj6gVdQAFJ",
+              "message": "asfd",
+              "isBot": false,
+              "rating": null,
+              "feedback": null
+            },
+            {
+              "id": "msg_nLTTeMoYcQRt2k2irxLCgSM9",
+              "message": "It seems there might be a typo or misunderstanding in your messages. If you have a specific question or need assistance with iMIS, please feel free to share more details or ask your question clearly. I'm here to help!",
+              "isBot": true,
+              "rating": null,
+              "feedback": null
+            },
+            {
+              "id": "msg_pu5dnf0UIat93uzBLfjUJomF",
+              "message": "afsafs",
+              "isBot": false,
+              "rating": null,
+              "feedback": null
+            },
+            {
+              "id": "msg_c9bjU48t7RsPhvTuMdRnttTs",
+              "message": "It looks like there might still be some confusion or an issue with your messages. If you're trying to ask something specific about iMIS, please clarify your question so I can assist you effectively. If there's something else you need, let me know how I can help!",
+              "isBot": true,
+              "rating": null,
+              "feedback": null
+            },
+            {
+              "id": "msg_8dG0lMAx5tCYTDx6mJv2rvvu",
+              "message": "asfdasdf",
+              "isBot": false,
+              "rating": null,
+              "feedback": null
+            },
+            {
+              "id": "msg_vrZ65EPimi3qAlkCDQYW1kQt",
+              "message": "It appears there might be a misunderstanding or an issue with your messages. If you have any questions or need help related to iMIS, please let me know how I can assist you specifically.",
+              "isBot": true,
+              "rating": null,
+              "feedback": null
+            },
+            {
+              "id": "msg_8IcIjgVdEMKOANadVNhmwHHd",
+              "message": "Sending images...",
+              "isBot": false,
+              "rating": null,
+              "feedback": null
+            },
+            {
+              "id": "msg_KtlCwzxBngfl7T3czLxPdjcz",
+              "message": "It appears that you have provided an image of a chat interface, specifically a conversation with a help or support agent system. How can I assist you with this image or the context around it?",
+              "isBot": true,
+              "rating": null,
+              "feedback": null
+            },
+            {
+              "id": "msg_8zRjZ734fIpWQ1zg9EdMkVyL",
+              "message": "Sending images...",
+              "isBot": false,
+              "rating": null,
+              "feedback": null
+            },
+            {
+              "id": "msg_4nJ4ezCQ4z9QMBd3gcdhQ1n0",
+              "message": "This image displays a mobile application showing transaction history. It shows two transactions made to \"Preply, BERLIN.\" The first transaction at 10:41 am for 221.76 UAH and the second at 10:40 am for 251.05 UAH. The application's interface is in Ukrainian, indicated by the text \"Сьогодні\" meaning \"Today\" and \"Пошук транзакцій\" which translates to \"Search transactions.\"",
+              "isBot": true,
+              "rating": null,
+              "feedback": null
+            },
+            {
+              "id": "msg_rKEPJXPqNz0CGRUvKJT9YlRL",
+              "message": "test",
+              "isBot": false,
+              "rating": null,
+              "feedback": null
+            },
+            {
+              "id": "msg_oQl7LGCtZbSYrhI7BORRJPmG",
+              "message": "Hello! How can I assist you with iMIS today? If you have any questions or need help with specific features, feel free to ask.",
+              "isBot": true,
+              "rating": null,
+              "feedback": null
+            },
+            {
+              "id": "msg_kof2GBXPdOkqWU3kUuwBRl26",
+              "message": "Sending images...",
+              "isBot": false,
+              "rating": null,
+              "feedback": null
+            },
+            {
+              "id": "msg_IfiLJg2XcOF4FF54cttiSUlK",
+              "message": "It looks like you've shared a screenshot of a web application interface called \"Open Custom GPT.\" The interface includes options to interact with a tool or service named \"IUG IMIS Helper\" and the ability to create a new assistant. The layout appears to be a user interface for managing or interacting with custom GPT (Generative Pre-trained Transformer) models or assistants. Let me know how I can assist you further with this!",
+              "isBot": true,
+              "rating": null,
+              "feedback": null
+            },
+            {
+              "id": "msg_quFKe1RXsOgUchKy3AzHgPbx",
+              "message": "Sending images...",
+              "isBot": false,
+              "rating": null,
+              "feedback": null
+            },
+            {
+              "id": "msg_jCgBpgxNTovBmZ8NEP1h9MaQ",
+              "message": "It looks like you've uploaded a screenshot of a customer support chat window. How can I assist you with this image? Do you have any specific questions or issues you'd like to discuss regarding this screenshot?",
+              "isBot": true,
+              "rating": null,
+              "feedback": null
+            },
+            {
+              "id": "msg_SpqqIQR0a04k2skJV45GHJm2",
+              "message": "Sending images...",
+              "isBot": false,
+              "rating": null,
+              "feedback": null
+            },
+            {
+              "id": "msg_8QyRrBscHUqwmtn9rx7J0lyN",
+              "message": "It looks like you've shown me a screenshot of a web browser displaying a user interface for a Chatbot platform titled \"Open Custom GPT.\" The page features a space for initiating a conversation with the assistant named \"IUG IMIS Helper,\" and there is an option to create a new assistant as well. How can I assist you further with this image?",
+              "isBot": true,
+              "rating": null,
+              "feedback": null
+            },
+            {
+              "id": "msg_oE8NtF85J50fPUPx7NOSr0v3",
+              "message": "Sending images...",
+              "isBot": false,
+              "rating": null,
+              "feedback": null
+            },
+            {
+              "id": "msg_1XkwvMmjvK4aeYVypM6ZkY2D",
+              "message": "It looks like you've submitted a screenshot of a chat interface. How can I assist you with this image? Is there something specific you want to discuss or analyze related to it?",
+              "isBot": true,
+              "rating": null,
+              "feedback": null
+            },
+            {
+              "id": "msg_Uws5iqCrMk8h9Wd2tHzAdDHj",
+              "message": "Hello",
+              "isBot": false,
+              "rating": null,
+              "feedback": null
+            },
+            {
+              "id": "msg_99RIjwnw0KGIKDSBLPabgVh1",
+              "message": "Hello! How can I assist you with iMIS today?",
+              "isBot": true,
+              "rating": null,
+              "feedback": null
+            },
+            {
+              "id": "msg_tQvpBwxkDdYJICW6Eyr2cvWz",
+              "message": "asfdasf",
+              "isBot": false,
+              "rating": null,
+              "feedback": null
+            },
+            {
+              "id": "msg_IdCK3CKt3Z42DOFRZcvF3NEZ",
+              "message": "It seems there might have been a typo in your message. Could you please clarify your question or let me know how I can assist you with iMIS?",
+              "isBot": true,
+              "rating": null,
+              "feedback": null
+            },
+            {
+              "id": "msg_s5LpXk4hNwTtYbk6ufu6sgVM",
+              "message": "Hello",
+              "isBot": false,
+              "rating": null,
+              "feedback": null
+            },
+            {
+              "id": "msg_XDOALLjstcqIjfPxKmtQNvre",
+              "message": "Hello! How can I assist you with iMIS today?",
+              "isBot": true,
+              "rating": null,
+              "feedback": null
+            },
+            {
+              "id": "msg_eYhaf96DJgwz2Nv5hJuKw9CN",
+              "message": "hello",
+              "isBot": false,
+              "rating": null,
+              "feedback": null
+            },
+            {
+              "id": "msg_BIbLbwBabUSPpJ7CDJHc1fdx",
+              "message": "Hello! How can I assist you with iMIS today?",
+              "isBot": true,
+              "rating": null,
+              "feedback": null
+            },
+            {
+              "id": "msg_OPsuLt1YZfyJ02E5eZWwvSv9",
+              "message": "asdfadsf",
+              "isBot": false,
+              "rating": null,
+              "feedback": null
+            },
+            {
+              "id": "msg_p2lODjC5cjiGVFhl3XcL8GNh",
+              "message": "It seems there might be a typo or misunderstanding in your messages. If you have a specific question or need assistance with iMIS, please feel free to share more details or ask your question clearly. I'm here to help!",
+              "isBot": true,
+              "rating": null,
+              "feedback": null
+            },
+            {
+              "id": "msg_BkbZGshl6DRkKJvTrUyYg6oc",
+              "message": "Hello",
+              "isBot": false,
+              "rating": null,
+              "feedback": null
+            },
+            {
+              "id": "msg_qwu8QLsuG9xMKHMj4mcFTWJg",
+              "message": "Hello! How can I assist you with iMIS today?",
+              "isBot": true,
+              "rating": null,
+              "feedback": null
+            },
+            {
+              "id": "msg_y9h8QbWXgHuhgSehFExF0Iav",
+              "message": "safs",
+              "isBot": false,
+              "rating": null,
+              "feedback": null
+            },
+            {
+              "id": "msg_DDX6H35MICd55LXFqU3WFYGk",
+              "message": "It looks like there might be some confusion or an issue with the typing. If you have a question or need assistance with iMIS, please feel free to share more details or ask your question clearly. I'm here to help!",
+              "isBot": true,
+              "rating": null,
+              "feedback": null
+            },
+            {
+              "id": "msg_RS9pv0dHEDwP3yuwPBytLTsi",
+              "message": "asdfsaf",
+              "isBot": false,
+              "rating": null,
+              "feedback": null
+            },
+            {
+              "id": "msg_zjgrQwNJAO3MQBmT6Yot16Pw",
+              "message": "It appears there might be a misunderstanding or an issue with your messages. If you have any questions or need help related to iMIS, please let me know how I can assist you specifically.",
+              "isBot": true,
+              "rating": null,
+              "feedback": null
+            },
+            {
+              "id": "msg_8mFRHlH8Yy0gl06r59Zgw99x",
+              "message": "asdfasdf",
+              "isBot": false,
+              "rating": null,
+              "feedback": null
+            },
+            {
+              "id": "msg_OwcD0pZhEQTfGknXkEobRnaR",
+              "message": "It seems there might have been a typo in your message. Could you please clarify your question or let me know how I can assist you with iMIS?",
+              "isBot": true,
+              "rating": null,
+              "feedback": null
+            },
+            {
+              "id": "msg_P4GxYtPU56XC7Lydpb7b7K2D",
+              "message": "asdfasdf",
+              "isBot": false,
+              "rating": null,
+              "feedback": null
+            },
+            {
+              "id": "msg_NLJflrPK06kgvefqAs79QrEc",
+              "message": "It looks like there might still be some confusion or an issue with your messages. If you're trying to ask something specific about iMIS, please clarify your question so I can assist you effectively. If there's something else you need, let me know how I can help!",
+              "isBot": true,
+              "rating": null,
+              "feedback": null
+            },
+            {
+              "id": "msg_HWPtE3kz2r7JNDgve1gyNxL6",
+              "message": "Sending images...",
+              "isBot": false,
+              "rating": null,
+              "feedback": null
+            },
+            {
+              "id": "msg_Zxo4M6WglLgebJaKjsY2gDFQ",
+              "message": "It looks like you've provided a screenshot of a user interface for \"Open Custom GPT\". It appears to be a web-based application running on localhost, specifically on port 3002. The interface includes a panel for interaction with \"IUG IMIS Helper\" and an option to create a new assistant.\n\nHow can I assist you with this interface? Are you looking for help with any specific functionality or do you have questions about how to use or customize it?",
+              "isBot": true,
+              "rating": null,
+              "feedback": null
+            },
+            {
+              "id": "msg_ZJkYJOjr5soEm5kf3C8IE61s",
+              "message": "hello",
+              "isBot": false,
+              "rating": null,
+              "feedback": null
+            },
+            {
+              "id": "msg_7Nrj9WKy4uWpw0uQ2Azzur6K",
+              "message": "Hello! How can I assist you with iMIS today?",
+              "isBot": true,
+              "rating": null,
+              "feedback": null
+            },
+            {
+              "id": "msg_cGVzo2LI6ZHIILtJ9rV2eW4A",
+              "message": "asdf",
+              "isBot": false,
+              "rating": null,
+              "feedback": null
+            },
+            {
+              "id": "msg_m2qVGhWCYkyweAn0Z1VoQFBL",
+              "message": "It seems there might be a typo or misunderstanding in your messages. If you have a specific question or need assistance with iMIS, please feel free to share more details or ask your question clearly. I'm here to help!",
+              "isBot": true,
+              "rating": null,
+              "feedback": null
+            },
+            {
+              "id": "msg_4gFOgjUNkIa86QHdF0R6Uc0a",
+              "message": "aasdfa",
+              "isBot": false,
+              "rating": null,
+              "feedback": null
+            },
+            {
+              "id": "msg_6DpLykkejnhuHvOjY36klLE6",
+              "message": "It looks like there might be some confusion or an issue with the typing. If you have a question or need assistance with iMIS, please feel free to share more details or ask your question clearly. I'm here to help!",
+              "isBot": true,
+              "rating": null,
+              "feedback": null
+            },
+            {
+              "id": "msg_Sx3Swjik0288mP8BbHisAGwK",
+              "message": "asdadf",
+              "isBot": false,
+              "rating": null,
+              "feedback": null
+            },
+            {
+              "id": "msg_8OAqgLxCL3GagXyxmMxWn3u8",
+              "message": "It appears there might be a misunderstanding or an issue with your messages. If you have any questions or need help related to iMIS, please let me know how I can assist you specifically.",
+              "isBot": true,
+              "rating": null,
+              "feedback": null
+            },
+            {
+              "id": "msg_5u2H48MzEnPAHj1zG2tg5COw",
+              "message": "Sending images...",
+              "isBot": false,
+              "rating": null,
+              "feedback": null
+            },
+            {
+              "id": "msg_NPO7cBofgMpAyPYNK3yVGcx9",
+              "message": "The image you've shared shows a screenshot of a transaction history from a banking or financial application. It displays two transactions labeled \"Preply, BERLIN\" with the times 10:41 and 10:40, deducting amounts of -221.76 UAH and -251.05 UAH respectively. The transactions are listed under a section titled \"Сьогодні\" which is Ukrainian for \"Today\". The interface elements also include options for searching transactions and some icons at the top, likely for connectivity and settings.",
+              "isBot": true,
+              "rating": null,
+              "feedback": null
+            },
+            {
+              "id": "msg_l4Vm0Pg04Ha4P6IcBrJkmDll",
+              "message": "Sending images...",
+              "isBot": false,
+              "rating": null,
+              "feedback": null
+            },
+            {
+              "id": "msg_2QkcaQkuyRR8u6xl9kcYw5S7",
+              "message": "It looks like you've shared a screenshot of a conversation from a chat interface, likely a customer service chatbot. The conversation in the image shows an interaction where the bot is asking how it can assist with something referred to as \"iMIS.\" If you need any specific help regarding this screenshot or the content/context of the conversation, feel free to ask!",
+              "isBot": true,
+              "rating": null,
+              "feedback": null
+            },
+            {
+              "id": "msg_sNhgDseaytAcHlJCgSqpaJwK",
+              "message": "Sending images...",
+              "isBot": false,
+              "rating": null,
+              "feedback": null
+            },
+            {
+              "id": "msg_k9CMY2Qe7DZVytjZDjZhDtC2",
+              "message": "This image shows a screenshot of a mobile banking application displaying two transactions. Both transactions are associated with \"Preply, BERLIN.\" The first transaction, listed at 10:41, is for an amount of 221.76 UAH, and the second transaction, at 10:40, is for 251.05 UAH. The top of the screen indicates the search functionality for transactions and signals that these transactions occurred \"Сьогодні\" (today). There are also various icons at the top representing different services or notifications, such as Wi-Fi connection, battery status, and signal strength.",
+              "isBot": true,
+              "rating": null,
+              "feedback": null
+            },
+            {
+              "id": "msg_eHq9TddYmf0oNfhGcsr6D9J8",
+              "message": "hello",
+              "isBot": false,
+              "rating": null,
+              "feedback": null
+            },
+            {
+              "id": "msg_aCY7wptlQf08g56OAM974eFR",
+              "message": "Hello! How can I assist you with iMIS today?",
+              "isBot": true,
+              "rating": null,
+              "feedback": null
+            },
+            {
+              "id": "msg_FVJMtCQKtiIZvTt3L7kQ9wYF",
+              "message": "adsfasdf",
+              "isBot": false,
+              "rating": null,
+              "feedback": null
+            },
+            {
+              "id": "msg_OekroSyxNVxvKd9CgHDfWLaq",
+              "message": "It seems there might have been a typo in your message. Could you please clarify your question or let me know how I can assist you with iMIS?",
+              "isBot": true,
+              "rating": null,
+              "feedback": null
+            },
+            {
+              "id": "msg_sWa6OwDaUVhQmGAcoVpFx0lA",
+              "message": "hello",
+              "isBot": false,
+              "rating": null,
+              "feedback": null
+            },
+            {
+              "id": "msg_0xdALW0lXgKu8lahPJJDDxij",
+              "message": "Hello! How can I assist you with iMIS today?",
+              "isBot": true,
+              "rating": null,
+              "feedback": null
+            },
+            {
+              "id": "msg_iqzAaIizE9NDsH0DrOAphvpa",
+              "message": "hhh",
+              "isBot": false,
+              "rating": null,
+              "feedback": null
+            },
+            {
+              "id": "msg_J2FpKm9TMAJIEoxZENYELthS",
+              "message": "It seems like there might be a typo or misunderstanding. If you have a specific question about iMIS or need assistance with something related, please let me know! I'm here to help.",
+              "isBot": true,
+              "rating": null,
+              "feedback": null
+            },
+            {
+              "id": "msg_WxYqlJs4JBdg56wquV3Cofo1",
+              "message": "Sending images...",
+              "isBot": false,
+              "rating": null,
+              "feedback": null
+            },
+            {
+              "id": "msg_KjMZ5MhmfxvLnYqnbZxZ6zTG",
+              "message": "It seems that you have uploaded an image of a chatbot interaction. How may I assist you further with this?",
+              "isBot": true,
+              "rating": null,
+              "feedback": null
+            },
+            {
+              "id": "msg_L5rV8zaAeoHxpbM6ZeeCKkES",
+              "message": "Sending images...",
+              "isBot": false,
+              "rating": null,
+              "feedback": null
+            },
+            {
+              "id": "msg_aa8woQaIdmXNG4k45lpPi0Is",
+              "message": "It looks like you've sent a screenshot of a web interface. What can I assist you with regarding this image?",
+              "isBot": true,
+              "rating": null,
+              "feedback": null
+            },
+            {
+              "id": "msg_09Ng22iILtc8nn86jdRKhSLI",
+              "message": "Sending images...",
+              "isBot": false,
+              "rating": null,
+              "feedback": null
+            },
+            {
+              "id": "msg_WZ5fPPe1TEsBz28fPUMh9NTb",
+              "message": "It looks like you've shared a screenshot of a chat interface with a customer service bot. The user is interacting with the bot, asking for assistance. How can I help you with this image? Are you looking to understand something specific from it or develop a similar interface?",
+              "isBot": true,
+              "rating": null,
+              "feedback": null
+            },
+            {
+              "id": "msg_C74ehc4yfwHDEcHxw4JOMkMm",
+              "message": "Sending images...",
+              "isBot": false,
+              "rating": null,
+              "feedback": null
+            },
+            {
+              "id": "msg_dJymqhBsEI0nA7R8qtXIjemU",
+              "message": "It looks like you've provided a screenshot of a web browser showing a web application interface titled \"Open Custom GPT.\" The interface includes two sections: one with a title \"IUG IMIS Helper\" and another button titled \"Create a new assistant.\" Additionally, there is a chat interface below with options to type a question, send it, and clear the conversation. The website is currently being accessed through a localhost address (localhost:3002), which indicates the website is being served from the local machine for testing or development purposes rather than from a live, public server. How can I assist you with this?",
+              "isBot": true,
+              "rating": null,
+              "feedback": null
+            },
+            {
+              "id": "msg_k2YtflB5jez9xL5VpuuGmvqi",
+              "message": "hello",
+              "isBot": false,
+              "rating": null,
+              "feedback": null
+            },
+            {
+              "id": "msg_oBwWMSoHmEleFEukyqYwox1n",
+              "message": "Hello! How can I assist you with iMIS today?",
+              "isBot": true,
+              "rating": null,
+              "feedback": null
+            },
+            {
+              "id": "msg_m823ArZ1hUXAtIQeevDpvuFJ",
+              "message": "Sending images...",
+              "isBot": false,
+              "rating": null,
+              "feedback": null
+            },
+            {
+              "id": "msg_3fA9nOkhnROICV5hMOgjhIyQ",
+              "message": "I see the screenshot you've shared. It shows a web browser open to a page titled \"Open Custom GPT\" on \"localhost:3002.\" There are several tabs open in the browser, and the Open Custom GPT application is currently displaying one active assistant named \"IUG IMIS Helper\" with an option available to \"Create a new assistant.\" How can I assist you with this?",
+              "isBot": true,
+              "rating": null,
+              "feedback": null
+            },
+            {
+              "id": "msg_Rp5QuMlnORY7GaHqOtEiwQmF",
+              "message": "Sending images...",
+              "isBot": false,
+              "rating": null,
+              "feedback": null
+            },
+            {
+              "id": "msg_0hFJxLmKbZcbLcSmvVPO8MwR",
+              "message": "It looks like you've shared a screenshot of an active chat interface, possibly from a customer support or service chatbot. How can I assist you with this? Are you looking to discuss certain features or functionalities of this interface?",
+              "isBot": true,
+              "rating": null,
+              "feedback": null
+            }
+          ],
+          "rating": null,
+          "feedback": null
+        },
+        "thread_BR5x9Ngs7u0FCQi9GCmslSoF": {
+          "id": "thread_BR5x9Ngs7u0FCQi9GCmslSoF",
+          "messages": [
+            {
+              "id": "msg_V72Wtn3mCSAeqnxKu29gAJM9",
+              "message": "Hello",
+              "isBot": false,
+              "rating": null,
+              "feedback": null
+            },
+            {
+              "id": "msg_W14wpARTW3nSPCVmWaiCncK8",
+              "message": "Hello",
+              "isBot": false,
+              "rating": null,
+              "feedback": null
+            },
+            {
+              "id": "msg_jjfMHf6Wyrucx7eGrrpzm52t",
+              "message": "HEllo",
+              "isBot": false,
+              "rating": null,
+              "feedback": null
+            },
+            {
+              "id": "msg_XBYrVcVlnBSabDoYd6xAf8EK",
+              "message": "Hello",
+              "isBot": false,
+              "rating": null,
+              "feedback": null
+            },
+            {
+              "id": "msg_V3BllwD1ttoxYIR3fasDg7IA",
+              "message": "Hello",
+              "isBot": false,
+              "rating": null,
+              "feedback": null
+            },
+            {
+              "id": "msg_hJJN2WiWclVRuT7U5VgdNhGY",
+              "message": "Hello",
+              "isBot": false,
+              "rating": null,
+              "feedback": null
+            },
+            {
+              "id": "msg_BFyhboltfnAjBmArOy8hMdC6",
+              "message": "Hello",
+              "isBot": false,
+              "rating": null,
+              "feedback": null
+            },
+            {
+              "id": "msg_nrXDtWV8L5LI4Lxz9xXqndK9",
+              "message": "Hello",
+              "isBot": false,
+              "rating": null,
+              "feedback": null
+            },
+            {
+              "id": "msg_OOP9GR6zK5eUjsuZdDPbFvbz",
+              "message": "Hello",
+              "isBot": false,
+              "rating": null,
+              "feedback": null
+            },
+            {
+              "id": "msg_tEDCo0dH6eSerYtE137l8vEM",
+              "message": "Hello",
+              "isBot": false,
+              "rating": null,
+              "feedback": null
+            },
+            {
+              "id": "msg_L0S9yajukOe1TJqmRAL4Nj3x",
+              "message": "Hello",
+              "isBot": false,
+              "rating": null,
+              "feedback": null
+            },
+            {
+              "id": "msg_wZCWyZmrOEPZiuwKQzVwdPoV",
+              "message": "Hello",
+              "isBot": false,
+              "rating": null,
+              "feedback": null
+            },
+            {
+              "id": "msg_hSN21YFXGxIAuuJ6jkhQ3sh1",
+              "message": "Hello",
+              "isBot": false,
+              "rating": null,
+              "feedback": null
+            },
+            {
+              "id": "msg_ImWgRnnT66ULPa1iT6POMrnj",
+              "message": "Hello",
+              "isBot": false,
+              "rating": null,
+              "feedback": null
+            }
+          ],
+          "rating": null,
+          "feedback": null
+        },
+        "thread_GAmLV9IaHsdEYFAcT1rc8scc": {
+          "id": "thread_GAmLV9IaHsdEYFAcT1rc8scc",
+          "messages": [
+            {
+              "id": "msg_xyE2xKPSUaCVM8EoT7N0GB7V",
+              "message": "Hello",
+              "isBot": false,
+              "rating": null,
+              "feedback": null
+            },
+            {
+              "id": "msg_DNQpE643unkSWZWDolnpgYNw",
+              "message": "Hello! How can I assist you with iMIS today?",
+              "isBot": true,
+              "rating": null,
+              "feedback": null
+            },
+            {
+              "id": "msg_9Rag9bv2uC1meIUrhDWRxIcm",
+              "message": "Hello",
+              "isBot": false,
+              "rating": null,
+              "feedback": null
+            },
+            {
+              "id": "msg_0Xtf0gEXvd3KAn5PNkWXP6Ku",
+              "message": "Hello! How can I assist you with iMIS today?",
+              "isBot": true,
+              "rating": null,
+              "feedback": null
+            },
+            {
+              "id": "msg_3zRap3CEO3BjfMSphKksxDmc",
+              "message": "Hello",
+              "isBot": false,
+              "rating": null,
+              "feedback": null
+            },
+            {
+              "id": "msg_8dbBPOXe5RtgPnX1HSNEQgiL",
+              "message": "Hello! How can I assist you with iMIS today?",
+              "isBot": true,
+              "rating": null,
+              "feedback": null
+            },
+            {
+              "id": "msg_siypOgfnKwchvpPdMQhGQ2AW",
+              "message": "hello",
+              "isBot": false,
+              "rating": null,
+              "feedback": null
+            },
+            {
+              "id": "msg_rOxb6vrYwGRRBCFkYQb97Hc6",
+              "message": "Hello! How can I assist you with iMIS today?",
+              "isBot": true,
+              "rating": null,
+              "feedback": null
+            }
+          ],
+          "rating": null,
+          "feedback": null
+        },
+        "thread_fefay4dke1f1G1MONS4eiqd5": {
+          "id": "thread_fefay4dke1f1G1MONS4eiqd5",
+          "messages": [
+            {
+              "id": "msg_1QVqZs5glNSVUB9eVBfz307D",
+              "message": "Helo",
+              "isBot": false,
+              "rating": null,
+              "feedback": null
+            },
+            {
+              "id": "msg_OjEXEEPmAXygmRsIjs4SXutr",
+              "message": "Hello! How can I assist you with iMIS today?",
+              "isBot": true,
+              "rating": null,
+              "feedback": null
+            },
+            {
+              "id": "msg_AI3wZcrah6jQxSZyMEgX8jiH",
+              "message": "Hello",
+              "isBot": false,
+              "rating": null,
+              "feedback": null
+            },
+            {
+              "id": "msg_8mJIi8lZFwQybvWveY9CNqCw",
+              "message": "Hello! How can I assist you with iMIS today?",
+              "isBot": true,
+              "rating": null,
+              "feedback": null
+            },
+            {
+              "id": "msg_GYZfJJWCDS3MIjuNdD9KkjCe",
+              "message": "Hello",
+              "isBot": false,
+              "rating": null,
+              "feedback": null
+            },
+            {
+              "id": "msg_rdZogU82A0rBHQ4fqnqHTPgd",
+              "message": "Hello! How can I assist you with iMIS today?",
+              "isBot": true,
+              "rating": null,
+              "feedback": null
+            },
+            {
+              "id": "msg_Eog5V3vr39UullvopCqg0U6f",
+              "message": "Hello",
+              "isBot": false,
+              "rating": null,
+              "feedback": null
+            },
+            {
+              "id": "msg_pgKiQmfMp4wjC6QDBTKGC0bH",
+              "message": "Hello! How can I assist you with iMIS today?",
+              "isBot": true,
+              "rating": null,
+              "feedback": null
+            },
+            {
+              "id": "msg_csuPbUnmp0oWRQu3eeHcybhU",
+              "message": "hello",
+              "isBot": false,
+              "rating": null,
+              "feedback": null
+            },
+            {
+              "id": "msg_btTadSITTtFaStmJf2adrpwv",
+              "message": "Hello! How can I assist you with iMIS today?",
+              "isBot": true,
+              "rating": null,
+              "feedback": null
+            },
+            {
+              "id": "msg_tEdtpQwokYw14u8eMAygfooh",
+              "message": "Hello",
+              "isBot": false,
+              "rating": null,
+              "feedback": null
+            },
+            {
+              "id": "msg_AfDAYM7ju51m7CVndFMO6Wp2",
+              "message": "Hello! How can I assist you with iMIS today?",
+              "isBot": true,
+              "rating": null,
+              "feedback": null
+            },
+            {
+              "id": "msg_s3rmHzvzgmYId42JKQ48EYnL",
+              "message": "How are you",
+              "isBot": false,
+              "rating": null,
+              "feedback": null
+            },
+            {
+              "id": "msg_jvUqALpJ2A6osVHhGjRiDDG1",
+              "message": "I'm here to help! How can I assist you with iMIS today?",
+              "isBot": true,
+              "rating": null,
+              "feedback": null
+            },
+            {
+              "id": "msg_fq2WRCRbAWcUEXhqmX5Ozn9C",
+              "message": "Hello",
+              "isBot": false,
+              "rating": null,
+              "feedback": null
+            },
+            {
+              "id": "msg_0jDMCqaI8nduKmNWdhCGil3c",
+              "message": "Hello! How can I assist you with iMIS today?",
+              "isBot": true,
+              "rating": null,
+              "feedback": null
+            },
+            {
+              "id": "msg_pCjlGtm00gQCVbloSLe635hN",
+              "message": "Hello",
+              "isBot": false,
+              "rating": null,
+              "feedback": null
+            },
+            {
+              "id": "msg_bIx1Rw2h3oMOkzsZJVmlUkir",
+              "message": "Hello! How can I assist you with iMIS today?",
+              "isBot": true,
+              "rating": null,
+              "feedback": null
+            },
+            {
+              "id": "msg_pM014CrzuxAQKqR09wMumYR8",
+              "message": "asdf",
+              "isBot": false,
+              "rating": null,
+              "feedback": null
+            },
+            {
+              "id": "msg_y6tHUzrPwhVbkFEBcCNf9vz8",
+              "message": "It seems like you might have entered something by mistake. How can I assist you with iMIS today? If you have any specific questions or need help with a feature, feel free to ask!",
+              "isBot": true,
+              "rating": null,
+              "feedback": null
+            },
+            {
+              "id": "msg_VeVp7DHR9RIhsY23IMxpWLrt",
+              "message": "Hello",
+              "isBot": false,
+              "rating": null,
+              "feedback": null
+            },
+            {
+              "id": "msg_ztPGalDhfpuy4q1C6c7fTjby",
+              "message": "Hello! How can I assist you with iMIS today?",
+              "isBot": true,
+              "rating": null,
+              "feedback": null
+            },
+            {
+              "id": "msg_f98jYOO2Erg82bqCKYOkppqe",
+              "message": "Hello",
+              "isBot": false,
+              "rating": null,
+              "feedback": null
+            },
+            {
+              "id": "msg_YVDiwIniRLVLNkvpeoecjOaw",
+              "message": "Hello! How can I assist you with iMIS today?",
+              "isBot": true,
+              "rating": null,
+              "feedback": null
+            },
+            {
+              "id": "msg_CzevYyqAx9d6zGIcn3sQfMTl",
+              "message": "Hello",
+              "isBot": false,
+              "rating": null,
+              "feedback": null
+            },
+            {
+              "id": "msg_kZFZ26tJ8cLQmpJIEG6zJqRR",
+              "message": "Hello! How can I assist you with iMIS today?",
+              "isBot": true,
+              "rating": null,
+              "feedback": null
+            },
+            {
+              "id": "msg_rtHgOXhm2zHZEFvuVuq8XCGQ",
+              "message": "Hello",
+              "isBot": false,
+              "rating": null,
+              "feedback": null
+            },
+            {
+              "id": "msg_pC3vobSQ5lEDIwlLcAjpV2zx",
+              "message": "Hello! How can I assist you with iMIS today?",
+              "isBot": true,
+              "rating": null,
+              "feedback": null
+            },
+            {
+              "id": "msg_slIa6Jy1RIvh3fw85rO9Rl85",
+              "message": "Hello",
+              "isBot": false,
+              "rating": null,
+              "feedback": null
+            },
+            {
+              "id": "msg_OQbqLqFsUhUq1K3beXVsDilB",
+              "message": "Hello! How can I assist you with iMIS today?",
+              "isBot": true,
+              "rating": null,
+              "feedback": null
+            },
+            {
+              "id": "msg_qDRqpF88lkDoUeeTwg6yIovh",
+              "message": "Hello",
+              "isBot": false,
+              "rating": null,
+              "feedback": null
+            },
+            {
+              "id": "msg_gssed4JThWNXEhcglnyfkij2",
+              "message": "Hello! How can I assist you with iMIS today?",
+              "isBot": true,
+              "rating": null,
+              "feedback": null
+            },
+            {
+              "id": "msg_RxuYt6dNb5LcLlob80FeccVm",
+              "message": "Hello",
+              "isBot": false,
+              "rating": null,
+              "feedback": null
+            },
+            {
+              "id": "msg_moEMpH6f4sKxlThezuzPTR0Z",
+              "message": "Hello! How can I assist you with iMIS today?",
+              "isBot": true,
+              "rating": null,
+              "feedback": null
+            },
+            {
+              "id": "msg_Su48JrcL6dXTqvH8l6fqQd5i",
+              "message": "Hello else",
+              "isBot": false,
+              "rating": null,
+              "feedback": null
+            },
+            {
+              "id": "msg_flCXLUe63wX57LW0EnOKXYa3",
+              "message": "Hello! It seems like there might be a typo in your message. How can I assist you with iMIS today? If you have any specific questions or need help with a feature, feel free to ask!",
+              "isBot": true,
+              "rating": null,
+              "feedback": null
+            },
+            {
+              "id": "msg_E1cmAG18lWarTfITY4Bjw8JO",
+              "message": "Sending images...",
+              "isBot": false,
+              "rating": null,
+              "feedback": null
+            },
+            {
+              "id": "msg_SBgNL0fI8XeYGgS9VzVSQnoX",
+              "message": "It looks like you've sent an image of a user interface for a particular service or software. The interface shows sections for a subscription plan named \"Lite,\" which is free of cost and has 67 days remaining. It mentions that up to 1 member and 200 credits are available under this plan. Additionally, there are sections for \"Project assistants\" and \"Project users,\" but no data or users are currently listed there. Arrows are pointing to buttons labeled \"+ Add Assistant\" and \"+ Add User,\" suggesting that you might be looking to understand how to add assistants or users to the project. Let me know if you need help with this or have any other questions about the interface!",
+              "isBot": true,
+              "rating": null,
+              "feedback": null
+            },
+            {
+              "id": "msg_e9UnDGJC7nkxsgK4LiI8w8fv",
+              "message": "hello",
+              "isBot": false,
+              "rating": null,
+              "feedback": null
+            },
+            {
+              "id": "msg_DHbeZOhn1YTpmlczTb6TEtkp",
+              "message": "Hello! How can I assist you with iMIS today?",
+              "isBot": true,
+              "rating": null,
+              "feedback": null
+            },
+            {
+              "id": "msg_4cOtt88pnszOscjnHVZpcul4",
+              "message": "asdf",
+              "isBot": false,
+              "rating": null,
+              "feedback": null
+            },
+            {
+              "id": "msg_8Vi5Cam5yfjhDcHidCmG4FBR",
+              "message": "It seems like you might have entered something by mistake. How can I assist you with iMIS today? If you have any specific questions or need help with a feature, feel free to ask!",
+              "isBot": true,
+              "rating": null,
+              "feedback": null
+            },
+            {
+              "id": "msg_adCLV5wG8DfrLCbPxFWKkT1t",
+              "message": "Hello",
+              "isBot": false,
+              "rating": null,
+              "feedback": null
+            },
+            {
+              "id": "msg_8iY3ny1rqUdGlnGgNQHo9TaU",
+              "message": "Hello! How can I assist you with iMIS today?",
+              "isBot": true,
+              "rating": null,
+              "feedback": null
+            },
+            {
+              "id": "msg_BewjDlHXjpG2KNMwBuqytDHZ",
+              "message": "Hello",
+              "isBot": false,
+              "rating": null,
+              "feedback": null
+            },
+            {
+              "id": "msg_PuvXTg4Tn32ARVFoxeAERUyW",
+              "message": "Hello! How can I assist you with iMIS today?",
+              "isBot": true,
+              "rating": null,
+              "feedback": null
+            },
+            {
+              "id": "msg_8hNW9smu1FlNd0rp3BJO8ZDj",
+              "message": "Hello",
+              "isBot": false,
+              "rating": null,
+              "feedback": null
+            },
+            {
+              "id": "msg_A5RoVC8fUBNHU258oVvUJ7U1",
+              "message": "Hello! How can I assist you with iMIS today?",
+              "isBot": true,
+              "rating": null,
+              "feedback": null
+            },
+            {
+              "id": "msg_FFFmWuPj3eDxgO6oZSI0GE2D",
+              "message": "Hello",
+              "isBot": false,
+              "rating": null,
+              "feedback": null
+            },
+            {
+              "id": "msg_vkc6m0euhRqhM5FRl9F8fB66",
+              "message": "Hello! How can I assist you with iMIS today?",
+              "isBot": true,
+              "rating": null,
+              "feedback": null
+            },
+            {
+              "id": "msg_FRiXHPPOx82wVfEH9kCyxG3e",
+              "message": "Hello",
+              "isBot": false,
+              "rating": null,
+              "feedback": null
+            },
+            {
+              "id": "msg_lX29XAqhpiNpN5dFK3q4ndaD",
+              "message": "Hello! How can I assist you with iMIS today?",
+              "isBot": true,
+              "rating": null,
+              "feedback": null
+            },
+            {
+              "id": "msg_asDFzti1GvDAtHWONCznPpfL",
+              "message": "Hello",
+              "isBot": false,
+              "rating": null,
+              "feedback": null
+            },
+            {
+              "id": "msg_0w0RwCWvZYGpx1dr5Qofv3af",
+              "message": "Hello! How can I assist you with iMIS today?",
+              "isBot": true,
+              "rating": null,
+              "feedback": null
+            },
+            {
+              "id": "msg_S6vZBy1N7J0Tr7mASRiQdhBb",
+              "message": "Hello",
+              "isBot": false,
+              "rating": null,
+              "feedback": null
+            },
+            {
+              "id": "msg_k1y9BqJSqqP3Ory85WkCnD41",
+              "message": "Hello! How can I assist you with iMIS today?",
+              "isBot": true,
+              "rating": null,
+              "feedback": null
+            }
+          ],
+          "rating": null,
+          "feedback": null
+        }
+      }
     }
   }
 }

@@ -69,6 +69,16 @@ function Home() {
                             </div>
                         </div>
                     </Link>
+                    <a
+                        href="/api/download"
+                        className="border-2 px-4 py-2 flex gap-4 items-center rounded-xl h-16 min-w-[20rem] max-w-xl cursor-pointer"
+                        download
+                    >
+                        <div className="text-lg">↓</div>
+                        <div className="flex flex-col">
+                            <div className="text-base font-medium">Download Logs</div>
+                        </div>
+                    </a>
                 </div>
                 <div id="custom-chat-container" className="mt-8"></div>
             </div>
