@@ -497,17 +497,54 @@
 
 		const feedbackInput = feedbackInputDiv.querySelector('.feedback-input');
 
+		let selectedFeedbackType = null;
+
 		const createButton = (icon, feedbackType) => {
 			const button = document.createElement('button');
 			button.className = 'feedback-button';
 			button.innerHTML = icon;
 
 			button.onclick = () => {
-				const feedbackText = feedbackInput.value.trim();
+				if (selectedFeedbackType === feedbackType) {
+					selectedFeedbackType = null;
+					button.classList.remove('active');
+				} else {
+					selectedFeedbackType = feedbackType;
+					Array.from(ratingDiv.querySelectorAll('.feedback-button')).forEach(btn => btn.classList.remove('active'));
+					button.classList.add('active');
+				}
+				manageSendButtonState();
+			};
 
-				sendFeedback(messageId, feedbackType === 'like' ? 'up' : 'down', feedbackText)
+			return button;
+		};
+
+		const thumbsUpButton = createButton('👍', 'like');
+		const thumbsDownButton = createButton('👎', 'dislike');
+
+		ratingDiv.appendChild(thumbsUpButton);
+		ratingDiv.appendChild(thumbsDownButton);
+
+		const sendFeedbackButton = document.createElement('button');
+		sendFeedbackButton.className = 'feedback-submit';
+		sendFeedbackButton.innerText = 'Send Feedback';
+		sendFeedbackButton.disabled = true;
+
+		const manageSendButtonState = () => {
+			sendFeedbackButton.disabled = !(selectedFeedbackType && feedbackInput.value.trim());
+		};
+
+		sendFeedbackButton.onclick = () => {
+			const feedbackText = feedbackInput.value.trim();
+
+			if (selectedFeedbackType && feedbackText) {
+				sendFeedback(messageId, selectedFeedbackType === 'like' ? 'up' : 'down', feedbackText)
 					.then(() => {
 						feedbackInput.value = '';
+						selectedFeedbackType = null;
+						thumbsUpButton.classList.remove('active');
+						thumbsDownButton.classList.remove('active');
+						sendFeedbackButton.disabled = true;
 
 						const confirmationMessage = document.createElement('div');
 						confirmationMessage.classList.add('feedback-confirmation');
@@ -519,7 +556,7 @@
 							feedbackDiv.style.display = 'none';
 						}, 3000);
 					})
-					.catch((error) => {
+					.catch(error => {
 						console.error('Error submitting feedback:', error);
 
 						const errorMessage = document.createElement('div');
@@ -532,19 +569,14 @@
 							errorMessage.remove();
 						}, 3000);
 					});
-			};
-
-			return button;
+			}
 		};
 
-		const thumbsUpButton = createButton('👍', 'like');
-		const thumbsDownButton = createButton('👎', 'dislike');
-
-		ratingDiv.appendChild(thumbsUpButton);
-		ratingDiv.appendChild(thumbsDownButton);
+		feedbackInput.addEventListener('input', manageSendButtonState);
 
 		feedbackDiv.appendChild(ratingDiv);
 		feedbackDiv.appendChild(feedbackInputDiv);
+		feedbackDiv.appendChild(sendFeedbackButton);
 
 		messageElem.parentNode.insertBefore(feedbackDiv, messageElem.nextSibling);
 
