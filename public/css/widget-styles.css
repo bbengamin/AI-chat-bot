@@ -126,6 +126,7 @@
     width: 30px;
     height: 30px;
     border-radius: 10%;
+    margin-top: -10px;
 }
 
 .message.bot img {
@@ -467,7 +468,6 @@
     transform: scale(1.05);
 }
 
-/* Wrapper for message content and thumbnails */
 .message-wrapper {
     display: flex;
     flex-direction: column;
