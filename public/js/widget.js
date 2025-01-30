@@ -59,7 +59,7 @@
 		  <button class="close-chat-icon" id="close-chat-icon">
 			<img src="${closeSvgPath}" alt="Close Chat">
 		  </button>
-		  <a href="#" id="clear-btn" class="clear-button-link">Clear Conversation</a>
+		  <a href="#" id="clear-btn" class="clear-button-link">New Conversation</a>
 	  </div>
 	  <div class="chat-box" id="chat-box"></div>
 	  <div class="input-box">
@@ -106,6 +106,11 @@
 	const fileInput = document.getElementById('file-input');
 	const filePreview = document.getElementById('file-preview');
 	const clearButton = document.getElementById('clear-btn');
+
+	const clearBtn = document.querySelector('#custom-chat-container .chat-toolbar .clear-button-link');
+	const inputBox = document.querySelector('#custom-chat-container .input-box');
+
+	inputBox.prepend(clearBtn);
 
 	const selectedFiles = [];
 
@@ -183,7 +188,9 @@
 		messageElem.classList.add('message', isBot ? 'bot' : 'user');
 
 		const imgElem = document.createElement('img');
-		imgElem.src = isBot ? `${apiBaseUrl}/bot.svg` : `${apiBaseUrl}/user.svg`;
+		imgElem.src = isBot ? `${apiBaseUrl}/bot.png` : `${apiBaseUrl}/user.svg`;
+		imgElem.style.height = "40px"
+		imgElem.style.width = "40px"
 
 		const messageWrapper = document.createElement('div');
 		messageWrapper.classList.add('message-wrapper');
