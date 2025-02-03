@@ -16,8 +16,8 @@ export default function RootLayout({ children }) {
         <body className={`${montserrat.className}`}>
         <MainComponent children={children} />
         <Script
-            src="https://helperbot-6d671b3ad96a.herokuapp.com/js/widget.js"
-            data-api-url="https://helperbot-6d671b3ad96a.herokuapp.com"
+            src="http://localhost:3000/js/widget.js"
+            data-api-url="http://localhost:3000"
             data-assistant-id="asst_ahSW7jZk3aQbPLbV42ZhVOuM"
             strategy="afterInteractive"
             data-container-id="custom-chat-container"

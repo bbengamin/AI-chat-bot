@@ -16,7 +16,21 @@ const addCORSHeaders = (headers) => {
 	return headers;
 };
 
-const saveMessageToThread = async (assistantId, threadId, message, isBot = false, openaiMessageId = null) => {
+function sanitizeBotAnswer(answer) {
+	const regex = /(\[[^\]]*\])|(【[^】]*】)/g;
+	const matches = answer.match(regex) || [];
+	const sanitized = answer.replace(regex, '');
+	return { sanitized, removed: matches };
+}
+
+const saveMessageToThread = async (
+	assistantId,
+	threadId,
+	message,
+	isBot = false,
+	openaiMessageId = null,
+	removedSubstrings = []
+) => {
 	try {
 		const jsonData = await fsPromises.readFile(dataFilePath, 'utf-8');
 		const objectData = JSON.parse(jsonData);
@@ -39,6 +53,7 @@ const saveMessageToThread = async (assistantId, threadId, message, isBot = false
 		objectData.assistants[assistantId].threads[threadId].messages.push({
 			id: openaiMessageId,
 			message,
+			removedSubstrings,
 			isBot,
 			rating: null,
 			feedback: null,
@@ -81,8 +96,7 @@ export async function POST(request) {
 			content: message,
 		});
 		const userMessageId = createMessageResponse.id;
-
-		await saveMessageToThread(assistantId, threadId, message, false, userMessageId);
+		await saveMessageToThread(assistantId, threadId, message, false, userMessageId, []);
 
 		let botMessage = '';
 
@@ -122,14 +136,14 @@ export async function POST(request) {
 
 								controller.enqueue(new TextEncoder().encode(delta));
 							}
-
+							const { sanitized, removed } = sanitizeBotAnswer(partialResponse.trim());
 							const botMessageResponse = await openai.beta.threads.messages.create(threadId, {
 								role: 'assistant',
-								content: partialResponse.trim(),
+								content: sanitized,
 							});
 
 							const botMessageId = botMessageResponse.id;
-							await saveMessageToThread(assistantId, threadId, partialResponse.trim(), true, botMessageId);
+							await saveMessageToThread(assistantId, threadId, sanitized, true, botMessageId, removed);
 						}
 
 						controller.close();
@@ -146,14 +160,13 @@ export async function POST(request) {
 								controller.enqueue(new TextEncoder().encode(deltaContent));
 							}
 							if (event.event === 'thread.run.completed') {
+								const { sanitized, removed } = sanitizeBotAnswer(botMessage);
 								const messagesResponse = await openai.beta.threads.messages.list(threadId);
 								const messages = messagesResponse.data;
 
 								const firstMessage = messages[0];
 								const botMessageId = firstMessage.id;
-
-								await saveMessageToThread(assistantId, threadId, botMessage, true, botMessageId);
-
+								await saveMessageToThread(assistantId, threadId, sanitized, true, botMessageId, removed);
 								controller.close();
 							}
 						}
@@ -165,9 +178,7 @@ export async function POST(request) {
 			},
 		});
 
-		return new Response(stream, {
-			headers: headers,
-		});
+		return new Response(stream, { headers });
 	} catch (error) {
 		console.error('Error processing message:', error);
 		return new Response(JSON.stringify({ error: error.message }), { status: 500, headers });

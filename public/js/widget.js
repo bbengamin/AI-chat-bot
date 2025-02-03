@@ -310,6 +310,17 @@
 		}
 	};
 
+	function sanitizeBotAnswer(answer) {
+		const regex = /(?:\[[^\]]*\])|(?:【[^】]*】)/g;
+		const matches = answer.match(regex);
+
+		if (matches && matches.length > 0) {
+			console.log('Sanitizing bot answer. Removed substrings:', matches);
+		}
+
+		return answer.replace(regex, '');
+	}
+
 	const getAnswer = async (threadId, runId, userMessageId) => {
 		try {
 			const response = await fetch(`${apiBaseUrl}/api/openai/runs/${threadId}/${runId}`);
@@ -322,7 +333,9 @@
 				removeTypingIndicator();
 
 				const botMessageId = messageData.messages[0].id;
-				addMessageToChat(messageData.messages[0].content[0].text.value, true, botMessageId);
+				let finalAnswer = messageData.messages[0].content[0].text.value;
+				finalAnswer = sanitizeBotAnswer(finalAnswer);
+				addMessageToChat(finalAnswer, true, botMessageId);
 			} else {
 				setTimeout(() => getAnswer(threadId, runId, userMessageId), 200);
 			}
@@ -464,9 +477,13 @@
 
 				partialMessage += decoder.decode(value, { stream: true });
 
-				botMessageElem.querySelector('.message-content').innerHTML = formatMessage(partialMessage);
+				const sanitizedPartial = sanitizeBotAnswer(partialMessage);
+				botMessageElem.querySelector('.message-content').innerHTML = formatMessage(sanitizedPartial);
 				chatBox.scrollTop = chatBox.scrollHeight;
 			}
+
+			const sanitizedMessage = sanitizeBotAnswer(partialMessage);
+			botMessageElem.querySelector('.message-content').innerHTML = formatMessage(sanitizedMessage);
 
 			messageId = await getLastBotMessageId(threadId);
 
