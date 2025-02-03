@@ -11,7 +11,6 @@
     background-color: #fff;
     display: flex;
     flex-direction: column;
-    padding: 10px;
     display: none;
     transition: all 0.3s ease-in-out;
 }
@@ -19,15 +18,9 @@
 .chat-box {
     flex-grow: 1;
     overflow-y: auto;
-    border-bottom: 1px solid #ddd;
     padding: 10px;
     padding-top: 50px;
     margin-bottom: 10px;
-}
-
-.input-box {
-    display: flex;
-    padding: 10px;
 }
 
 .input-box input {
@@ -289,13 +282,6 @@
     height: 24px;
 }
 
-.file-preview {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 15px;
-    margin-top: 10px;
-}
-
 .preview-item {
     display: flex;
     flex-direction: column;
@@ -366,6 +352,10 @@
     transition: background-color 0.3s ease, border-color 0.3s ease;
 }
 
+.input-box-tools {
+    margin-right: 1rem;
+}
+
 .file-upload-wrapper:hover {
     background-color: #d7e9ff;
     border-color: #0056b3;
@@ -395,7 +385,6 @@
     display: flex;
     flex-wrap: wrap;
     gap: 10px;
-    margin-top: 10px;
 }
 
 .preview-item {
@@ -409,6 +398,8 @@
     border: 1px solid #ddd;
     border-radius: 8px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    margin-left: 10px;
+    margin-top: 10px;
 }
 
 .preview-thumbnail {
@@ -674,7 +665,6 @@
     width: 100%;
     flex-grow: 1;
     overflow-y: auto;
-    border-bottom: 1px solid #ddd;
     padding: 10px;
     padding-top: 50px;
     margin-bottom: 10px;
@@ -696,7 +686,7 @@
     cursor: pointer;
     z-index: 1002;
     display: inline-block;
-    margin-right: 1rem;
+    margin-bottom: 4px;
 }
 
 #clear-btn:hover {
@@ -709,12 +699,6 @@
 /*    top: 10px;*/
 /*    left: 10px;*/
 /*}*/
-
-#my-assistant-widget #clear-btn {
-    position: absolute;
-    top: 10px;
-    left: 10px;
-}
 
 .confirm-popup-overlay {
     position: fixed;
@@ -813,16 +797,17 @@
     }
 }
 
-#custom-chat-container .input-box {
+.input-box {
     display: flex;
     align-items: center;
     padding: 0.75rem;
     border-top: 1px solid #ccc;
     background: #fff;
+    border-radius: revert;
     gap: 0.5rem;
 }
 
-#custom-chat-container .input-box input[type="text"] {
+.input-box input[type="text"] {
     flex: 1 1 auto;
     min-width: 0;
     padding: 0.5rem;
@@ -831,7 +816,7 @@
     font-size: 1rem;
 }
 
-#custom-chat-container .send-button {
+.send-button {
     background-color: #3b82f6;
     color: #fff;
     border: none;
@@ -842,35 +827,35 @@
 }
 
 @media (max-width: 1024px) {
-    #custom-chat-container .input-box input[type="text"] {
+    .input-box input[type="text"] {
         font-size: 0.95rem;
         padding: 0.4rem;
     }
-    #custom-chat-container .send-button {
+    .send-button {
         font-size: 0.9rem;
         padding: 0.4rem 0.8rem;
     }
-    #custom-chat-container .clear-button-link {
+    .clear-button-link {
         padding: 0.3rem 0.6rem;
     }
 }
 
 @media (max-width: 640px) {
-    #custom-chat-container .input-box {
+   .input-box {
         flex-direction: column;
         align-items: stretch;
     }
-    #custom-chat-container .clear-button-link {
+    .clear-button-link {
         margin-right: 0;
         margin-bottom: 0.4rem;
         text-align: center;
         width: 100%;
     }
-    #custom-chat-container .input-box input[type="text"] {
+   .input-box input[type="text"] {
         font-size: 0.9rem;
         width: 100%;
     }
-    #custom-chat-container .send-button {
+    .send-button {
         font-size: 0.9rem;
         width: 100%;
         text-align: center;
