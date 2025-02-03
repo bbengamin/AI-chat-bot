@@ -39,6 +39,24 @@
 		console.warn(`Widget already exists in the container with ID "${widgetRoot.id}".`);
 	}
 
+	if (targetContainerId && document.getElementById(targetContainerId)) {
+		widgetRoot.style.fontFamily = "inherit";
+	} else {
+		const montserratLink = document.createElement('link');
+		montserratLink.rel = 'stylesheet';
+		montserratLink.href = "https://fonts.googleapis.com/css2?family=Montserrat&display=swap";
+		document.head.appendChild(montserratLink);
+		widgetRoot.style.fontFamily = "'Montserrat', sans-serif";
+	}
+
+	const fontStyle = document.createElement('style');
+	fontStyle.textContent = `
+    #${widgetRoot.id} * {
+      font-family: inherit;
+    }
+  `;
+	document.head.appendChild(fontStyle);
+
 	const adjustHeightAndWidth = () => {
 		let parentHeight = widgetRoot.parentElement.offsetHeight;
 		parentHeight = parentHeight  < 800 ? 800 : parentHeight;
@@ -59,18 +77,18 @@
 		  <button class="close-chat-icon" id="close-chat-icon">
 			<img src="${closeSvgPath}" alt="Close Chat">
 		  </button>
-		  <a href="#" id="clear-btn" class="clear-button-link">New Conversation</a>
 	  </div>
 	  <div class="chat-box" id="chat-box"></div>
 	  <div class="input-box">
-		<input type="text" id="user-input" placeholder="Ask a question..." />
-		<div class="file-upload-wrapper">
-		  <label for="file-input" class="file-upload-label">
+		<div class="input-box-tools">
+		  <a href="#" id="clear-btn" class="clear-button-link">New Conversation</a>
+		  <label for="file-input" class="file-upload-wrapper">
 			<img src="${apiBaseUrl}/upload-icon.svg" alt="Upload Icon" class="upload-icon">
 		  </label>
-		  <input type="file" id="file-input" accept="image/*" multiple style="display: none;">
 		</div>
+		<input type="text" id="user-input" placeholder="Ask a question..." />
 		<button id="send-btn" class="send-button">Send</button>
+		<input type="file" id="file-input" accept="image/*" multiple style="display: none;">
 	  </div>
 	  <div id="file-preview" class="file-preview"></div>
 	`;
@@ -106,11 +124,6 @@
 	const fileInput = document.getElementById('file-input');
 	const filePreview = document.getElementById('file-preview');
 	const clearButton = document.getElementById('clear-btn');
-
-	const clearBtn = document.querySelector('#custom-chat-container .chat-toolbar .clear-button-link');
-	const inputBox = document.querySelector('#custom-chat-container .input-box');
-
-	inputBox.prepend(clearBtn);
 
 	const selectedFiles = [];
 
