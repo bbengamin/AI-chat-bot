@@ -807,13 +807,13 @@
     gap: 0.5rem;
 }
 
-.input-box input[type="text"] {
+.input-box #user-input {
     flex: 1 1 auto;
     min-width: 0;
     padding: 0.5rem;
     border-radius: 4px;
     border: 1px solid #ccc;
-    font-size: 1rem;
+    font-size: 14px;
 }
 
 .send-button {
@@ -827,10 +827,6 @@
 }
 
 @media (max-width: 1024px) {
-    .input-box input[type="text"] {
-        font-size: 0.95rem;
-        padding: 0.4rem;
-    }
     .send-button {
         font-size: 0.9rem;
         padding: 0.4rem 0.8rem;
@@ -849,10 +845,6 @@
         margin-right: 0;
         margin-bottom: 0.4rem;
         text-align: center;
-        width: 100%;
-    }
-   .input-box input[type="text"] {
-        font-size: 0.9rem;
         width: 100%;
     }
     .send-button {
