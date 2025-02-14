@@ -526,6 +526,21 @@
     color: white;
     max-width: 100%;
     word-wrap: break-word;
+
+    ul, ol {
+        font-size: inherit !important;
+        line-height: inherit !important;
+
+        li {
+            font-size: inherit !important;
+            line-height: inherit !important;
+        }
+    }
+
+    p {
+        font-size: inherit !important;
+        line-height: inherit !important;
+    }
 }
 
 .message.bot .message-wrapper {

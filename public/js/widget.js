@@ -132,7 +132,8 @@
 		localStorage.removeItem('threadId');
 	};
 
-	clearButton.addEventListener('click', () => {
+	clearButton.addEventListener('click', (e) => {
+		e.preventDefault();
 		showConfirmPopup();
 	});
 
@@ -539,6 +540,7 @@
 		const createButton = (icon, feedbackType) => {
 			const button = document.createElement('button');
 			button.className = 'feedback-button';
+			button.setAttribute('type', 'button');
 			button.innerHTML = icon;
 
 			button.onclick = () => {

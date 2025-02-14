@@ -53,14 +53,14 @@ export default function Create({ params: { assistantId } }) {
             name: name,
             instructions: instructions,
             model: model,
-            tools: tools,
+            tools: [{type: "file_search"}, ...tools],
           });
         } else {
           getAssistant = await openai.beta.assistants.update(assistant, {
             name: name,
             instructions: instructions,
             model: model,
-            tools: tools,
+            tools: [{type: "file_search"}, ...tools],
             file_ids: fileIds,
           });
         }
