@@ -18,7 +18,7 @@ export default function RootLayout({ children }) {
         <Script
             src="https://helperbot-6d671b3ad96a.herokuapp.com/js/widget.js"
             data-api-url="https://helperbot-6d671b3ad96a.herokuapp.com"
-            data-assistant-id="asst_ahSW7jZk3aQbPLbV42ZhVOuM"
+            data-assistant-id="asst_MbR4678OvwMpnIPVHxWUu5Rc"
             strategy="afterInteractive"
             data-container-id="custom-chat-container"
         />
