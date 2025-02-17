@@ -1,8 +1,8 @@
 {
   "openAIKey": "",
   "assistants": {
-    "asst_ahSW7jZk3aQbPLbV42ZhVOuM": {
-      "id": "asst_ahSW7jZk3aQbPLbV42ZhVOuM",
+    "asst_MbR4678OvwMpnIPVHxWUu5Rc": {
+      "id": "asst_MbR4678OvwMpnIPVHxWUu5Rc",
       "name": "IUG iMIS Helper",
       "instructions": "",
       "model": "gpt-4o",
