@@ -489,7 +489,7 @@
 			messageId = await getLastBotMessageId(threadId);
 
 			if (messageId) {
-				addFeedbackSection(botMessageElem, messageId);
+				addFeedbackSection(messageId);
 				manageFeedbackVisibility();
 			} else {
 				console.error('Error: Bot message ID not found.');
@@ -520,7 +520,7 @@
 		}
 	};
 
-	const addFeedbackSection = (messageElem, messageId) => {
+	const addFeedbackSection = (messageId) => {
 		const feedbackDiv = document.createElement('div');
 		feedbackDiv.classList.add('feedback-section');
 
@@ -617,7 +617,7 @@
 		feedbackDiv.appendChild(feedbackInputDiv);
 		feedbackDiv.appendChild(sendFeedbackButton);
 
-		messageElem.parentNode.insertBefore(feedbackDiv, messageElem.nextSibling);
+		widgetRoot.insertAdjacentElement('afterend', feedbackDiv);
 
 		chatBox.scrollTop = chatBox.scrollHeight;
 	};
