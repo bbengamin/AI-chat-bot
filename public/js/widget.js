@@ -87,7 +87,7 @@
 		  </label>
 		</div>
 		<input type="text" id="user-input" placeholder="Ask a question..." />
-		<button id="send-btn" class="send-button">Send</button>
+		<button id="send-btn" type="button" class="send-button">Send</button>
 		<input type="file" id="file-input" accept="image/*" multiple style="display: none;">
 	  </div>
 	  <div id="file-preview" class="file-preview"></div>
@@ -565,6 +565,7 @@
 		ratingDiv.appendChild(thumbsDownButton);
 
 		const sendFeedbackButton = document.createElement('button');
+		sendFeedbackButton.setAttribute('type', 'button');
 		sendFeedbackButton.className = 'feedback-submit';
 		sendFeedbackButton.innerText = 'Send Feedback';
 		sendFeedbackButton.disabled = true;
@@ -624,8 +625,12 @@
 
 	sendButton.addEventListener('click', sendMessage);
 	inputField.addEventListener('keydown', (e) => {
-		if (e.key === 'Enter' && !sendButton.disabled) {
-			sendMessage();
+		if (e.key === 'Enter') {
+			e.preventDefault();
+
+			if (!sendButton.disabled) {
+				sendMessage();
+			}
 		}
 	});
 })();
