@@ -6,7 +6,6 @@ import Link from 'next/link';
 import { useContext } from 'react';
 import { KeyContext } from '../../../components/MainComponent';
 import { useRouter } from 'next/navigation';
-import Script from "next/script";
 
 export default function Create({ params: { assistantId } }) {
   const router = useRouter();
@@ -53,14 +52,14 @@ export default function Create({ params: { assistantId } }) {
             name: name,
             instructions: instructions,
             model: model,
-            tools: [{type: "file_search"}, ...tools],
+            tools,
           });
         } else {
           getAssistant = await openai.beta.assistants.update(assistant, {
             name: name,
             instructions: instructions,
             model: model,
-            tools: [{type: "file_search"}, ...tools],
+            tools,
             file_ids: fileIds,
           });
         }

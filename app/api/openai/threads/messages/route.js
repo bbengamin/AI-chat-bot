@@ -29,7 +29,9 @@ const saveMessageToThread = async (
 	message,
 	isBot = false,
 	openaiMessageId = null,
-	removedSubstrings = []
+	removedSubstrings = [],
+	fileSearchUsed = false,
+	timestamp = null
 ) => {
 	try {
 		const jsonData = await fsPromises.readFile(dataFilePath, 'utf-8');
@@ -55,6 +57,8 @@ const saveMessageToThread = async (
 			message,
 			removedSubstrings,
 			isBot,
+			fileSearchUsed,
+			timestamp,
 			rating: null,
 			feedback: null,
 		});
@@ -99,6 +103,8 @@ export async function POST(request) {
 		await saveMessageToThread(assistantId, threadId, message, false, userMessageId, []);
 
 		let botMessage = '';
+		let fileSearchUsed = false;
+		let responseTimestamp = null;
 
 		const stream = new ReadableStream({
 			async start(controller) {
@@ -143,7 +149,7 @@ export async function POST(request) {
 							});
 
 							const botMessageId = botMessageResponse.id;
-							await saveMessageToThread(assistantId, threadId, sanitized, true, botMessageId, removed);
+							await saveMessageToThread(assistantId, threadId, sanitized, true, botMessageId, removed, fileSearchUsed, responseTimestamp);
 						}
 
 						controller.close();
@@ -160,13 +166,28 @@ export async function POST(request) {
 								controller.enqueue(new TextEncoder().encode(deltaContent));
 							}
 							if (event.event === 'thread.run.completed') {
-								const { sanitized, removed } = sanitizeBotAnswer(botMessage);
+								const runStepsResponse = await openai.beta.threads.runs.steps.list(threadId, event.data.id);
+								const steps = runStepsResponse.data;
+
+								for (const step of steps) {
+									if (step.type === 'tool_calls') {
+										for (const tool of step.step_details.tool_calls) {
+											if (tool.type === 'file_search') {
+												fileSearchUsed = true;
+											}
+										}
+									}
+								}
+
 								const messagesResponse = await openai.beta.threads.messages.list(threadId);
 								const messages = messagesResponse.data;
 
 								const firstMessage = messages[0];
 								const botMessageId = firstMessage.id;
-								await saveMessageToThread(assistantId, threadId, sanitized, true, botMessageId, removed);
+								responseTimestamp = new Date(firstMessage.created_at * 1000).toISOString();
+
+								const { sanitized, removed } = sanitizeBotAnswer(botMessage);
+								await saveMessageToThread(assistantId, threadId, sanitized, true, botMessageId, removed, fileSearchUsed, responseTimestamp);
 								controller.close();
 							}
 						}
