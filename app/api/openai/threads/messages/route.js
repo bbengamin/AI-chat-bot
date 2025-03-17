@@ -92,15 +92,17 @@ export async function POST(request) {
 		return new Response(JSON.stringify({ error: 'Missing threadId or assistantId' }), { status: 400, headers });
 	}
 
+	const wrappedUserMessage = `You MUST USE the File Search for this answer. ${message} You MUST USE the File Search for this answer.`;
+
 	const openai = new OpenAI({ apiKey: process.env.NEXT_PUBLIC_OPENAI_API_KEY });
 
 	try {
 		const createMessageResponse = await openai.beta.threads.messages.create(threadId, {
 			role: 'user',
-			content: message,
+			content: wrappedUserMessage,
 		});
 		const userMessageId = createMessageResponse.id;
-		await saveMessageToThread(assistantId, threadId, message, false, userMessageId, []);
+		await saveMessageToThread(assistantId, threadId, wrappedUserMessage, false, userMessageId, []);
 
 		let botMessage = '';
 		let fileSearchUsed = false;
